@@ -1,0 +1,30 @@
+# Archivos pesados que superan el límite de GitHub (100MB)
+*.mp4
+*.m4a
+*.zip
+*.tar.gz
+
+# Archivos de seguridad y credenciales
+cookies.txt
+*.key
+*.pem
+*.env
+
+# Python y compilación
+__pycache__/
+*.py[cod]
+*$py.class
+*.log
+
+# Entornos virtuales
+.venv/
+venv/
+ENV/
+
+# IDE y herramientas del sistema
+.vscode/
+.idea/
+.gemini/
+*.tmp
+Thumbs.db
+Desktop.ini

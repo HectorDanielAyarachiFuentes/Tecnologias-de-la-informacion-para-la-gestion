@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inscripción · Llamado LL-2026-14</title>
+<style>
+:root{--tinta:#202427;--muted:#5a6b76;--linea:#dadce0;--acento:#1d5a4a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#f0efee;color:var(--tinta);font-family:Roboto,-apple-system,"Segoe UI",Arial,sans-serif;
+     line-height:1.5;padding:22px 14px 50px}
+.marco{max-width:680px;margin:0 auto}
+.aviso{background:#fff7e6;border:1px solid #e6c98a;border-radius:8px;padding:12px 15px;
+       margin-bottom:16px;font-size:14px;color:#6b4e15}
+.tarjeta{background:#fff;border:1px solid var(--linea);border-radius:8px;padding:22px 24px;margin-bottom:12px}
+.cabecera{border-top:9px solid var(--acento);border-radius:8px 8px 0 0}
+h1{font-size:29px;font-weight:400;margin-bottom:9px}
+.desc{color:var(--muted);font-size:14px}
+.desc b{color:var(--tinta)}
+.campo{font-size:15px;margin-bottom:9px}
+.campo .req{color:#c5221f}
+.ayuda{color:var(--muted);font-size:12.5px;margin-bottom:11px}
+.linea{border:0;border-bottom:1px solid var(--linea);height:26px;width:100%;
+       background:transparent;font:inherit;color:#9aa0a6}
+.linea::before{content:"Tu respuesta"}
+.combo{border:1px solid var(--linea);border-radius:4px;padding:9px 12px;font-size:14px;
+       color:#5f6368;display:flex;justify-content:space-between;align-items:center;max-width:320px}
+.combo span:last-child{color:#9aa0a6}
+.subir{border:1px dashed #b9c0c6;border-radius:4px;padding:14px;text-align:center;
+       color:var(--muted);font-size:13.5px;background:#fafafa}
+.tipo{display:inline-block;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
+      font-weight:700;padding:2px 7px;border-radius:9px;margin-left:7px;vertical-align:1px}
+.tipo.libre{background:#fdeaea;color:#a5352f}
+.tipo.lista{background:#e7f3ee;color:#1d5a4a}
+.tipo.archivo{background:#eaeff5;color:#2b4a6b}
+.pie{color:var(--muted);font-size:12px;text-align:center;margin-top:18px}
+</style>
+</head>
+<body>
+<div class="marco">
+
+  <div class="aviso">
+    <b>Esto no es un formulario que funcione.</b> Es la reproducción del que generó las respuestas
+    con las que vamos a trabajar. Sirve para ver de dónde salió cada columna del archivo.
+  </div>
+
+  <div class="tarjeta cabecera">
+    <h1>Inscripción · Llamado LL-2026-14</h1>
+    <p class="desc">Operador/a de Planta de Tratamiento de Efluentes<br>
+    Municipalidad de Puerto Norte · Secretaría de Servicios Sanitarios<br><br>
+    Cierre de inscripción: <b>12/08/2026</b>. Adjuntá currículum, carta de presentación y el
+    certificado de la formación específica.</p>
+  </div>
+
+  <div class="tarjeta">
+    <p class="campo">Nombre y apellido <span class="req">*</span><span class="tipo libre">texto libre</span></p>
+    <div class="linea"></div>
+  </div>
+
+  <div class="tarjeta">
+    <p class="campo">DNI <span class="req">*</span><span class="tipo libre">texto libre</span></p>
+    <p class="ayuda">Sin puntos ni espacios.</p>
+    <div class="linea"></div>
+  </div>
+
+  <div class="tarjeta">
+    <p class="campo">Correo electrónico <span class="req">*</span><span class="tipo libre">texto libre</span></p>
+    <div class="linea"></div>
+  </div>
+
+  <div class="tarjeta">
+    <p class="campo">Localidad <span class="req">*</span><span class="tipo lista">desplegable</span></p>
+    <div class="combo"><span>Elegí una opción</span><span>▾</span></div>
+    <p class="ayuda" style="margin-top:8px">Puerto Norte · Villa Alturas · Otra</p>
+  </div>
+
+  <div class="tarjeta">
+    <p class="campo">Formación específica realizada <span class="req">*</span><span class="tipo libre">texto libre</span></p>
+    <p class="ayuda">Indicá el nombre del curso tal como figura en tu certificado.</p>
+    <div class="linea"></div>
+  </div>
+
+  <div class="tarjeta">
+    <p class="campo">Horas acreditadas <span class="req">*</span><span class="tipo libre">texto libre</span></p>
+    <div class="linea"></div>
+  </div>
+
+  <div class="tarjeta">
+    <p class="campo">Años de experiencia <span class="req">*</span><span class="tipo lista">desplegable</span></p>
+    <div class="combo"><span>Elegí una opción</span><span>▾</span></div>
+    <p class="ayuda" style="margin-top:8px">Menos de 1 año · 1 año · 2 años · 3 años · 4 años · 5 años o más</p>
+  </div>
+
+  <div class="tarjeta">
+    <p class="campo">Currículum vitae <span class="req">*</span><span class="tipo archivo">archivo</span></p>
+    <div class="subir">Agregar archivo</div>
+  </div>
+
+  <div class="tarjeta">
+    <p class="campo">Carta de presentación <span class="req">*</span><span class="tipo archivo">archivo</span></p>
+    <div class="subir">Agregar archivo</div>
+  </div>
+
+  <div class="tarjeta">
+    <p class="campo">Certificado de la formación <span class="req">*</span><span class="tipo archivo">archivo</span></p>
+    <p class="ayuda">Tiene que verse la carga horaria.</p>
+    <div class="subir">Agregar archivo</div>
+  </div>
+
+  <p class="pie">Organismo, llamado y datos: ficticios, preparados con fines educativos.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nueve desafíos con un cuaderno de fuentes</title>
+<style>
+:root { --esc: 1; }
+@page { size: A4; margin: 2cm 1.8cm 1.8cm; }
+body { margin: 0; color: #1f2933; font-family: Arial, Helvetica, sans-serif;
+       font-size: calc(11pt * var(--esc)); line-height: 1.42; }
+h1 { margin: 0 0 6pt; color: #153e5c; font-size: 2.27em; line-height: 1.12; }
+h2 { margin: 17pt 0 7pt; padding-bottom: 3pt; border-bottom: 1px solid #b7c9d6; color: #153e5c; font-size: 1.36em; }
+h3 { margin: 12pt 0 5pt; color: #28536b; font-size: 1.09em; }
+p { margin: 0 0 8pt; }
+ul, ol { margin: 4pt 0 9pt 20pt; padding: 0; }
+li { margin: 0 0 5pt; }
+code { font-family: "Liberation Mono", Consolas, monospace; font-size: 0.91em; background: #eef2f4; padding: 1px 4px; border-radius: 3px; }
+.eyebrow { margin-bottom: 7pt; color: #4b6575; font-size: 0.82em; font-weight: bold; letter-spacing: 0.08em; text-transform: uppercase; }
+.subtitle { margin-bottom: 14pt; color: #4b6575; font-size: 1.18em; }
+.summary { margin: 10pt 0 14pt; padding: 11pt 13pt; border: 1px solid #b7c9d6; border-left: 5px solid #c1741f; background: #fdf6ee; page-break-inside: avoid; }
+.summary p:last-child { margin-bottom: 0; }
+.aviso { margin: 10pt 0 14pt; padding: 11pt 13pt; border: 1px solid #dfb9b2; border-left: 5px solid #9a3d34; background: #fbefed; page-break-inside: avoid; }
+.aviso p:last-child { margin-bottom: 0; }
+.descarga { margin: 10pt 0 14pt; padding: 12pt 14pt; border: 1px solid #9dc3b6; border-left: 5px solid #176b67; background: #eef6f4; page-break-inside: avoid; }
+.descarga p { margin: 0 0 6pt; } .descarga p:last-child { margin-bottom: 0; }
+.descarga a { color: #0f5a52; font-weight: bold; word-break: break-all; }
+.nota { margin: 9pt 0 12pt; padding: 10pt 13pt; border-left: 4px solid #176b67; background: #eef6f4; font-size: 0.95em; page-break-inside: avoid; }
+.nota p:last-child { margin-bottom: 0; }
+.desafio { margin: 16pt 0 7pt; padding: 8pt 13pt; background: #153e5c; color: #fff; page-break-after: avoid; }
+.desafio .n { font-size: 0.82em; letter-spacing: .1em; text-transform: uppercase; opacity: .82; display: block; }
+.desafio .t { font-size: 1.18em; font-weight: bold; }
+.meta { color: #4b6575; font-size: 0.9em; margin: 0 0 9pt; }
+.envoltorio { margin: 7pt 0 10pt; }
+.envoltorio pre { margin: 0; }
+.barra-copiar { display: flex; justify-content: flex-end; margin-bottom: 4px; }
+.copiar { min-height: 34px; padding: 6px 13px; border: 1px solid #6f8ea3; border-radius: 6px;
+          background: #fff; color: #153e5c; font-family: Arial, Helvetica, sans-serif;
+          font-size: 12px; font-weight: bold; cursor: pointer; opacity: .85; }
+.copiar:hover, .copiar:focus { opacity: 1; background: #eef2f4; }
+.copiar.ok { border-color: #176b67; background: #e6f3ef; color: #0f5a52; }
+pre { padding: 10pt 12pt; border: 1px solid #9eb1bb; background: #f7f9fa; color: #17252d;
+      font-family: "Liberation Mono", Consolas, monospace; font-size: 0.77em; line-height: 1.28;
+      white-space: pre-wrap; word-wrap: break-word; page-break-inside: auto; }
+details { margin: 9pt 0 14pt; border: 1px solid #c8b78a; border-left: 5px solid #b8860b;
+          background: #fffdf6; page-break-inside: avoid; }
+summary { padding: 9pt 13pt; cursor: pointer; font-weight: bold; color: #6b5210; list-style: none; }
+summary::-webkit-details-marker { display: none; }
+summary::before { content: "▸ "; }
+details[open] summary::before { content: "▾ "; }
+details[open] summary { border-bottom: 1px solid #e3d8b4; }
+.cuerpo-det { padding: 10pt 13pt; }
+.cuerpo-det p:last-child, .cuerpo-det ul:last-child { margin-bottom: 0; }
+table { width: 100%; margin: 7pt 0 12pt; border-collapse: collapse; font-size: 0.91em; }
+th, td { padding: 5pt 7pt; border: 1px solid #b7c9d6; text-align: left; vertical-align: top; }
+th { background: #e7eef3; color: #153e5c; }
+.corte { margin: 26pt 0 16pt; border: 0; border-top: 3px double #b7c9d6; }
+.optativo { margin: 18pt 0 7pt; padding: 8pt 13pt; border: 2px solid #7a5c9e; background: #f7f3fb;
+            color: #4a3268; page-break-after: avoid; }
+.optativo .n { font-size: 0.82em; letter-spacing: .1em; text-transform: uppercase; opacity: .85; display: block; }
+.optativo .t { font-size: 1.18em; font-weight: bold; }
+.mirar { margin: 9pt 0 14pt; padding: 10pt 13pt; border: 1px solid #c3b3d8; border-left: 5px solid #7a5c9e;
+         background: #faf8fd; font-size: 0.95em; page-break-inside: avoid; }
+.mirar p:first-child { margin-top: 0; } .mirar p:last-child, .mirar ul:last-child { margin-bottom: 0; }
+.mirar b { color: #4a3268; }
+.franja { margin: 0 0 14pt; padding: 13pt 15pt; background: #4a3268; color: #fff; }
+.franja p { margin: 0 0 7pt; } .franja p:last-child { margin-bottom: 0; }
+.franja strong { color: #e6d9f5; }
+.footer-note { margin-top: 20pt; padding-top: 8pt; border-top: 1px solid #7d919f; color: #4b6575; font-size: 0.77em; }
+.control { position: fixed; bottom: 14px; right: 14px; z-index: 20; display: flex; gap: 4px;
+           background: #fff; border: 1px solid #b7c9d6; border-radius: 24px; padding: 5px 7px;
+           box-shadow: 0 3px 14px rgba(21,62,92,.2); opacity: .78; transition: opacity .18s; }
+.control:hover, .control:focus-within { opacity: 1; }
+.control button { min-width: 40px; min-height: 40px; border: 0; border-radius: 50%;
+                  background: #eef2f4; color: #153e5c; font-family: inherit; font-weight: bold;
+                  cursor: pointer; line-height: 1; }
+.control button:hover { background: #dde6ea; }
+.control button.chico { font-size: 12px; } .control button.medio { font-size: 15px; }
+.control button.grande { font-size: 19px; }
+@media screen { body { max-width: 46em; margin: 0 auto; padding: 26px 20px 90px; } }
+@media print { .control, .copiar { display: none } :root { --esc: 1 !important }
+               details { border-left-width: 3px } details > div { display: block !important } }
+</style>
+</head>
+<body>
+
+<div class="control" role="group" aria-label="Tamaño del texto">
+  <button type="button" class="chico"  onclick="escala(-1)" title="Achicar el texto" aria-label="Achicar el texto">A</button>
+  <button type="button" class="medio"  onclick="escala(0)"  title="Tamaño normal"    aria-label="Tamaño normal">A</button>
+  <button type="button" class="grande" onclick="escala(1)"  title="Agrandar el texto" aria-label="Agrandar el texto">A</button>
+</div>
+
+<div class="eyebrow">Semana 2 · Actividad asincrónica</div>
+<h1>Nueve desafíos con un cuaderno de fuentes</h1>
+<p class="subtitle">Aprender a manejar un cuaderno de IA sobre documentación de trabajo, y comprobar cada resultado</p>
+
+<div class="summary">
+  <p><strong>Qué vamos a hacer.</strong> Nueve desafíos cortos e independientes con un cuaderno de
+  fuentes. Cada uno se hace solo, tiene su paso a paso y <strong>se puede verificar</strong>: sabés
+  de antemano qué tenía que pasar.</p>
+  <p><strong>Duración.</strong> 90 minutos. Se puede hacer en más de una sentada.</p>
+  <p><strong>Con qué.</strong> NotebookLM, que en algunas cuentas aparece como Gemini Notebook. Los
+  dos son lo mismo.</p>
+  <p><strong>Qué se lleva cada uno.</strong> Un cuaderno armado, nueve comprobaciones hechas y una
+  idea clara de para qué sirve cada función.</p>
+</div>
+
+<div class="descarga">
+  <p><strong>Antes de empezar, descargá el corpus.</strong> Son seis documentos de una dirección de
+  recursos humanos municipal: un reglamento, un manual de procedimiento, un acta, un registro en
+  planilla, una resolución escaneada y un certificado.</p>
+  <p>Está publicado en el aula como <code>kit-asincronica-semana-2.zip</code>, junto a esta consigna.
+  Descargalo y descomprimilo en una carpeta antes de seguir.</p>
+</div>
+
+<div class="aviso">
+  <p><strong>Todo el corpus es ficticio.</strong> La Municipalidad de Puerto Norte, su reglamento y
+  sus actas fueron inventados para esta actividad. <strong>No cargues documentación real de tu
+  trabajo</strong> mientras estés probando: primero conocé la herramienta, después decidí qué
+  corresponde subir y qué no.</p>
+</div>
+
+<h2>Cómo está armada</h2>
+
+<p>Los nueve desafíos son <strong>independientes entre sí</strong>. Si uno te sale mal, el siguiente
+funciona igual. Solo el primero es obligatorio, porque arma el cuaderno que usan todos los demás.</p>
+
+<p>Cada desafío tiene la misma estructura: qué se busca, los pasos, y un bloque amarillo
+<strong>«¿Qué tenía que pasar?»</strong>. <strong>Abrilo recién después de intentarlo.</strong> Ahí
+está la respuesta correcta y qué significa si te dio otra cosa.</p>
+
+<table>
+  <tr><th style="width:34px">#</th><th>Desafío</th><th style="width:64px">Min</th></tr>
+  <tr><td>1</td><td>Armar el cuaderno y mirar qué entró</td><td>8</td></tr>
+  <tr><td>2</td><td>La fuente que engaña</td><td>8</td></tr>
+  <tr><td>3</td><td>Preguntar con cita obligatoria</td><td>10</td></tr>
+  <tr><td>4</td><td>El experimento de la selección</td><td>10</td></tr>
+  <tr><td>5</td><td>Detectar lo que falta</td><td>8</td></tr>
+  <tr><td>6</td><td>De las fuentes a una tabla</td><td>10</td></tr>
+  <tr><td>7</td><td><strong>El informe personalizado</strong></td><td>12</td></tr>
+  <tr><td>8</td><td>La vuelta por el Studio: mapa mental, presentación, audio y video</td><td>14</td></tr>
+  <tr><td>9</td><td>El bucle: respuesta, nota, fuente</td><td>10</td></tr>
+</table>
+
+<div class="desafio"><span class="n">Desafío 1 · 8 minutos · obligatorio</span><span class="t">Armar el cuaderno y mirar qué entró</span></div>
+<p class="meta">Para qué: tener el cuaderno listo, y aprender el control que más problemas evita.</p>
+
+<ol>
+  <li>Creá un cuaderno nuevo y llamalo <code>Capacitación · Puerto Norte</code>.</li>
+  <li>Cargá estas cinco fuentes: <code>reglamento-capacitacion.pdf</code>,
+      <code>manual-inscripciones.pdf</code>, <code>acta-comite-2026-08-04.pdf</code>,
+      <code>registro-capacitaciones.csv</code> y <code>certificado-sandoval.png</code>.</li>
+  <li><strong>No cargues todavía</strong> la resolución escaneada: es del desafío 2.</li>
+  <li>Hacé clic sobre <code>reglamento-capacitacion.pdf</code> en el panel de fuentes. Se abre lo que
+      el cuaderno extrajo de ese archivo. Leé las primeras líneas.</li>
+  <li>Hacé lo mismo con <code>certificado-sandoval.png</code>.</li>
+</ol>
+
+<details>
+  <summary>¿Qué tenía que pasar?</summary>
+  <div class="cuerpo-det">
+    <p><strong>Cinco fuentes cargadas.</strong> Si alguna no entró, suele ser por el tamaño o el
+    formato: volvé a intentar con esa sola.</p>
+    <p>Al abrir el reglamento tenías que ver el texto completo, empezando por
+    <em>«Reglamento del Programa Anual de Capacitación»</em> y los artículos numerados del 1 al 15.
+    Si viste eso, el archivo entró bien.</p>
+    <p>Al abrir el certificado, en cambio, vas a ver <strong>bastante menos</strong>: es una imagen, y
+    lo que el cuaderno tenga de ella depende de su reconocimiento. Fijate si aparece la carga horaria.
+    <strong>No aparece</strong>, porque esa captura está cortada antes de ese renglón.</p>
+    <p><strong>El hábito que queda:</strong> hacer clic en cada fuente después de cargarla, y mirar.
+    Diez segundos. Una fuente que no entró bien no avisa: el chat responde igual.</p>
+  </div>
+</details>
+
+<div class="desafio"><span class="n">Desafío 2 · 8 minutos</span><span class="t">La fuente que engaña</span></div>
+<p class="meta">Para qué: ver que un archivo puede entrar al cuaderno y no aportar nada.</p>
+
+<ol>
+  <li>Cargá ahora <code>resolucion-214-escaneada.pdf</code>.</li>
+  <li>Hacé clic sobre la fuente y mirá qué extrajo.</li>
+  <li>Dejá <strong>solo esa fuente</strong> tildada y preguntá al chat el prompt de abajo.</li>
+</ol>
+
+<pre>¿Qué monto asigna la Resolución 214/2026 y a qué partida se imputa?
+Citá el pasaje exacto del que sacás cada dato.</pre>
+
+<details>
+  <summary>¿Qué tenía que pasar?</summary>
+  <div class="cuerpo-det">
+    <p>La resolución <strong>sí dice</strong> un monto: pesos un millón ochocientos cincuenta mil
+    <strong>($ 1.850.000)</strong>, imputado a la partida 3.4.9. Podés comprobarlo abriendo el PDF y
+    leyéndolo con tus ojos.</p>
+    <p>Pero ese PDF <strong>es una imagen</strong>: no tiene texto adentro. Según lo que la
+    herramienta logre reconocer, pueden pasar tres cosas, y las tres enseñan algo:</p>
+    <ul>
+      <li><strong>Dice que no encuentra el dato.</strong> Es la respuesta correcta y honesta.</li>
+      <li><strong>Da el monto bien.</strong> El reconocimiento de imagen funcionó. Igual conviene
+      comprobarlo contra el original: acertar una vez no garantiza la siguiente.</li>
+      <li><strong>Da un monto distinto, o inventa una partida.</strong> Eso es lo que hay que poder
+      detectar, y por eso el prompt pedía el pasaje exacto.</li>
+    </ul>
+    <p><strong>La conclusión no cambia con el resultado:</strong> un documento escaneado entra al
+    cuaderno igual que uno bueno, se ve igual en la lista de fuentes, y el chat responde con la misma
+    seguridad. La diferencia solo se ve si abrís la fuente y mirás.</p>
+  </div>
+</details>
+
+<div class="desafio"><span class="n">Desafío 3 · 10 minutos</span><span class="t">Preguntar con cita obligatoria</span></div>
+<p class="meta">Para qué: usar el cuaderno como índice hacia los documentos, no como oráculo.</p>
+
+<ol>
+  <li>Tildá <strong>todas</strong> las fuentes.</li>
+  <li>Pegá este prompt en el chat.</li>
+  <li>Cuando responda, <strong>hacé clic en el número de la cita</strong>. Se abre la fuente en el
+      pasaje exacto.</li>
+</ol>
+
+<pre>Respondé exclusivamente con lo que digan las fuentes cargadas.
+Para cada afirmación, indicá de qué documento sale y transcribí el
+pasaje que la sostiene. Si algo no está en las fuentes, decilo en
+lugar de completarlo.
+
+Pregunta: ¿qué porcentaje mínimo de asistencia se exige para
+acceder a la certificación, y de dónde surge?</pre>
+
+<details>
+  <summary>¿Qué tenía que pasar?</summary>
+  <div class="cuerpo-det">
+    <p>La respuesta correcta es <strong>75 %</strong>, y sale del <strong>artículo 8 del
+    reglamento</strong>, que dice: <em>«se requiere una asistencia no inferior al setenta y cinco por
+    ciento (75 %) de las horas de la actividad»</em>.</p>
+    <p><strong>Lo que hay que comprobar no es el número, es la cita.</strong> Al hacer clic tenía que
+    llevarte al reglamento, al artículo 8. Si te llevó a otro documento, o si la cita no contiene esa
+    frase, la respuesta puede estar bien por casualidad.</p>
+    <p>Probá también preguntar por algo que <strong>además</strong> exija el reglamento para
+    certificar. Está en el artículo 9: la aprobación de la evaluación, cuando la actividad la prevea.
+    Si la primera respuesta no lo mencionó, no estaba mal: es que no se lo preguntaste.</p>
+  </div>
+</details>
+
+<div class="desafio"><span class="n">Desafío 4 · 10 minutos</span><span class="t">El experimento de la selección</span></div>
+<p class="meta">Para qué: ver con tus ojos cuánto cambia una respuesta según qué fuentes estén tildadas.</p>
+
+<p>Vas a hacer <strong>la misma pregunta dos veces</strong>, cambiando una sola cosa.</p>
+
+<ol>
+  <li><strong>Primera vuelta:</strong> tildá todas las fuentes y hacé la pregunta de abajo. Guardá la
+      respuesta.</li>
+  <li><strong>Segunda vuelta:</strong> destildá todo menos <code>reglamento-capacitacion.pdf</code> y
+      hacé exactamente la misma pregunta.</li>
+  <li>Poné las dos respuestas una al lado de la otra.</li>
+</ol>
+
+<pre>¿Cuántos días hábiles hay para inscribirse al llamado LL-2026-14?
+Indicá de qué documento surge la respuesta.</pre>
+
+<details>
+  <summary>¿Qué tenía que pasar?</summary>
+  <div class="cuerpo-det">
+    <p><strong>Con todas las fuentes:</strong> el reglamento fija <strong>10 días hábiles</strong> en
+    su artículo 12, pero el acta del comité del 4 de agosto resolvió <strong>extenderlo a 15 días
+    hábiles para ese llamado, por única vez</strong>. La respuesta completa menciona las dos cosas.</p>
+    <p><strong>Solo con el reglamento:</strong> 10 días hábiles. Sin más.</p>
+    <p><strong>Ninguna de las dos está mal.</strong> Cada una responde correctamente sobre las
+    fuentes que tenía disponibles. Y ahí está el punto: <strong>el recorte de fuentes no es un
+    detalle de configuración, es parte de la pregunta.</strong></p>
+    <p>Si con todas las fuentes te dio solo 10 días, volvé a preguntar agregando: <em>«revisá si
+    alguna fuente posterior modificó ese plazo»</em>. Es la clase de pregunta que hay que aprender a
+    hacer.</p>
+  </div>
+</details>
+
+<div class="desafio"><span class="n">Desafío 5 · 8 minutos</span><span class="t">Detectar lo que falta</span></div>
+<p class="meta">Para qué: usar el cuaderno para descubrir vacíos, no solo respuestas.</p>
+
+<ol>
+  <li>Con todas las fuentes tildadas, pegá este prompt.</li>
+</ol>
+
+<pre>Sobre las fuentes cargadas, respondé estas tres preguntas.
+Para cada una, si la respuesta no está en ninguna fuente, escribí
+"NO ESTÁ EN LAS FUENTES" y no la completes con conocimiento general.
+
+1. ¿Qué antigüedad mínima se exige para inscribirse?
+2. ¿Qué ocurre si una persona certificada se traslada a otra área
+   al año siguiente de haber hecho el curso?
+3. ¿Quién emite los certificados?</pre>
+
+<details>
+  <summary>¿Qué tenía que pasar?</summary>
+  <div class="cuerpo-det">
+    <p><strong>Pregunta 1 · sí está.</strong> Seis meses de antigüedad para el personal contratado,
+    artículo 4 del reglamento.</p>
+    <p><strong>Pregunta 2 · NO está en ninguna fuente.</strong> Ningún documento del corpus dice nada
+    sobre traslados posteriores. Es la pregunta trampa, y la única respuesta correcta es decir que no
+    está.</p>
+    <p><strong>Pregunta 3 · sí está.</strong> La Dirección de Recursos Humanos, artículo 10.</p>
+    <p><strong>Si contestó la 2 con algo razonable</strong> —que debe devolver el costo, que no pasa
+    nada, que se evalúa caso por caso—, acabás de ver el problema completo: la respuesta era
+    verosímil, sonaba a reglamento, y no salía de ningún documento. Sin las preguntas 1 y 3 alrededor
+    para comparar, no habrías notado la diferencia.</p>
+    <p><strong>El hábito que queda:</strong> mezclar en el mismo pedido preguntas que sabés que
+    tienen respuesta con alguna que sabés que no. Es la forma más rápida de calibrar cuánto te podés
+    confiar de un cuaderno.</p>
+  </div>
+</details>
+
+<div class="desafio"><span class="n">Desafío 6 · 10 minutos</span><span class="t">De las fuentes a una tabla</span></div>
+<p class="meta">Para qué: convertir documentos en algo comparable, con la fuente de cada dato a la vista.</p>
+
+<ol>
+  <li>Tildá <code>registro-capacitaciones.csv</code> y el reglamento.</li>
+  <li>Buscá en el panel de artefactos la opción de <strong>tabla de datos</strong> o
+      <strong>informe</strong>, y usá el prompt de abajo. Si tu cuenta no ofrece tablas, pedilo en el
+      chat: funciona igual, solo que sin exportar.</li>
+  <li>Si podés exportarla, abrila y mirá si trae una <strong>segunda pestaña con las citas</strong>.</li>
+</ol>
+
+<pre>Armá una tabla con una fila por actividad de capacitación y estas
+columnas: código, actividad, área, horas, inscriptos, asistieron,
+certificados, y una columna calculada "tasa de certificación" que
+sea certificados sobre inscriptos, en porcentaje con un decimal.
+
+Agregá una última columna "alcanzó el cupo mínimo" con SÍ o NO,
+según el mínimo que fije el reglamento.
+
+No agregues actividades que no estén en el registro.</pre>
+
+<details>
+  <summary>¿Qué tenía que pasar?</summary>
+  <div class="cuerpo-det">
+    <p><strong>Doce filas.</strong> Ni once ni trece. El registro tiene exactamente doce actividades:
+    contalas en el archivo antes de creerle a la tabla.</p>
+    <p><strong>El cupo mínimo es 8</strong>, artículo 7 del reglamento. Esa columna solo se puede
+    completar cruzando dos fuentes: el registro no lo dice. Si la completó, cruzó bien.</p>
+    <p><strong>Mirá la tasa de certificación de <code>CAP-2026-10</code></strong>, «Indicadores de
+    capacitación»: 9 certificados sobre 20 inscriptos, o sea 45 %. Es la más baja de las doce, y es
+    el tipo de dato por el que se arma una tabla.</p>
+    <p>Si exportaste y hay una segunda pestaña con las citas, esa es la trazabilidad del relevamiento
+    entero: sin ella, la tabla es una afirmación sin respaldo.</p>
+  </div>
+</details>
+
+<div class="desafio"><span class="n">Desafío 7 · 12 minutos</span><span class="t">El informe personalizado</span></div>
+<p class="meta">Para qué: dejar de aceptar lo que sale por defecto. Es la función que más rinde de todo el cuaderno.</p>
+
+<ol>
+  <li>Con todas las fuentes tildadas, generá un <strong>informe</strong> eligiendo uno de los tipos
+      sugeridos que ofrece la herramienta. Miralo sin juzgarlo todavía.</li>
+  <li>Volvé a la opción de informe y buscá <strong>personalizar</strong> o
+      <strong>prompt personalizado</strong>. <strong>Leé lo que hay escrito antes de borrarlo:</strong>
+      eso es lo que la herramienta le pide al modelo cuando vos no decís nada.</li>
+  <li>Reemplazalo por el de abajo y generá de nuevo.</li>
+  <li>Poné los dos informes uno al lado del otro.</li>
+</ol>
+
+<pre>Generá un informe de ejecución del Programa Anual de Capacitación,
+dirigido a la Secretaría de Administración, con esta estructura:
+
+1. Qué se dictó: cantidad de actividades, horas totales y áreas alcanzadas.
+2. Participación: inscriptos, asistentes y certificados, en números absolutos.
+3. Actividades que no alcanzaron el cupo mínimo, indicando el artículo del
+   reglamento del que surge ese mínimo.
+4. Las tres actividades con menor tasa de certificación, con su porcentaje
+   calculado como certificados sobre inscriptos.
+5. Qué no se puede saber con las fuentes disponibles.
+
+Reglas:
+- Toda cifra tiene que salir del registro cargado. No estimes ni redondees.
+- Cada criterio normativo tiene que citar el artículo del reglamento.
+- No propongas medidas: este informe describe, no recomienda.</pre>
+
+<details>
+  <summary>¿Qué tenía que pasar?</summary>
+  <div class="cuerpo-det">
+    <p><strong>Las cifras que se pueden comprobar abriendo el registro:</strong> son
+    <strong>12 actividades</strong> y <strong>380 horas</strong> en total.</p>
+    <p><strong>Punto 3.</strong> Hay <strong>una sola</strong> actividad por debajo del cupo mínimo:
+    <code>CAP-2026-11</code>, con 7 inscriptos sobre un mínimo de 8 que fija el
+    <strong>artículo 7</strong>. Ese dato no está en el registro ni en el reglamento por separado:
+    <strong>solo aparece cruzando los dos</strong>. Si el informe no lo menciona, no cruzó.</p>
+    <p><strong>Punto 4.</strong> Las tres tasas más bajas son <code>CAP-2026-10</code> con
+    <strong>45 %</strong>, <code>CAP-2026-08</code> con <strong>55 %</strong> y
+    <code>CAP-2026-06</code> con <strong>60 %</strong>. Si te dio otros números, rehacé la cuenta a
+    mano sobre dos de ellos.</p>
+    <p><strong>Punto 5.</strong> Es el que separa un informe útil de uno decorativo. Debería decir que
+    no hay datos de satisfacción, ni de motivos de deserción, ni del costo por actividad: la
+    resolución fija el monto total pero no su distribución.</p>
+    <p><strong>La comparación entre los dos informes es el ejercicio.</strong> El primero suele ser un
+    resumen correcto y genérico del contenido. El segundo responde una pregunta de gestión concreta.
+    La diferencia no está en el modelo: está en el prompt que casi nadie abre.</p>
+  </div>
+</details>
+
+<div class="desafio"><span class="n">Desafío 8 · 14 minutos</span><span class="t">La vuelta por el Studio</span></div>
+<p class="meta">Para qué: conocer los demás artefactos y saber para qué sirve cada uno.</p>
+
+<div class="nota">
+  <p><strong>Leé esto antes de empezar.</strong> El resumen de audio y el video <strong>tardan varios
+  minutos</strong> en generarse. Lanzalos primero y seguí con lo demás mientras se procesan: no te
+  quedes mirando la pantalla.</p>
+</div>
+
+<ol>
+  <li><strong>Lanzá el resumen de audio</strong> sobre todas las fuentes y dejalo generando.</li>
+  <li><strong>Lanzá el video</strong>, si tu cuenta lo ofrece. Si no está, seguí.</li>
+  <li>Mientras tanto, generá un <strong>mapa mental</strong> pero <strong>sobre una sola
+      fuente</strong>: dejá tildado solo el reglamento. Cuando esté, hacé clic en uno de los nodos.</li>
+  <li>Generá una <strong>presentación</strong> con todas las fuentes tildadas.</li>
+  <li>Volvé al audio y escuchá los primeros dos minutos. Mirá el video si salió.</li>
+  <li>Completá la tabla de abajo con lo que te haya parecido a vos.</li>
+</ol>
+
+<table>
+  <tr><th>Artefacto</th><th>¿Para qué lo usarías?</th><th>¿Sirve para verificar algo?</th></tr>
+  <tr><td>Mapa mental</td><td></td><td></td></tr>
+  <tr><td>Presentación</td><td></td><td></td></tr>
+  <tr><td>Resumen de audio</td><td></td><td></td></tr>
+  <tr><td>Video</td><td></td><td></td></tr>
+</table>
+
+<details>
+  <summary>¿Qué tenía que pasar?</summary>
+  <div class="cuerpo-det">
+    <p><strong>El mapa mental sobre una sola fuente</strong> tenía que darte la estructura del
+    reglamento por temas. Al hacer clic en un nodo, se convierte en una consulta al chat: por eso
+    conviene generarlo sobre una fuente y no sobre quince, o los nodos quedan tan generales que no
+    sirven para preguntar.</p>
+    <p><strong>La presentación</strong> sale ordenada y con poco contenido por diapositiva. Es
+    material de capacitación interna, no un documento de trabajo.</p>
+    <p><strong>El resumen de audio</strong> es una conversación sobre las fuentes. Es cómodo y
+    engañoso a la vez: <strong>no tiene citas y no se puede auditar</strong>. Sirve para repasar
+    caminando, nunca para verificar nada ni para citar en un expediente.</p>
+    <p><strong>El video</strong> es lo mismo del audio con imagen: capacitación asincrónica.</p>
+    <p><strong>La columna que importa es la tercera</strong>, y la respuesta honesta es que
+    <strong>ninguno de los cuatro sirve para verificar</strong>. Los cuatro son artefactos de
+    comunicación. Lo único que verifica en todo el cuaderno es el chat con citas y abrir la fuente.
+    Si alguno de los cuatro te pareció verificable, volvé a mirar si trae la referencia al pasaje.</p>
+    <p><strong>Si el video o el audio no estaban disponibles</strong> en tu cuenta, no es un problema:
+    anotalo y seguí. Lo que hay que saber es que existen y para qué sirven.</p>
+  </div>
+</details>
+
+<div class="desafio"><span class="n">Desafío 9 · 10 minutos</span><span class="t">El bucle: respuesta, nota, fuente</span></div>
+<p class="meta">Para qué: que lo que verificaste una vez quede disponible, sin volver a verificarlo.</p>
+
+<p>Un cuaderno no solo consulta: también acumula. Este es el ciclo completo.</p>
+
+<ol>
+  <li>Hacé esta pregunta con todas las fuentes tildadas:</li>
+</ol>
+
+<pre>Enumerá todos los requisitos que una persona debe cumplir para
+obtener un certificado, desde que se inscribe hasta que se le emite.
+Indicá el artículo del reglamento del que sale cada requisito.
+Si algún paso lo fija el manual y no el reglamento, aclaralo.</pre>
+
+<ol start="2">
+  <li><strong>Verificá la respuesta</strong> abriendo las citas. Corregí a mano lo que esté mal o
+      falte.</li>
+  <li><strong>Guardala como nota</strong> dentro del cuaderno. Ponele un título que empiece con
+      <code>[VERIFICADO]</code>.</li>
+  <li><strong>Convertí la nota en fuente.</strong> Buscá la opción de convertir notas en fuente.</li>
+  <li>Ahora destildá todo y dejá <strong>solo tu nota</strong>. Preguntá:</li>
+</ol>
+
+<pre>Según esta única fuente, ¿qué requisitos debe cumplir alguien para
+certificar? Respondé en dos líneas.</pre>
+
+<details>
+  <summary>¿Qué tenía que pasar?</summary>
+  <div class="cuerpo-det">
+    <p>La última respuesta tiene que salir <strong>de tu nota</strong>, no de los documentos: son los
+    únicos que quedaron destildados. Si el cuaderno responde con detalle que no está en la nota, algo
+    quedó tildado.</p>
+    <p><strong>Por qué esto importa.</strong> Acabás de convertir una conclusión verificada en un
+    documento del cuaderno. La próxima consulta no vuelve a razonar sobre quince artículos: parte de
+    lo que ya comprobaste.</p>
+    <p><strong>Y por qué el paso 2 no se saltea.</strong> Si guardás como nota una respuesta que no
+    verificaste, el error queda adentro del cuaderno con apariencia de dato confirmado, y todo lo que
+    venga después se apoya en él. El bucle sin verificación no acumula conocimiento: acumula
+    errores.</p>
+    <p><strong>El prefijo <code>[VERIFICADO]</code></strong> no es un capricho. Dentro de seis meses,
+    mirando el cuaderno, esa marca es lo único que va a distinguir lo que comprobaste de lo que
+    simplemente guardaste.</p>
+  </div>
+</details>
+
+<h2>Para cerrar</h2>
+
+<div class="nota">
+  <p><strong>Volvé a la lista de los nueve desafíos</strong> y marcá mentalmente cuáles te salieron
+  como esperabas y cuáles no. Los que no salieron suelen enseñar más.</p>
+</div>
+
+<h3>La entrega</h3>
+
+<p>Se completa con dos cosas, y nada más que esas dos:</p>
+
+<ol>
+  <li><strong>Publicá una entrada en el foro</strong> contando qué desafío te resultó más útil para
+  tu trabajo futuro y por qué. Si alguno te dio un resultado inesperado, ese es el mejor material.</li>
+  <li><strong>Comentá la publicación de algún compañero.</strong> Con una alcanza.</li>
+</ol>
+
+<p>No hay formato obligatorio ni extensión mínima. No se evalúa que los nueve desafíos hayan salido
+bien: se evalúa la participación.</p>
+
+<h3>Para pensar mientras escribís</h3>
+
+<ul>
+  <li>¿Qué documentación de una oficina real convendría tener en un cuaderno como este?</li>
+  <li>¿Cuál de las funciones que probaste te habría ahorrado tiempo la semana pasada?</li>
+  <li>¿Qué documento <strong>no</strong> cargarías, y por qué?</li>
+  <li>Si tuvieras que explicarle a un compañero un solo control de todos los que hiciste, ¿cuál?</li>
+</ul>
+
+
+<hr class="corte">
+
+<div class="franja">
+  <p><strong>Hasta acá llega la actividad.</strong> Con los nueve desafíos y la participación en el
+  foro, está completa. Lo que sigue no se entrega, no se corrige y no hace falta hacerlo.</p>
+  <p>Son <strong>seis ideas para explorar</strong>, para quien tenga ganas de seguir. Cada una
+  arranca con un <strong>cuaderno nuevo</strong>, aparte del que armaste, y toca algo que la
+  actividad no llegó a cubrir. Hacé una, hacé tres, o ninguna.</p>
+</div>
+
+<div class="optativo"><span class="n">Idea 1 · cuaderno nuevo</span><span class="t">Un cuaderno hecho de videos</span></div>
+
+<p><strong>Para qué sirve.</strong> Convertir capacitaciones, jornadas o charlas grabadas en material
+consultable. Es el uso que más rápido convierte horas de video en algo que se puede citar.</p>
+
+<ol>
+  <li>Creá un cuaderno nuevo. Llamalo como el tema que vayas a trabajar.</li>
+  <li>Buscá en YouTube <strong>uno o dos videos públicos que tengan subtítulos</strong>, sobre algo de
+      tu campo: una charla de gestión pública, una capacitación en recursos humanos, una explicación
+      de un procedimiento. Pegá el enlace como fuente.</li>
+  <li><strong>Hacé clic sobre la fuente cargada.</strong> Mirá qué hay adentro.</li>
+  <li>Preguntá al chat el prompt de abajo.</li>
+  <li>Después generá, sobre ese material: un <strong>resumen</strong>, una
+      <strong>presentación</strong>, una <strong>infografía</strong>, y el <strong>informe</strong>
+      que te parezca más útil de los tipos que ofrezca.</li>
+</ol>
+
+<pre>Sobre el video cargado, respondé tres cosas:
+
+1. Qué se explica, paso a paso.
+2. Qué advertencias o salvedades hace quien expone.
+3. Describí lo que se ve en pantalla alrededor del minuto 5: los
+   gráficos, las capturas o las imágenes que muestra.</pre>
+
+<div class="mirar">
+  <p><b>Qué mirar.</b> Al abrir la fuente no vas a ver el video: vas a ver <b>la transcripción</b>.
+  Eso es todo lo que el cuaderno tiene.</p>
+  <p>Por eso la pregunta 3 es la que importa. <b>No la puede responder</b>: nadie le mostró la
+  pantalla, solo le dieron las palabras. Si igual te describe gráficos, los inventó a partir de lo
+  que se dice.</p>
+  <p>Las preguntas 1 y 2 sí las contesta bien, porque eso se dice en voz alta.</p>
+  <p><b>La consecuencia para el trabajo:</b> un video cargado como fuente es un texto. Todo lo que la
+  persona mostró y no dijo —una tabla en pantalla, un organigrama, un formulario— <b>no está</b>. Y
+  si el video no tiene subtítulos, directamente no se puede cargar.</p>
+</div>
+
+<div class="optativo"><span class="n">Idea 2 · cuaderno nuevo</span><span class="t">Un cuaderno compartido con el equipo</span></div>
+
+<p><strong>Para qué sirve.</strong> Es la primera forma práctica de compartir conocimiento dentro de
+una oficina: en vez de mandar quince archivos por correo, se comparte un cuaderno donde ya se puede
+preguntar.</p>
+
+<ol>
+  <li>Creá un cuaderno nuevo y cargale material <strong>público o ficticio</strong>: normativa
+      descargada de un sitio oficial, guías, manuales. Todavía no cargues nada interno.</li>
+  <li>Abrí las opciones de <strong>compartir</strong> y recorré lo que ofrece: compartir el cuaderno
+      completo, compartir solo el chat, o compartir un artefacto suelto.</li>
+  <li>Compartilo con una persona de confianza y pedile que te cuente <strong>qué ve</strong>.</li>
+  <li>Probá también compartir <strong>un solo artefacto</strong> y compará qué acceso da cada opción.</li>
+</ol>
+
+<div class="mirar">
+  <p><b>Qué mirar.</b> Cuando compartís el cuaderno completo, la otra persona accede a
+  <b>todas las fuentes cargadas y a todo lo generado</b>, no solo a lo que vos estabas mirando. Es
+  la diferencia con mandar un archivo.</p>
+  <p>Si tu cuenta es institucional, es probable que <b>solo puedas compartir dentro del mismo
+  dominio</b>. Eso no es una limitación: es la razón por la que un cuaderno institucional puede
+  contener lo que uno personal no.</p>
+  <p><b>La idea para llevarse.</b> Un «cuaderno de la oficina» con circulares, instructivos y
+  criterios acordados hace que el conocimiento deje de depender de quién esté ese día. Es el uso que
+  más ordena el trabajo cotidiano y el que menos se arma.</p>
+  <p><b>Y la regla que va antes:</b> lo que se comparte deja de estar bajo tu control. Qué entra en
+  un cuaderno compartido se acuerda antes de compartirlo, no después.</p>
+</div>
+
+<div class="optativo"><span class="n">Idea 3 · cuaderno nuevo</span><span class="t">Una fuente que cambia sola</span></div>
+
+<p><strong>Para qué sirve.</strong> Descubrir qué pasa cuando la fuente es un documento vivo, que
+otras personas editan. Es el experimento más corto de esta lista y el que más sorprende.</p>
+
+<ol>
+  <li>Creá en tu Drive una <strong>planilla</strong> con cinco filas de datos inventados. Por ejemplo:
+      código de actividad, nombre y cantidad de inscriptos.</li>
+  <li>Creá un cuaderno nuevo y conectá <strong>esa planilla de Drive</strong> como fuente.</li>
+  <li>Preguntá: <em>«¿Cuántas filas de datos hay y cuáles son?»</em>. Anotá la respuesta.</li>
+  <li><strong>Andá a la planilla y agregá dos filas más.</strong> Guardá.</li>
+  <li>Volvé al cuaderno y <strong>hacé la misma pregunta, sin tocar nada más</strong>.</li>
+  <li>Ahora buscá la opción de <strong>sincronizar o actualizar</strong> esa fuente, usala, y volvé a
+      preguntar.</li>
+</ol>
+
+<div class="mirar">
+  <p><b>Qué mirar.</b> En el paso 5, lo más probable es que te siga respondiendo <b>cinco filas</b>.
+  Recién después de sincronizar aparecen las siete.</p>
+  <p><b>Por qué pasa.</b> La fuente no es la planilla: es <b>una copia de la planilla en el momento en
+  que la cargaste</b>. El vínculo con Drive sirve para poder actualizarla, no para que se actualice
+  sola.</p>
+  <p><b>La consecuencia para el trabajo.</b> Si el cuaderno de tu oficina tiene conectado un
+  procedimiento que alguien modificó la semana pasada, seguís consultando la versión vieja y nada te
+  avisa. Conviene <b>anotar en el nombre de cada fuente la fecha en que se cargó</b>, y volver a
+  sincronizar antes de una consulta que importe.</p>
+  <p>Probá lo mismo con un documento de texto en vez de una planilla, y fijate si se comporta igual.</p>
+</div>
+
+<div class="optativo"><span class="n">Idea 4 · cuaderno nuevo</span><span class="t">El cuaderno en el celular</span></div>
+
+<p><strong>Para qué sirve.</strong> Capturar material en el momento: una cartelera, un instructivo
+pegado en la pared, una planilla en papel, la página de un manual que alguien te presta.</p>
+
+<ol>
+  <li>Instalá la aplicación en tu teléfono. Según la cuenta, aparece como NotebookLM o como Gemini
+      Notebook.</li>
+  <li>Creá un cuaderno nuevo desde el celular.</li>
+  <li>Usá la opción de <strong>escanear o tomar una foto</strong> y capturá algo real y sin datos
+      personales: la página de un libro, un formulario en blanco, un afiche informativo.</li>
+  <li><strong>Abrí la fuente que quedó cargada</strong> y leé qué extrajo.</li>
+  <li>Preguntá algo puntual que figure en el documento, y comprobalo con tus ojos.</li>
+  <li>Probá con algo difícil: una tabla, letra chica, o una fotocopia despareja.</li>
+</ol>
+
+<div class="mirar">
+  <p><b>Qué mirar.</b> El reconocimiento de texto impreso suele ser bueno. Donde se cae es en
+  <b>tablas</b> —las columnas se mezclan— y en fotos torcidas o con sombra.</p>
+  <p><b>El hábito es el mismo de siempre:</b> abrir la fuente y mirar qué entró. En el celular es más
+  tentador saltearlo, porque la foto se ve bien en la pantalla y uno supone que el texto también.</p>
+  <p><b>Para qué conviene usarlo.</b> Para capturar en el momento algo que después vas a consultar,
+  no para digitalizar en serio. Si el documento importa, escanealo bien desde una computadora.</p>
+</div>
+
+<div class="optativo"><span class="n">Idea 5 · cuaderno nuevo</span><span class="t">El cuaderno de guardia</span></div>
+
+<p><strong>Para qué sirve.</strong> Que el conocimiento operativo de un área no dependa de quién esté
+ese día. Es una idea de diseño más que un ejercicio de herramienta.</p>
+
+<p>Pensá en un área que conozcas —donde trabajás, donde hiciste una práctica, o una que te imagines—
+y armá el cuaderno que le haría falta a alguien que entra a cubrir una licencia mañana.</p>
+
+<ol>
+  <li>Escribí primero, en papel o en un documento, <strong>las diez preguntas</strong> que esa persona
+      va a hacer en su primera semana.</li>
+  <li>Recién después decidí qué fuentes harían falta para responderlas.</li>
+  <li>Armá el cuaderno con lo que puedas conseguir en versión pública o ficticia.</li>
+  <li>Probá las diez preguntas y anotá cuáles quedaron sin responder.</li>
+</ol>
+
+<div class="mirar">
+  <p><b>Qué mirar.</b> Las preguntas que quedaron sin responder son el verdadero resultado: señalan
+  <b>qué conocimiento de esa oficina no está escrito en ningún lado</b> y vive solo en la cabeza de
+  alguien.</p>
+  <p>Empezar por las preguntas y no por los documentos cambia todo el resultado. Si armás el cuaderno
+  primero, terminás con lo que había a mano; si empezás por las preguntas, terminás con una lista de
+  lo que falta.</p>
+</div>
+
+<div class="optativo"><span class="n">Idea 6 · cuaderno nuevo</span><span class="t">Tu propio material, con criterio</span></div>
+
+<p><strong>Para qué sirve.</strong> Es el paso que sigue a toda esta actividad, y el único que hay que
+dar con cuidado. Hasta acá trabajamos con material ficticio a propósito.</p>
+
+<p>Antes de cargar el primer documento real, pasalo por estas seis preguntas:</p>
+
+<ol>
+  <li>¿Es necesario para lo que quiero hacer, o lo cargo por las dudas?</li>
+  <li>¿Está vigente?</li>
+  <li>¿Contiene datos personales o sensibles de alguien?</li>
+  <li>¿Puedo anonimizarlo, o cargar solo la sección que necesito?</li>
+  <li>¿Tengo autorización para usarlo en esta herramienta?</li>
+  <li>Si mañana este cuaderno se comparte por error, ¿qué pasa?</li>
+</ol>
+
+<div class="mirar">
+  <p><b>Qué mirar.</b> La sexta pregunta es la que ordena las otras cinco. Un cuaderno se comparte con
+  un clic, y lo que entró alguna vez sigue adentro.</p>
+  <p><b>El material de riesgo cero para empezar</b> es el que ya es público: normativa descargada de
+  un sitio oficial, manuales, guías, material de capacitación. Con eso se aprende la herramienta
+  completa sin exponer nada.</p>
+  <p><b>Lo que no va</b> mientras no haya una definición institucional: legajos, evaluaciones de
+  desempeño, informes médicos, denuncias, y cualquier expediente con personas identificables.</p>
+</div>
+
+<div class="footer-note">
+  La Municipalidad de Puerto Norte, su reglamento, sus actas, su registro y su resolución son
+  ficticios y fueron preparados con fines educativos.
+</div>
+
+<script>
+(function () {
+  function copiar(texto, boton) {
+    function listo() {
+      var antes = boton.textContent;
+      boton.textContent = "Copiado";
+      boton.classList.add("ok");
+      setTimeout(function () { boton.textContent = antes; boton.classList.remove("ok"); }, 1600);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(texto).then(listo, function () { alterno(texto, listo); });
+    } else { alterno(texto, listo); }
+  }
+  function alterno(texto, listo) {
+    var t = document.createElement("textarea");
+    t.value = texto;
+    t.setAttribute("readonly", "");
+    t.style.cssText = "position:fixed;top:-1000px;opacity:0";
+    document.body.appendChild(t);
+    t.select();
+    try { document.execCommand("copy"); listo(); } catch (e) {}
+    t.remove();
+  }
+  Array.prototype.forEach.call(document.querySelectorAll("pre"), function (pre) {
+    var caja = document.createElement("div");
+    caja.className = "envoltorio";
+    pre.parentNode.insertBefore(caja, pre);
+    caja.appendChild(pre);
+    var barra = document.createElement("div");
+    barra.className = "barra-copiar";
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "copiar";
+    b.textContent = "Copiar prompt";
+    b.setAttribute("aria-label", "Copiar este prompt al portapapeles");
+    b.onclick = function () { copiar(pre.textContent, b); };
+    barra.appendChild(b);
+    caja.insertBefore(barra, pre);
+  });
+})();
+
+(function () {
+  var PASOS = [0.85, 1, 1.15, 1.3, 1.5], i = 1;
+  try { var g = localStorage.getItem("cuadernoEsc"); if (g !== null) i = Math.min(PASOS.length - 1, Math.max(0, +g)); } catch (e) {}
+  function aplicar() {
+    document.documentElement.style.setProperty("--esc", PASOS[i]);
+    try { localStorage.setItem("cuadernoEsc", i); } catch (e) {}
+  }
+  window.escala = function (d) {
+    i = d === 0 ? 1 : Math.min(PASOS.length - 1, Math.max(0, i + d));
+    aplicar();
+  };
+  aplicar();
+})();
+</script>
+</body>
+</html>

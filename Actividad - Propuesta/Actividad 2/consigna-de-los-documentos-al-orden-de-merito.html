@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>De los documentos al orden de mérito</title>
+<style>
+:root { --esc: 1; }
+.control { position: fixed; bottom: 14px; right: 14px; z-index: 20; display: flex; gap: 4px;
+           background: #fff; border: 1px solid #b7c9d6; border-radius: 24px; padding: 5px 7px;
+           box-shadow: 0 3px 14px rgba(21,62,92,.2); opacity: .78; transition: opacity .18s; }
+.control:hover, .control:focus-within { opacity: 1; }
+.control button { min-width: 40px; min-height: 40px; border: 0; border-radius: 50%;
+                  background: #eef2f4; color: #153e5c; font-family: inherit; font-weight: bold;
+                  cursor: pointer; line-height: 1; }
+.control button:hover { background: #dde6ea; }
+.control button.chico { font-size: 12px; } .control button.medio { font-size: 15px; }
+.control button.grande { font-size: 19px; }
+.envoltorio { margin: 7pt 0 10pt; }
+.envoltorio pre { margin: 0; }
+.barra-copiar { display: flex; justify-content: flex-end; margin-bottom: 4px; }
+.copiar { min-height: 34px; padding: 6px 13px;
+          border: 1px solid #6f8ea3; border-radius: 6px; background: #fff; color: #153e5c;
+          font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold;
+          cursor: pointer; opacity: .85; }
+.copiar:hover, .copiar:focus { opacity: 1; background: #eef2f4; }
+.copiar.ok { border-color: #176b67; background: #e6f3ef; color: #0f5a52; }
+.descarga { margin: 10pt 0 14pt; padding: 12pt 14pt; border: 1px solid #9dc3b6;
+            border-left: 5px solid #176b67; background: #eef6f4; page-break-inside: avoid; }
+.descarga p { margin: 0 0 6pt; } .descarga p:last-child { margin-bottom: 0; }
+.descarga a { color: #0f5a52; font-weight: bold; word-break: break-all; }
+@media screen { body { max-width: 46em; margin: 0 auto; padding: 26px 20px 90px; } }
+@media print { .control, .copiar { display: none } :root { --esc: 1 !important } }
+@page { size: A4; margin: 2cm 1.8cm 1.8cm; }
+body { margin: 0; color: #1f2933; font-family: Arial, Helvetica, sans-serif;
+       font-size: calc(11pt * var(--esc)); line-height: 1.42; }
+h1 { margin: 0 0 6pt; color: #153e5c; font-size: 2.27em; line-height: 1.12; }
+h2 { margin: 17pt 0 7pt; padding-bottom: 3pt; border-bottom: 1px solid #b7c9d6; color: #153e5c; font-size: 1.36em; }
+h3 { margin: 12pt 0 5pt; color: #28536b; font-size: 1.09em; }
+p { margin: 0 0 8pt; }
+ul, ol { margin: 4pt 0 9pt 20pt; padding: 0; }
+li { margin: 0 0 4pt; }
+code { font-family: "Liberation Mono", Consolas, monospace; font-size: 0.91em; background: #eef2f4; padding: 1px 4px; border-radius: 3px; }
+.eyebrow { margin-bottom: 7pt; color: #4b6575; font-size: 0.82em; font-weight: bold; letter-spacing: 0.08em; text-transform: uppercase; }
+.subtitle { margin-bottom: 14pt; color: #4b6575; font-size: 1.18em; }
+.summary { margin: 10pt 0 14pt; padding: 11pt 13pt; border: 1px solid #b7c9d6; border-left: 5px solid #c1741f; background: #fdf6ee; page-break-inside: avoid; }
+.summary p:last-child { margin-bottom: 0; }
+.aviso { margin: 10pt 0 14pt; padding: 11pt 13pt; border: 1px solid #dfb9b2; border-left: 5px solid #9a3d34; background: #fbefed; page-break-inside: avoid; }
+.aviso p:last-child { margin-bottom: 0; }
+.nota { margin: 9pt 0 12pt; padding: 10pt 13pt; border-left: 4px solid #176b67; background: #eef6f4; font-size: 0.95em; page-break-inside: avoid; }
+.nota p:last-child { margin-bottom: 0; }
+.paso { margin: 14pt 0 6pt; padding: 7pt 12pt; background: #153e5c; color: #fff; page-break-after: avoid; }
+.paso .n { font-size: 0.82em; letter-spacing: .1em; text-transform: uppercase; opacity: .8; display: block; }
+.paso .t { font-size: 1.18em; font-weight: bold; }
+pre { margin: 7pt 0 10pt; padding: 10pt 12pt; border: 1px solid #9eb1bb; background: #f7f9fa; color: #17252d;
+      font-family: "Liberation Mono", Consolas, monospace; font-size: 0.77em; line-height: 1.26; white-space: pre-wrap; word-wrap: break-word; page-break-inside: auto; }
+table { width: 100%; margin: 7pt 0 12pt; border-collapse: collapse; font-size: 0.91em; }
+th, td { padding: 5pt 7pt; border: 1px solid #b7c9d6; text-align: left; vertical-align: top; }
+th { background: #e7eef3; color: #153e5c; }
+.footer-note { margin-top: 20pt; padding-top: 8pt; border-top: 1px solid #7d919f; color: #4b6575; font-size: 0.77em; }
+.page-break { page-break-before: always; }
+</style>
+</head>
+<body>
+
+<div class="control" role="group" aria-label="Tamaño del texto">
+  <button type="button" class="chico"  onclick="escala(-1)" title="Achicar el texto" aria-label="Achicar el texto">A</button>
+  <button type="button" class="medio"  onclick="escala(0)"  title="Tamaño normal"    aria-label="Tamaño normal">A</button>
+  <button type="button" class="grande" onclick="escala(1)"  title="Agrandar el texto" aria-label="Agrandar el texto">A</button>
+</div>
+
+<div class="eyebrow">Semana 2 · Práctica sincrónica</div>
+<h1>De los documentos al orden de mérito</h1>
+<p class="subtitle">Un llamado, cuatro postulantes, doce archivos que no se parecen entre sí, y una decisión que tomar</p>
+
+<div class="summary">
+  <p><strong>Qué vamos a hacer.</strong> Convertir un montón de documentos desparejos en una tabla
+  que permita decidir quién cumple los requisitos de un puesto. Todo con prompts, paso a paso.</p>
+  <p><strong>Con qué.</strong> Cualquier asistente de IA que acepte adjuntar archivos o pegar texto.</p>
+  <p><strong>Qué se lleva cada uno.</strong> Un informe de evaluación del llamado, con su orden de
+  mérito y la lista de lo que no se pudo verificar.</p>
+</div>
+
+<div class="descarga">
+  <p><strong>Antes de empezar, descargá el kit de la práctica.</strong> Adentro están el llamado, el
+  formulario de origen, el CSV de inscripciones y los doce adjuntos.</p>
+  <p><a href="https://drive.google.com/file/d/11OtXKM-liHHtBz78kGT_CJMDRBnG-SeI/view?usp=sharing" target="_blank" rel="noopener">https://drive.google.com/file/d/11OtXKM-liHHtBz78kGT_CJMDRBnG-SeI/view</a></p>
+  <p>Descomprimilo en una carpeta antes de seguir. Vas a ir abriendo esos archivos a lo largo de los
+  siete pasos.</p>
+</div>
+
+<div class="aviso">
+  <p><strong>Todo es ficticio.</strong> El organismo, el llamado, las cuatro personas y sus documentos
+  fueron inventados para esta actividad. No reemplaces nada con legajos, currículums o certificados
+  reales de personas.</p>
+</div>
+
+<h2>El caso</h2>
+
+<p>La <strong>Municipalidad de Puerto Norte</strong> llamó a cubrir un puesto de
+<strong>Operador/a de Planta de Tratamiento de Efluentes</strong>. Se inscribieron cuatro personas
+por un formulario que pedía tres archivos a cada una: currículum, carta de presentación y el
+certificado de la formación específica.</p>
+
+<p>Tu tarea es recorrer todo el camino: de los doce archivos sueltos hasta un informe con el orden
+de mérito y la lista de lo que no se pudo verificar.</p>
+
+<h3>Los tres requisitos excluyentes</h3>
+<table>
+  <tr><th style="width:52px">Código</th><th>Requisito</th></tr>
+  <tr><td><strong>R1</strong></td><td>Formación específica en operación de plantas de tratamiento de efluentes o de potabilización de agua</td></tr>
+  <tr><td><strong>R2</strong></td><td>Al menos 120 horas acreditadas en esa formación específica</td></tr>
+  <tr><td><strong>R3</strong></td><td>Al menos 2 años de experiencia en operación o mantenimiento de plantas</td></tr>
+</table>
+
+<div class="nota">
+  <p>Dos reglas del llamado que conviene tener a mano, porque después deciden todo:</p>
+  <p>· Las horas que valen son <strong>las que dice el certificado</strong>, no las que la persona
+  declaró en el formulario.</p>
+  <p>· La formación ambiental de carácter general <strong>no reemplaza</strong> a la formación en
+  operación de plantas.</p>
+</div>
+
+<h3>Los archivos</h3>
+<table>
+  <tr><th>Archivo</th><th>Qué es</th></tr>
+  <tr><td><code>llamado-LL-2026-14.pdf</code></td><td>El puesto y sus requisitos</td></tr>
+  <tr><td><code>formulario-de-origen.html</code></td><td>El formulario que generó las inscripciones</td></tr>
+  <tr><td><code>inscripciones.csv</code></td><td>Las cuatro respuestas, tal como salieron</td></tr>
+  <tr><td><code>inscripciones.csv.txt</code></td><td>La misma tabla, para abrir con un editor de texto</td></tr>
+  <tr><td><code>adjuntos/</code></td><td>Doce archivos: cuatro currículums, cuatro cartas y cuatro certificados</td></tr>
+</table>
+
+<p>Abrí primero <code>formulario-de-origen.html</code> y mirá qué campos eran de texto libre y cuáles
+eran listas desplegables. Después abrí el CSV. Vas a entender enseguida de dónde sale el desorden.</p>
+
+<div class="paso"><span class="n">Paso 1 · unos 10 minutos</span><span class="t">Limpiar y normalizar el CSV</span></div>
+
+<p>Abrí <code>inscripciones.csv.txt</code>, copiá todo y usá este prompt. Está en <code>.txt</code>
+justamente para que se abra con un editor de texto: si abrís el <code>.csv</code>, la planilla se lo
+queda y después cuesta sacarlo de ahí.</p>
+
+<pre>Actúa como responsable de calidad de datos.
+
+&lt;datos&gt;
+{{PEGAR AQUÍ TODO EL CONTENIDO DE inscripciones.csv}}
+&lt;/datos&gt;
+
+&lt;tarea&gt;
+Devolvé el mismo CSV con estas correcciones, sin agregar ni quitar filas:
+1. nombre_completo: separá en dos columnas, "apellido" y "nombres", con mayúscula
+   inicial y las tildes que correspondan. Si no podés decidir cuál es el apellido,
+   dejá la celda con REVISAR y no adivines.
+2. dni: solo números, sin puntos ni espacios.
+3. correo: todo en minúsculas.
+4. horas_declaradas: solo el número, sin "hs" ni "horas".
+5. experiencia_declarada_anios: solo el número.
+6. No toques las columnas de archivos.
+&lt;/tarea&gt;
+
+&lt;salida&gt;
+Devolvé únicamente el CSV, con encabezado, separado por comas y sin ningún texto
+adicional ni marcas de bloque de código.
+&lt;/salida&gt;</pre>
+
+<div class="nota">
+  <p><strong>Antes de seguir, comprobá tres cosas:</strong> que siguen siendo cuatro filas, que
+  ningún DNI cambió de dígitos, y que los nombres separados en apellido y nombres son los correctos.
+  Guardá el resultado: lo vas a necesitar en el paso 5.</p>
+</div>
+
+<div class="paso"><span class="n">Paso 2 · unos 8 minutos</span><span class="t">Extraer de los currículums</span></div>
+
+<p>Adjuntá los cuatro archivos <code>cv-*.pdf</code> —o pegá su texto, uno tras otro— y usá este prompt.</p>
+
+<pre>Actúa como analista de selección de personal.
+
+Te adjunto cuatro currículums de postulantes a un mismo llamado.
+
+&lt;tarea&gt;
+Devolvé un CSV con una fila por currículum y estas columnas exactas:
+apellido, nombres, dni, puesto_actual, lugar, desde, hasta, anios_experiencia, otros_cursos
+
+Reglas:
+1. "desde" y "hasta" van tal como figuran en el documento.
+2. "anios_experiencia" se calcula desde la fecha de inicio hasta agosto de 2026,
+   en años y meses. Ejemplo: 2 años y 4 meses.
+3. Si un dato no está en el documento, escribí NA.
+4. Si el documento lo dice pero no se puede leer con seguridad, escribí ILEGIBLE.
+   NA e ILEGIBLE no son lo mismo y no hay que mezclarlos.
+5. No completes ningún dato por deducción ni por parecido con otro postulante.
+&lt;/tarea&gt;
+
+&lt;salida&gt;
+Solo el CSV, con encabezado, sin texto adicional.
+Después del CSV, agregá una lista titulada "No pude determinar" con una línea por
+cada celda que quedó en NA o ILEGIBLE, indicando de qué archivo se trata y por qué.
+&lt;/salida&gt;</pre>
+
+<div class="paso"><span class="n">Paso 3 · unos 6 minutos · se puede saltear</span><span class="t">Extraer de las cartas</span></div>
+
+<p>Mismo procedimiento con los cuatro <code>carta-*.pdf</code>. La disponibilidad que traen no decide
+ningún requisito, así que <strong>si vas con el tiempo justo, saltealo</strong> y seguí en el paso 4.
+El paso 5 funciona igual con tres tablas.</p>
+
+<pre>Actúa como analista de selección de personal.
+
+Te adjunto cuatro cartas de presentación de postulantes a un mismo llamado.
+
+&lt;tarea&gt;
+Devolvé un CSV con una fila por carta y estas columnas exactas:
+apellido, nombres, dni, disponibilidad, motivo_declarado
+
+Reglas:
+1. "disponibilidad" es lo que la persona dice que puede cubrir, en sus palabras.
+2. Si un dato no está, escribí NA. Si está pero no se puede leer, escribí ILEGIBLE.
+3. No interpretes ni resumas el motivo: transcribilo.
+&lt;/tarea&gt;
+
+&lt;salida&gt;
+Solo el CSV, con encabezado, sin texto adicional.
+Después, la lista "No pude determinar".
+&lt;/salida&gt;</pre>
+
+<div class="paso"><span class="n">Paso 4 · unos 12 minutos</span><span class="t">Extraer de los certificados</span></div>
+
+<p>Este es el paso interesante. Los cuatro certificados <strong>no llegaron de la misma manera</strong>:
+uno es un PDF con texto, otro es un escaneo, otro es una foto y otro es una captura de pantalla.
+Adjuntalos igual y mirá qué pasa con cada uno.</p>
+
+<pre>Actúa como analista de selección de personal.
+
+Te adjunto cuatro certificados de formación de postulantes a un mismo llamado.
+Llegaron en formatos distintos: alguno es un archivo de texto, alguno es una
+imagen escaneada o fotografiada, y alguno puede estar incompleto.
+
+&lt;tarea&gt;
+Devolvé un CSV con una fila por certificado y estas columnas exactas:
+archivo, nombre_en_certificado, dni, curso, horas_certificadas, entidad, anio, expediente
+
+Reglas:
+1. "archivo" es el nombre del archivo del que sacaste esa fila.
+2. "horas_certificadas" es solo el número que figura en el certificado.
+3. Si el certificado no muestra un dato, escribí NA.
+4. Si el dato debería estar pero la imagen no lo muestra o no se lee, escribí
+   ILEGIBLE. No lo deduzcas del nombre del curso ni de los otros certificados.
+5. No uses en ningún caso los datos del formulario de inscripción.
+&lt;/tarea&gt;
+
+&lt;salida&gt;
+Solo el CSV, con encabezado, sin texto adicional.
+Después, la lista "No pude determinar", con el motivo de cada celda vacía.
+&lt;/salida&gt;</pre>
+
+<div class="nota">
+  <p><strong>Mirá con atención la fila de cada certificado.</strong> ¿Los cuatro se leyeron igual de
+  bien? ¿Alguno devolvió un número que no está en el documento? Anotá lo que encuentres: es lo que
+  vamos a comparar al final.</p>
+</div>
+
+<div class="paso"><span class="n">Paso 5 · unos 10 minutos</span><span class="t">Fusionar las cuatro tablas</span></div>
+
+<pre>Actúa como responsable de consolidación de datos.
+
+Te paso cuatro tablas del mismo proceso de selección. Cada una tiene una fila por
+postulante, pero los nombres pueden estar escritos de manera distinta en cada una.
+
+&lt;tabla_inscripciones&gt;
+{{PEGAR EL CSV LIMPIO DEL PASO 1}}
+&lt;/tabla_inscripciones&gt;
+
+&lt;tabla_curriculums&gt;
+{{PEGAR EL CSV DEL PASO 2}}
+&lt;/tabla_curriculums&gt;
+
+&lt;tabla_cartas&gt;
+{{PEGAR EL CSV DEL PASO 3}}
+&lt;/tabla_cartas&gt;
+
+&lt;tabla_certificados&gt;
+{{PEGAR EL CSV DEL PASO 4}}
+&lt;/tabla_certificados&gt;
+
+&lt;tarea&gt;
+1. Unificá las cuatro tablas en una sola, con una fila por persona.
+2. Usá el DNI para emparejar. Si un DNI no coincide entre tablas, no fusiones esas
+   filas: dejálas separadas y avisá.
+3. Conservá por separado, sin mezclarlas, las columnas que vienen del formulario y
+   las que vienen de los documentos. Por ejemplo: horas_declaradas y
+   horas_certificadas tienen que quedar las dos.
+4. Mantené NA e ILEGIBLE tal como estaban.
+&lt;/tarea&gt;
+
+&lt;salida&gt;
+Solo el CSV consolidado, con encabezado.
+Después, una sección "Diferencias entre lo declarado y lo documentado", con una
+línea por cada dato que no coincida entre el formulario y los adjuntos.
+&lt;/salida&gt;</pre>
+
+<div class="nota">
+  <p><strong>Este CSV consolidado es la base de todo lo que sigue.</strong> Leé con atención la
+  sección de diferencias: ahí aparece lo que no se veía en ninguna tabla por separado.</p>
+</div>
+
+<div class="paso"><span class="n">Paso 6 · unos 10 minutos</span><span class="t">Evaluar, puntuar y ordenar</span></div>
+
+<p>Ahora sí, la pregunta del llamado. Un solo prompt hace las tres cosas.</p>
+
+<pre>Actúa como responsable de un proceso de selección en un organismo público.
+
+&lt;matriz&gt;
+{{PEGAR EL CSV CONSOLIDADO DEL PASO 5}}
+&lt;/matriz&gt;
+
+&lt;requisitos_excluyentes&gt;
+R1 · Formación específica en operación de plantas de tratamiento de efluentes o de
+     potabilización de agua. La formación ambiental de carácter general NO la reemplaza.
+R2 · Al menos 120 horas acreditadas en esa formación. Valen las horas que figuran en
+     el certificado, no las declaradas en el formulario.
+R3 · Al menos 2 años de experiencia en operación o mantenimiento de plantas.
+&lt;/requisitos_excluyentes&gt;
+
+&lt;deseable&gt;
+D1 · Curso de seguridad en espacios confinados. Solo desempata, no habilita.
+&lt;/deseable&gt;
+
+&lt;tarea&gt;
+1. Agregá una columna por requisito —cumple_R1, cumple_R2, cumple_R3— con uno de
+   estos tres valores y ninguno más: SÍ, NO, NO SE PUEDE DETERMINAR.
+2. Usá NO SE PUEDE DETERMINAR cuando el dato necesario esté en NA o ILEGIBLE.
+   No lo resuelvas con lo declarado en el formulario ni por aproximación.
+3. Agregá una columna "resultado" con: ADMITIDO si los tres requisitos son SÍ;
+   NO ADMITIDO si alguno es NO; PENDIENTE DE DOCUMENTACIÓN si alguno es
+   NO SE PUEDE DETERMINAR y ninguno es NO.
+4. Agregá una columna "motivo" que explique el resultado en una línea, citando el
+   dato y de qué archivo salió.
+&lt;/tarea&gt;
+
+&lt;salida&gt;
+Primero, el CSV completo con las columnas nuevas.
+
+Después, tres listas separadas:
+· ORDEN DE MÉRITO — solo quienes quedaron ADMITIDOS, ordenados por horas
+  certificadas por encima del mínimo y, si empatan, por años de experiencia y
+  por el requisito deseable. Numerada.
+· PENDIENTES — con qué documento habría que pedirle a cada persona.
+· NO ADMITIDOS — con el requisito que no cumple y el dato que lo prueba.
+
+Ninguna persona con un NO SE PUEDE DETERMINAR puede entrar al orden de mérito.
+&lt;/salida&gt;</pre>
+
+<div class="nota">
+  <p><strong>Leé el orden de mérito antes de seguir.</strong> ¿Cuántas personas quedaron admitidas de
+  las cuatro? ¿Alguien quedó en PENDIENTE? Si el asistente puso a alguien en el orden de mérito
+  teniendo una celda en NO SE PUEDE DETERMINAR, volvé a pedírselo: esa regla no es negociable.</p>
+</div>
+
+<div class="paso"><span class="n">Paso 7 · unos 10 minutos</span><span class="t">El informe</span></div>
+
+<p>El último paso convierte la tabla en algo que una persona pueda leer y firmar.</p>
+
+<pre>Actúa como quien redacta el acta de un proceso de selección.
+
+&lt;matriz_evaluada&gt;
+{{PEGAR EL CSV Y LAS TRES LISTAS DEL PASO 6}}
+&lt;/matriz_evaluada&gt;
+
+&lt;tarea&gt;
+Escribí un informe breve en Markdown, dirigido a la Secretaría de Servicios
+Sanitarios, con esta estructura:
+
+# Informe de evaluación · Llamado LL-2026-14
+
+## Qué se evaluó
+Cuántas postulaciones se recibieron y qué documentación presentó cada una.
+
+## Cómo se evaluó
+Los tres requisitos excluyentes y la regla de que valen las horas del certificado.
+
+## Resultados
+El orden de mérito, los pendientes y los no admitidos, cada uno con su motivo.
+
+## Lo que no se pudo verificar
+Una lista de cada dato que quedó sin determinar, con el archivo del que debía salir
+y qué habría que pedir para resolverlo.
+
+## Recomendación
+Qué corresponde hacer ahora. No propongas contratar a nadie: proponé el próximo
+paso administrativo.
+
+Reglas:
+1. No agregues datos que no estén en la matriz.
+2. No estimes ni redondees ninguna cifra.
+3. Cerrá el informe con una línea que aclare que este documento ordena evidencia
+   y no reemplaza la decisión del área.
+&lt;/tarea&gt;
+
+&lt;salida&gt;
+Solo el informe en Markdown, sin comentarios previos ni posteriores.
+&lt;/salida&gt;</pre>
+
+<div class="nota">
+  <p><strong>Y ahora pasalo a documento.</strong> Copiá el Markdown, pegalo en un procesador de texto
+  y guardalo como archivo. Fijate qué se conservó al pegar —los títulos, las listas— y qué hubo que
+  arreglar a mano. Es el mismo asunto del lunes: <strong>un texto se lee, un artefacto se abre.</strong></p>
+</div>
+
+<h2>Antes de cerrar</h2>
+
+<h3>Los tres controles</h3>
+
+<p>Los mismos de la clase del lunes, aplicados a lo que acabás de producir:</p>
+
+<ol>
+  <li><strong>Procedencia.</strong> ¿Cada dato de la tabla dice de qué archivo salió? Si no, no se
+  puede auditar.</li>
+  <li><strong>Muestreo.</strong> Elegí <strong>tres celdas al azar</strong> y comprobalas abriendo el
+  documento original. Tres, en serio: no todas, pero tampoco ninguna.</li>
+  <li><strong>Lo que no pudo.</strong> Revisá las listas de «No pude determinar» de los pasos 2, 3
+  y 4. ¿Coinciden con lo que vos hubieras marcado mirando los archivos?</li>
+</ol>
+
+<div class="nota">
+  <p><strong>Una tabla completa, sin ningún NA ni ILEGIBLE, construida sobre archivos tan desparejos,
+  no es señal de calidad.</strong> Es señal de que algo se completó solo.</p>
+</div>
+
+<h3>Para la puesta en común</h3>
+
+<p>Vamos a armar una sola tabla entre todos. Vení con estas cuatro respuestas anotadas:</p>
+
+<ul>
+  <li>¿Cuántas celdas te quedaron en NA y cuántas en ILEGIBLE?</li>
+  <li>¿Encontraste alguna diferencia entre lo que una persona declaró y lo que dicen sus documentos?</li>
+  <li>¿Alguno de los cuatro certificados se resistió más que los otros? ¿Por qué?</li>
+  <li>Volvé al formulario de origen: <strong>¿qué campo, diseñado de otra manera, te habría ahorrado
+  la mitad del trabajo del paso 1?</strong></li>
+</ul>
+
+<h2>Lo que no hacemos hoy</h2>
+
+<p>No decidimos a quién contratar. Esta tabla <strong>no decide</strong>: ordena evidencia para que
+una persona decida, y deja registrado qué no se pudo verificar. Las celdas en ILEGIBLE son
+justamente lo que impide que el proceso se resuelva solo.</p>
+
+<p>De cuatro postulaciones, mirá con cuántas se puede resolver el llamado. Y mirá por qué una de
+ellas quedó sin resolver: no por lo que la persona hizo o dejó de hacer, sino por <strong>cómo llegó
+un archivo</strong>.</p>
+
+<div class="footer-note">
+  Municipalidad de Puerto Norte, el llamado LL-2026-14, las cuatro personas y todos sus documentos
+  son ficticios y fueron preparados con fines educativos.
+</div>
+
+<script>
+(function () {
+  function copiar(texto, boton) {
+    function listo() {
+      var antes = boton.textContent;
+      boton.textContent = "Copiado";
+      boton.classList.add("ok");
+      setTimeout(function () { boton.textContent = antes; boton.classList.remove("ok"); }, 1600);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(texto).then(listo, function () { alterno(texto, listo); });
+    } else { alterno(texto, listo); }
+  }
+  function alterno(texto, listo) {
+    var t = document.createElement("textarea");
+    t.value = texto;
+    t.setAttribute("readonly", "");
+    t.style.cssText = "position:fixed;top:-1000px;opacity:0";
+    document.body.appendChild(t);
+    t.select();
+    try { document.execCommand("copy"); listo(); } catch (e) {}
+    t.remove();
+  }
+  Array.prototype.forEach.call(document.querySelectorAll("pre"), function (pre) {
+    var caja = document.createElement("div");
+    caja.className = "envoltorio";
+    pre.parentNode.insertBefore(caja, pre);
+    caja.appendChild(pre);
+    var barra = document.createElement("div");
+    barra.className = "barra-copiar";
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "copiar";
+    b.textContent = "Copiar prompt";
+    b.setAttribute("aria-label", "Copiar este prompt al portapapeles");
+    b.onclick = function () { copiar(pre.textContent, b); };
+    barra.appendChild(b);
+    caja.insertBefore(barra, pre);
+  });
+})();
+
+(function () {
+  var PASOS = [0.85, 1, 1.15, 1.3, 1.5], i = 1;
+  try { var g = localStorage.getItem("consignaEsc"); if (g !== null) i = Math.min(PASOS.length - 1, Math.max(0, +g)); } catch (e) {}
+  function aplicar() {
+    document.documentElement.style.setProperty("--esc", PASOS[i]);
+    try { localStorage.setItem("consignaEsc", i); } catch (e) {}
+  }
+  window.escala = function (d) {
+    i = d === 0 ? 1 : Math.min(PASOS.length - 1, Math.max(0, i + d));
+    aplicar();
+  };
+  aplicar();
+})();
+</script>
+</body>
+</html>

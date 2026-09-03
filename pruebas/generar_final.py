@@ -3,7 +3,7 @@ import csv
 import os
 import math
 
-input_ods = r"c:\Users\Ramoncito\.antigravity-ide\Tecnologias de la informacion para la gestion\Final prueba ejemplo\final2024.ods"
+input_ods = r"c:\Users\Ramoncito\.antigravity-ide\Tecnologias de la informacion para la gestion\Actividad - Propuesta\Final 2024\final2024.ods"
 output_dir = r"c:\Users\Ramoncito\.antigravity-ide\Tecnologias de la informacion para la gestion\Entregables\Final 2024"
 os.makedirs(output_dir, exist_ok=True)
 

@@ -7,7 +7,7 @@ import csv
 import os
 
 # 1. Rutas
-input_excel = "../Final prueba ejemplo/final2024.xlsx"
+input_excel = "../Actividad - Propuesta/Final 2024/final2024.xlsx"
 out_dir = "../Entregables/Final 2024"
 out_excel = os.path.join(out_dir, "final2024.xlsx")
 out_csv = os.path.join(out_dir, "final-TIC2024.csv")

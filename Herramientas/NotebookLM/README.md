@@ -1,37 +1,52 @@
-# 🚀 NotebookLM Antigravity MCP Setup
+# 🚀 Módulo NotebookLM · Integración MCP en Antigravity
 
-Este directorio contiene los archivos y la configuración necesarios para integrar **Google NotebookLM** dentro de **Antigravity IDE** a través del protocolo MCP (Model Context Protocol).
-
----
-
-## 📁 Estructura del Proyecto
-
-- **`.agents/skills/using-notebooklm-mcp/SKILL.md`**: Instrucciones estructuradas para que los agentes inteligentes de Antigravity sepan cómo interactuar de forma consistente con las herramientas del MCP.
-- **`cookies.txt`**: Archivo temporal utilizado para importar tus credenciales y cookies de sesión del navegador.
-- **`mcp_settings_backup.json`**: Una copia de respaldo de la configuración que agregamos a tu editor.
+Este directorio almacena la suite completa de configuración, guías y fuentes documentales utilizadas para operar **Google NotebookLM** desde **Antigravity IDE** a través del protocolo **MCP (Model Context Protocol)**.
 
 ---
 
-## ⚙️ ¿Dónde están las configuraciones reales?
+## 📁 Arquitectura Interna del Módulo
 
-Para que funcionen globalmente y a nivel de editor, los archivos se instalan en estas ubicaciones del sistema:
-
-1. **Credenciales (`auth.json`)**: 
-   Guardado en `C:\Users\Ramoncito\.notebooklm-mcp\auth.json`. Este archivo guarda tus tokens de sesión validados y es el que lee el servidor.
-   
-2. **Configuración del Editor (`cline_mcp_settings.json`)**:
-   Ubicado en el almacenamiento global de Antigravity IDE:
-   `c:\Users\Ramoncito\AppData\Roaming\Antigravity IDE\User\globalStorage\saoudrizwan.claude-dev\settings\cline_mcp_settings.json`
-   Esto le indica al editor que levante automáticamente el servidor MCP.
+```text
+Herramientas/NotebookLM/
+├── config/                      # Credenciales y archivos de configuración del servidor MCP
+│   ├── cookies.txt              # Tokens de sesión para autenticación inicial
+│   └── mcp_settings_backup.json # Respaldo de configuración del cliente MCP
+├── documentacion/               # Manuales de uso, guías técnicas y transcripciones
+│   ├── notebooklm_mcp_guide.md  # Guía de comandos y herramientas del servidor FastMCP
+│   ├── tutorial_instalacion.txt # Pasos detallados para instalación y verificación
+│   └── transcripcion_video.txt  # Transcripción del tutorial audiovisual
+├── fuentes/                     # Colección de documentos analizados en los cuadernos
+│   ├── administracion_publica/  # Monografías sobre gobernanza y administración pública
+│   ├── arquitectura_sistemas/   # Especificaciones de diseño de sistemas y arquitectura móvil
+│   ├── exploracion_prompts/     # Guías de experimentación con prompts
+│   └── laboratorio_prompts/     # Datasets y casos prácticos de procesamiento documental
+├── multimedia/                  # Material de video y demostraciones locales (.mp4)
+├── .agents/                     # Skills del agente inteligente (using-notebooklm-mcp)
+└── README.md                    # Documentación ejecutiva del módulo
+```
 
 ---
 
-## 🛠️ Re-autenticación (Si tu sesión expira)
+## ⚙️ Rutas de Configuración en el Sistema
 
-Si en el futuro recibes un error diciendo que tu sesión ha expirado:
-1. Abre tu terminal habitual (PowerShell o CMD).
-2. Ejecuta:
-   ```powershell
-   notebooklm-mcp-auth
-   ```
-3. Se abrirá una ventana de Chrome para que inicies sesión en Google, y el terminal guardará las cookies automáticamente.
+Para que el servidor MCP opere a nivel global en Antigravity IDE:
+
+1. **Credenciales Validadas:**
+   * Archivo: `C:\Users\Ramoncito\.notebooklm-mcp\auth.json`
+   * Almacena las cookies y tokens de sesión activos leídos por el servidor.
+
+2. **Configuración del Editor:**
+   * Archivo: `C:\Users\Ramoncito\AppData\Roaming\Antigravity IDE\User\globalStorage\saoudrizwan.claude-dev\settings\cline_mcp_settings.json`
+   * Instancia el ejecutable `notebooklm-mcp.exe`.
+
+---
+
+## 🔄 Re-autenticación de Sesión
+
+Si la sesión de Google expira, ejecutá en cualquier terminal de PowerShell o CMD:
+
+```powershell
+notebooklm-mcp-auth
+```
+
+Se abrirá el navegador para autenticar tu cuenta y actualizar las cookies automáticamente.

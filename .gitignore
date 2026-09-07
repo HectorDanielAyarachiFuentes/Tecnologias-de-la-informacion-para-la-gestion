@@ -6,6 +6,10 @@
 
 # Archivos de seguridad y credenciales
 cookies.txt
+*.cookie
+*.cookies
+auth.json
+.notebooklm-mcp/
 *.key
 *.pem
 *.env

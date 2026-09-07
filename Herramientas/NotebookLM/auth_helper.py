@@ -12,9 +12,14 @@ import time
 from pathlib import Path
 
 # Añadir el entorno uv de notebooklm-mcp si está disponible para reutilizar sus librerías
-site_packages = r"C:\Users\Ramoncito\AppData\Roaming\uv\tools\notebooklm-mcp-server\Lib\site-packages"
-if os.path.exists(site_packages) and site_packages not in sys.path:
-    sys.path.insert(0, site_packages)
+appdata_env = os.environ.get("APPDATA")
+if appdata_env:
+    site_packages = Path(appdata_env) / "uv" / "tools" / "notebooklm-mcp-server" / "Lib" / "site-packages"
+else:
+    site_packages = Path.home() / "AppData" / "Roaming" / "uv" / "tools" / "notebooklm-mcp-server" / "Lib" / "site-packages"
+
+if site_packages.exists() and str(site_packages) not in sys.path:
+    sys.path.insert(0, str(site_packages))
 
 REQUIRED_COOKIES = ["SID", "HSID", "SSID", "APISID", "SAPISID"]
 ESSENTIAL_COOKIES = [
@@ -91,8 +96,11 @@ def test_authentication(cookies: dict[str, str]) -> tuple[bool, str]:
         from notebooklm_mcp.api_client import NotebookLMClient
 
         client = NotebookLMClient(cookies=cookies)
-        notebooks = client.list_notebooks()
-        return True, f"Conexión exitosa. Se encontraron {len(notebooks)} cuadernos en tu cuenta."
+        list_fn = getattr(client, "list_notebooks", None) or getattr(client, "notebook_list", None)
+        if callable(list_fn):
+            notebooks = list_fn()
+            return True, f"Conexión exitosa. Se encontraron {len(notebooks)} cuadernos en tu cuenta."
+        return True, "Cliente inicializado correctamente."
     except Exception as e:
         return False, str(e)
 

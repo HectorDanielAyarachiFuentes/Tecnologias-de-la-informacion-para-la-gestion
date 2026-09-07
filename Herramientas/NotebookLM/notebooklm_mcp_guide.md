@@ -58,11 +58,12 @@ Elige el método que te resulte más cómodo:
    {
      "mcpServers": {
        "notebooklm": {
-         "command": "C:\\Users\\Ramoncito\\.local\\bin\\notebooklm-mcp.exe"
+         "command": "C:\\Users\\<TuUsuario>\\.local\\bin\\notebooklm-mcp.exe"
        }
      }
    }
    ```
+   *(Nota: Reemplaza `<TuUsuario>` por tu usuario real de Windows, por ejemplo `Ramoncito`).*
 3. Guarda el archivo de configuración y haz clic en **Refresh** (Actualizar) en la pestaña MCP de tu editor.
 
 ---
@@ -76,4 +77,4 @@ A continuación, se listan los problemas y bloqueos más frecuentes que ocurren 
 | **"Authentication expired"** (a pesar de tener cookies nuevas) | **Incompatibilidad de Dominio:** Google cambió su dominio a `notebook.google.com`. Las cookies pertenecen a ese nuevo dominio, pero la librería tiene hardcodeado el antiguo subdominio `notebooklm.google.com`. | Edita el archivo `api_client.py` en tu librería de Python (`%APPDATA%\uv\tools\notebooklm-mcp-server\Lib\site-packages\notebooklm_mcp\api_client.py`) y cambia la línea 196 a:<br>`BASE_URL = "https://notebook.google.com"` |
 | **`WebSocketBadStatusException`** (al autenticar en modo automático) | **Procesos en segundo plano / Aislamiento de GUI:** Hay procesos de Chrome activos en segundo plano que bloquean la conexión, o el terminal de la IA inició Chrome de forma invisible en una sesión aislada. | 1. Cierra todos tus navegadores Chrome activos.<br>2. Ejecuta `taskkill /F /IM chrome.exe` en tu terminal para forzar el cierre.<br>3. Utiliza la autenticación manual por archivo (`--file`) explicada en el Paso B y C. |
 | **`Required cookies are missing: ['HSID', 'SSID']`** | **Limitación del Sandbox de Javascript:** Intentaste extraer las cookies inyectando un script (`document.cookie` o `cookieStore`) desde la consola del navegador. Google bloquea el acceso a cookies críticas marcadas como `HttpOnly`. | No utilices scripts ni consolas para extraer las cookies. Copia la cookie directamente desde la sección **Request Headers** en la pestaña **Network** (Red) de las herramientas de desarrollo, tal como se detalla en el Paso B. |
-| **`Unknown tool: 'list_notebooks'`** | **Cambio de versión de la herramienta:** El nombre del comando stdio fue actualizado en la última versión de la librería del servidor. | Las herramientas válidas de la versión actual para listar cuadernos son `notebook_list` y `notebook_get`. |
+| **`Unknown tool: 'list_notebooks'`** | **Diferencia de nombres en herramientas MCP:** El nombre de la herramienta MCP expuesta en stdio fue actualizado en la última versión de la librería del servidor. | Las herramientas válidas actuales expuestas al asistente MCP son `notebook_list` y `notebook_get` (mientras que en el cliente Python interno de la librería se utiliza `client.list_notebooks()`). |

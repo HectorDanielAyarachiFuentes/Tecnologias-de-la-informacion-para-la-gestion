@@ -19,6 +19,26 @@ This skill provides step-by-step instructions on how to use the NotebookLM Model
 - NotebookLM MCP Server (`notebooklm-mcp.exe` and `notebooklm-mcp-auth.exe`).
 - Valid cookies stored in `~/.notebooklm-mcp/auth.json`.
 
+## Authentication & Re-authentication Workflow
+
+If authentication is missing or expired (RPC Error 16):
+
+1. **Zero-Prompt Re-auth (Agent Auto-Check):**
+   The agent runs:
+   ```powershell
+   python auth_helper.py --auto
+   ```
+   If valid cookies are in the clipboard, it updates `~/.notebooklm-mcp/auth.json` immediately and calls `refresh_auth`.
+
+2. **1-Click Extraction via Chrome Extension (`chrome_extension/`):**
+   - User clicks the **NotebookLM Sync** extension icon in Chrome while on `notebooklm.google.com` or `notebook.google.com` (Gemini Notebook).
+   - Cookies (including HttpOnly `SID`/`HSID` and service `OSID`) are instantly copied to clipboard.
+   - User tells the agent: *"conéctate"* or *"has tu magia"*.
+
+3. **Manual Extraction (DevTools F12):**
+   - **DevTools:** In NotebookLM press `F12` -> `Network` -> `F5` -> click `batchexecute` -> copy `cookie:` header -> paste in chat or run `python auth_helper.py`.
+   - **CLI Auto Mode:** Close Chrome and run `notebooklm-mcp-auth`.
+
 ## Workflow
 
 ### Step 1: Initialize Connection and List Notebooks
@@ -33,7 +53,9 @@ Call `notebook_query` with:
 Call `notebook_add_url` or `notebook_add_text` to import new context.
 
 ### Step 4: Generate Studio Content
-Call `audio_overview_create`, `slide_deck_create`, `quiz_create`, or `infographic_create`. Poll `studio_status` until the generation is complete to get URLs.
+Call `audio_overview_create`, `video_overview_create`, `slide_deck_create`, `quiz_create`, or `infographic_create`.
+- *Note:* Always pass `language: "es"` if working in Spanish.
+- Poll `studio_status` until generation is complete.
 
 ## Validation
 
@@ -43,11 +65,12 @@ Verify execution by calling `notebook_list` and ensuring a `"status": "success"`
 
 | Error | Cause | Resolution |
 |-------|-------|------------|
-| Authentication expired | Cookies in cache are invalid or expired | Run `notebooklm-mcp-auth` in terminal to re-authenticate |
-| Unknown tool | Tool name was changed or misspelled | Refer to list of valid tool names |
+| Authentication expired / 401 | Cookies in cache are invalid or expired | Run `python auth_helper.py` to re-authenticate with fresh cookies |
+| English outputs generated | Default language is `en` | Set `language="es"` explicitly in studio creation tools |
 | Request timeout | Google servers took too long | Set `timeout` parameter to a higher value (up to 120.0) |
 
 ## Resources
 
-- `api_client.py` - Core client library.
-- `server.py` - FastMCP server interface.
+- `auth_helper.py` - CLI tool for fast clipboard/file cookie renewal.
+- `notebooklm_mcp_guide.md` - Complete MCP setup guide.
+

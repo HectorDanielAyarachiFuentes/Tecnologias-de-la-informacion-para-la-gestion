@@ -258,3 +258,5 @@ La investigación comparativa realizada entre el marco analítico nacional del I
 4. **Sistema de Información Territorial Urbano de Neuquén (SITUN)** (2024). *Catastro digital y mapa interactivo georreferenciado*. Disponible en: [https://situn.muninqn.gov.ar/](https://situn.muninqn.gov.ar/) (Acceso: Septiembre 2026).
 5. **Centro Latinoamericano de Administración para el Desarrollo (CLAD)** (2016). *Carta Iberoamericana de Gobierno Abierto*. Aprobada por la XVII Conferencia Iberoamericana de Ministras y Ministros de Administración Pública y Reforma del Estado.
 6. **Organización para la Cooperación y el Desarrollo Económicos (OCDE)** (2020). *Recomendación del Consejo sobre Estrategias de Gobierno Digital*. Publicaciones de la OCDE.
+
+[]{#FinDocumento}

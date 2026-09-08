@@ -29,10 +29,12 @@ Tecnologias de la informacion para la gestion/
 
 ---
 
-## 📄 3. Estándar para Documentos y Reportes (Typst)
+## 📄 3. Estándar para Documentos y Reportes (Typst y Quarto)
 
-1. **Formato Principal:** Todas las entregas académicas, informes y reportes deben redactarse en **Typst (`.typ`)** y compilarse a **PDF (`.pdf`)**.
-2. **Sincronización:** Cada vez que se cree o edite un archivo `.typ`, se debe compilar y actualizar su `.pdf` correspondiente en la carpeta `Entregables/`.
+1. **Formatos Oficiales:**
+   * **Typst (`.typ`):** Formato principal para entregas académicas, informes y reportes maquetados directamente a **PDF (`.pdf`)**.
+   * **Quarto (`.qmd`):** Formato utilizado para actividades que requieran entrega en **Microsoft Word (`.docx`)** con maquetación académica (`plantilla_academica.docx`).
+2. **Sincronización:** Cada vez que se cree o edite un archivo `.typ` o `.qmd`, se debe compilar y actualizar su `.pdf` o `.docx` correspondiente en la carpeta `Entregables/`.
 3. **Estilo Visual e Institucional:**
    * **Tipografía:** *Arial* o *Segoe UI*, tamaño base `9.5pt` a `10pt`, interlineado `0.65em` a `0.7em`.
    * **Paleta de Colores:**
@@ -50,6 +52,18 @@ Tecnologias de la informacion para la gestion/
 6. **Integración Obligatoria del Logotipo de CURZAS (`Logotipo de curzas/CURZAS.png`):**
    * **En la Carátula:** Debe figurar el logotipo oficial en tamaño grande y destacado en la portada (`width: 110pt` a `140pt`).
    * **En el Pie de Página:** Debe incluirse en el centro del pie de página, entre el texto informativo de la izquierda y la numeración de la derecha, en tamaño reducido pero nítido y visible (`height: 12pt` a `15pt`).
+
+---
+
+## ⚡ 3.1. Auto-Compilación Dual en Segundo Plano (Regla de CERO COMANDOS)
+
+* **REGLA ESTRICTA PARA EL AGENTE:** **Bajo ninguna circunstancia se debe exigir o pedir al usuario que escriba comandos manuales en la terminal para compilar.** El flujo debe ser 100% automático, transparente y desatendido.
+* **Mecanismo de Observación (`auto_compilar_typst.py`):** El motor [plantillas_pdf/1_typst/auto_compilar_typst.py](file:///c:/Users/Ramoncito/.antigravity-ide/Tecnologias%20de%20la%20informacion%20para%20la%20gestion/plantillas_pdf/1_typst/auto_compilar_typst.py) vigila continuamente tanto archivos `.typ` como `.qmd`.
+* **Disparo Automático:** Cada vez que se guarda un cambio (<kbd>Ctrl</kbd> + <kbd>S</kbd>):
+  * Los archivos `.typ` se compilan inmediatamente a `.pdf` (vía `typst.compile`, ~0.15s).
+  * Los archivos `.qmd` se compilan a `.docx` (vía Quarto CLI, ~2.5s).
+* **Arranque Automático en el Editor:** Está configurado en `.vscode/tasks.json` (`runOn: folderOpen`) y `.vscode/settings.json` (`"task.allowAutomaticTasks": "on"`). Al abrir el espacio de trabajo en el IDE, el auto-compilador se inicia solo en segundo plano.
+* **Tolerancia a Bloqueos de Windows:** Si un archivo `.docx` o `.pdf` está abierto en Microsoft Word o Adobe Acrobat, el compilador detecta el bloqueo mediante Win32 API (`CreateFileW`), notifica con sonido suave y recompila automáticamente en cuanto el usuario cierra el documento, sin abortar ni generar errores.
 
 ---
 

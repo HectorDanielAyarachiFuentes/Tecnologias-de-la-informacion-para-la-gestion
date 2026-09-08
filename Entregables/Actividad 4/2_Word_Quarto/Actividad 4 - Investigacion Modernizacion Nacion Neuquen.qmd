@@ -53,7 +53,17 @@ Investigar, describir y analizar comparativamente las políticas públicas y pla
 | **ESTUDIANTE / AUTOR:** | **Hector Daniel Ayarachi Fuentes** |
 | **FECHA DE PRESENTACIÓN:** | 2 de Septiembre de 2026 |
 
-{{< pagebreak >}}
+```{=openxml}
+<w:p xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+  <w:pPr>
+    <w:sectPr>
+      <w:type w:val="nextPage"/>
+      <w:titlePg/>
+      <w:pgNumType w:start="1"/>
+    </w:sectPr>
+  </w:pPr>
+</w:p>
+```
 
 # Índice General
 

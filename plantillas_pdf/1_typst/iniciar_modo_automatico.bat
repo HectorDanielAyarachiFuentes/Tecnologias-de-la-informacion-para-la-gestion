@@ -1,5 +1,6 @@
 @echo off
-title Typst Auto-Compiler (Modo Automatico)
+chcp 65001 > nul
+title Auto-Compilador Dual (Typst + Quarto)
 cls
-python "%~dp0auto_compilar_typst.py"
+python -u "%~dp0auto_compilar_typst.py"
 pause

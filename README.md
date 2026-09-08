@@ -85,22 +85,23 @@ A diferencia del formateo manual en procesadores tradicionales, todos los entreg
 * **Color de Texto Atenuado:** `#4b6575`
 * **Fondos Suaves (Callouts / Tarjetas):** `#f2f7f7` / `#fdf6ee`
 
-### 2. Auto-Compilación en Tiempo Real (Watcher)
-Para trabajar con previsualización instantánea al guardar (`Ctrl + S`), se incluye un script en Python que monitorea los archivos `.typ`:
+### 2. Auto-Compilación Dual 100% Automática (Typst + Quarto)
+**Cero comandos manuales:** El sistema está diseñado para que el autor no tenga que escribir comandos en la terminal. El compilador se ejecuta automáticamente en segundo plano:
+* **Flujo transparente:** Editás cualquier documento y presionás <kbd>Ctrl</kbd> + <kbd>S</kbd>. El sistema compila solo.
+* **Archivos Typst (`.typ`):** Compilación instantánea a `.pdf` en ~0.15s.
+* **Archivos Quarto (`.qmd`):** Compilación a `.docx` (manteniendo `plantilla_academica.docx`) en ~2.5s.
+* **Protección contra bloqueos:** Si el archivo `.docx` está abierto en Microsoft Word o el `.pdf` en Adobe Acrobat, el compilador avisa con un sonido suave y espera automáticamente a que cierres el archivo para compilarlo sin errores.
+* **Inicio Automático en el IDE:** Gracias a `.vscode/settings.json` (`task.allowAutomaticTasks`), el compilador arranca solo al abrir la carpeta del proyecto en el editor.
+* **Lanzador manual opcional:** Si se desea iniciar fuera del editor, basta con hacer doble clic en `INICIAR_COMPILADOR.bat` (sin escribir comandos).
 
+
+### 3. Compilación Manual Específica
 ```bash
-# Iniciar el monitor automático de compilación
-python plantillas_pdf/1_typst/auto_compilar_typst.py
-```
-
-O ejecutando directamente el acceso directo de Windows:
-```cmd
-plantillas_pdf\1_typst\iniciar_modo_automatico.bat
-```
-
-### 3. Compilación Manual de un Archivo Específico
-```bash
+# Typst a PDF
 python -c "import typst; typst.compile('Entregables/Actividad 4/1_PDF_Typst/Actividad 4 - Investigacion Modernizacion Nacion Neuquen.typ', output='Entregables/Actividad 4/1_PDF_Typst/Actividad 4 - Investigacion Modernizacion Nacion Neuquen.pdf', root='.')"
+
+# Quarto a Word (DOCX)
+quarto render "Entregables/Actividad 4/2_Word_Quarto/Actividad 4 - Investigacion Modernizacion Nacion Neuquen.qmd"
 ```
 
 ---

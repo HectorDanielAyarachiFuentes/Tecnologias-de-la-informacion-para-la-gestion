@@ -69,8 +69,9 @@ Tecnologias de la informacion para la gestion/
 
 ## 🧹 4. Higiene y Mantenimiento del Repositorio
 
-* **Prohibido ensuciar la raíz:** Nunca crear scripts temporales, volcados de texto o archivos de prueba (`test_*.py`, `temp_*.typ`, `dump.txt`) en el directorio raíz.
-* **Uso de `pruebas/`:** Cualquier prueba intermedia o script desechable debe ubicarse en `pruebas/` y limpiarse cuando ya no sea necesario.
+* **Prohibido ensuciar la raíz y abuso de scripts:** Nunca crear scripts temporales, volcados de texto o archivos de prueba (`test_*.py`, `temp_*.typ`, `dump.txt`) en el directorio raíz.
+* **Edición Directa y Eficiente:** Los cambios en archivos `.qmd`, `.typ`, `.md` o de código se deben realizar **directamente** utilizando las herramientas de edición (`replace_file_content`, `multi_replace_file_content` o `write_to_file`). **Está estrictamente prohibido crear scripts de Python intermediarios (`apply_*.py`, `add_*.py`, `script_*.py`) para realizar reemplazos o modificaciones de texto.** Esto evita el consumo innecesario de tiempo, tokens y la generación de basura en el repositorio.
+* **Uso de `pruebas/`:** Si excepcionalmente se requiere un script de prueba o procesamiento complejo de datos, este debe ubicarse en `pruebas/` y eliminarse inmediatamente al finalizar.
 * **Archivos pesados:** No duplicar ejecutables binarios pesados (ej. `typst.exe`) en carpetas de entregables; utilizar las librerías instaladas en el entorno Python (`import typst`).
 
 ---

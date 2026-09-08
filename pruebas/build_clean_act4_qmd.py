@@ -1,4 +1,8 @@
----
+import subprocess, os
+
+qmd_path = r"Entregables\Actividad 4\2_Word_Quarto\Actividad 4 - Investigacion Modernizacion Nacion Neuquen.qmd"
+
+qmd_content = """---
 lang: es
 format:
   docx:
@@ -472,3 +476,13 @@ La investigación comparativa realizada entre el marco analítico nacional del I
 6. **Organización para la Cooperación y el Desarrollo Económicos (OCDE)** (2020). *Recomendación del Consejo sobre Estrategias de Gobierno Digital*. Publicaciones de la OCDE.
 
 []{#FinDocumento}
+"""
+
+with open(qmd_path, "w", encoding="utf-8") as f:
+    f.write(qmd_content)
+
+print("QMD completely rebuilt with clean OpenXML elements!")
+subprocess.run(["quarto", "render", qmd_path], capture_output=True, text=True)
+subprocess.run(["powershell", "-ExecutionPolicy", "Bypass", "-File", "pruebas/convert.ps1"], capture_output=True)
+subprocess.run(["python", "pruebas/pdf_to_images.py"], capture_output=True)
+print("Re-rendering complete!")

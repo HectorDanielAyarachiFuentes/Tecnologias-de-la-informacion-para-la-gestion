@@ -1,8 +1,0 @@
----
-format: docx
----
-
-| | |
-|---|---|
-| | ![](../Logotipo de curzas/CURZAS.png){width=2.4in} |
-| | **POLÍTICAS DE MODERNIZACIÓN DEL ESTADO** |

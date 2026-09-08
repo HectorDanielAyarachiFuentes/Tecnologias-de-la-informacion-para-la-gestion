@@ -8,7 +8,7 @@ format:
 ---
 
 ::: {custom-style="Figure"}
-![](../../Logotipo de curzas/CURZAS.png){width=1.85in fig-align="center"}
+![](../../../Logotipo de curzas/CURZAS.png){width=1.85in fig-align="center"}
 :::
 
 ```{=openxml}

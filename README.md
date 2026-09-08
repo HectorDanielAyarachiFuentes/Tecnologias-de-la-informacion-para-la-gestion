@@ -35,7 +35,7 @@ Todos los informes finales cuentan con su código fuente tipográfico y su compi
 | **01** | **Actividad 1:** Laboratorio de Prompts | [📄 Ver PDF](Entregables/Actividad%201/Actividad%201%20-reporte-laboratorio-prompts.pdf) | [`Actividad 1.typ`](Entregables/Actividad%201/Actividad%201%20-reporte-laboratorio-prompts.typ) | Ingeniería de prompts aplicada a la gestión documental y resolución de casos administrativos. |
 | **02** | **Actividad 2:** De los Documentos al Orden de Mérito | [📄 Ver PDF](Entregables/Actividad%202/actividad%202.pdf) | [`actividad 2.typ`](Entregables/Actividad%202/actividad%202.typ) | Procesamiento y depuración de bases de datos de postulantes mediante agentes inteligentes. |
 | **03** | **Actividad Asincrónica 2:** Cuaderno de Fuentes con IA | [📄 Ver PDF](Entregables/Actividad%20asincronica%202/Actividad%20asincronica%202.pdf) | [`Actividad asincronica 2.typ`](Entregables/Actividad%20asincronica%202/Actividad%20asincronica%202.typ) | Investigación con NotebookLM y síntesis multimodal sobre fallas en capacitación pública. |
-| **04** | **Actividad 4:** Modernización del Estado (Nación - Neuquén) | [📄 Ver PDF](Entregables/Actividad%204/Actividad%204%20-%20Investigacion%20Modernizacion%20Nacion%20Neuquen.pdf) | [`Actividad 4.typ`](Entregables/Actividad%204/Actividad%204%20-%20Investigacion%20Modernizacion%20Nacion%20Neuquen.typ) | Estudio comparativo multidimensional: INAP Nación vs. Secretaría de Modernización de Neuquén Capital. |
+| **04** | **Actividad 4:** Modernización del Estado (Nación - Neuquén) | [📄 Ver PDF](Entregables/Actividad%204/1_PDF_Typst/Actividad%204%20-%20Investigacion%20Modernizacion%20Nacion%20Neuquen.pdf) | [`Actividad 4.typ`](Entregables/Actividad%204/1_PDF_Typst/Actividad%204%20-%20Investigacion%20Modernizacion%20Nacion%20Neuquen.typ) | Estudio comparativo multidimensional: INAP Nación vs. Secretaría de Modernización de Neuquén Capital. |
 | **05** | **Examen Final:** Análisis Estadístico de Indicadores TIC | [📄 Ver PDF](Entregables/Final%202024/Informe%20final-TIC2024.pdf) | [`Informe final-TIC2024.typ`](Entregables/Final%202024/Informe%20final-TIC2024.typ) | Reporte analítico con visualización gráfica de datos (gráficos de barra y pastel) sobre digitalización estatal. |
 
 ---
@@ -57,6 +57,8 @@ Tecnologias-de-la-informacion-para-la-gestion/
 │   ├── Actividad 1/
 │   ├── Actividad 2/
 │   ├── Actividad 4/
+│   │   ├── 1_PDF_Typst/     # Código fuente Typst y PDF de alta calidad
+│   │   └── 2_Word_Quarto/   # Código fuente Quarto (.qmd) y render Word (.docx)
 │   ├── Actividad asincronica 2/
 │   └── Final 2024/
 ├── Herramientas/            # Entornos de soporte e integración tecnológica
@@ -98,7 +100,7 @@ plantillas_pdf\1_typst\iniciar_modo_automatico.bat
 
 ### 3. Compilación Manual de un Archivo Específico
 ```bash
-python -c "import typst; typst.compile('Entregables/Actividad 4/Actividad 4 - Investigacion Modernizacion Nacion Neuquen.typ', output='Entregables/Actividad 4/Actividad 4 - Investigacion Modernizacion Nacion Neuquen.pdf', root='.')"
+python -c "import typst; typst.compile('Entregables/Actividad 4/1_PDF_Typst/Actividad 4 - Investigacion Modernizacion Nacion Neuquen.typ', output='Entregables/Actividad 4/1_PDF_Typst/Actividad 4 - Investigacion Modernizacion Nacion Neuquen.pdf', root='.')"
 ```
 
 ---

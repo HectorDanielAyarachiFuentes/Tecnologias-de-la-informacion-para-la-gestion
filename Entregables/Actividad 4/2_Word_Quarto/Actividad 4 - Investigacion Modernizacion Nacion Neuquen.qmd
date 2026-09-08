@@ -379,8 +379,62 @@ A partir de los enlaces oficiales provistos en la consigna docente, se procedió
 
 ## 2.1. Portal Nacional: Observatorio de la Administración Pública (INAP)
 
-*Fuente Oficial:* Ministerio de Desregulación y Transformación del Estado · Instituto Nacional de la Administración Pública (INAP)  
-*Enlace de acceso:* [https://www.argentina.gob.ar/modernizacion/inap/observatorio/lineas-investigacion/modernizacion-del-estado](https://www.argentina.gob.ar/modernizacion/inap/observatorio/lineas-investigacion/modernizacion-del-estado)
+```{=openxml}
+<w:tbl xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+  <w:tblPr>
+    <w:tblW w:w="5000" w:type="pct"/>
+    <w:tblLayout w:type="fixed"/>
+    <w:tblBorders>
+      <w:top w:val="single" w:sz="4" w:space="0" w:color="CBD5E1"/>
+      <w:left w:val="single" w:sz="20" w:space="0" w:color="0E6873"/>
+      <w:bottom w:val="single" w:sz="4" w:space="0" w:color="CBD5E1"/>
+      <w:right w:val="single" w:sz="4" w:space="0" w:color="CBD5E1"/>
+      <w:insideH w:val="single" w:sz="4" w:space="0" w:color="E2E8F0"/>
+      <w:insideV w:val="none"/>
+    </w:tblBorders>
+    <w:tblCellMar>
+      <w:top w:w="100" w:type="dxa"/>
+      <w:left w:w="160" w:type="dxa"/>
+      <w:bottom w:w="100" w:type="dxa"/>
+      <w:right w:w="160" w:type="dxa"/>
+    </w:tblCellMar>
+  </w:tblPr>
+  <w:tblGrid>
+    <w:gridCol w:w="2200"/>
+    <w:gridCol w:w="7160"/>
+  </w:tblGrid>
+  <w:tr>
+    <w:trPr><w:cantSplit/></w:trPr>
+    <w:tc>
+      <w:tcPr><w:tcW w:w="2200" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F7F7"/></w:tcPr>
+      <w:p><w:pPr><w:pStyle w:val="Compact"/><w:jc w:val="left"/><w:spacing w:before="30" w:after="30"/></w:pPr>
+        <w:r><w:rPr><w:rFonts w:ascii="Arial" w:hAnsi="Arial"/><w:b/><w:color w:val="0E6873"/><w:sz w:val="18"/></w:rPr><w:t>Fuente Oficial:</w:t></w:r>
+      </w:p>
+    </w:tc>
+    <w:tc>
+      <w:tcPr><w:tcW w:w="7160" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F7F7"/></w:tcPr>
+      <w:p><w:pPr><w:pStyle w:val="Compact"/><w:jc w:val="left"/><w:spacing w:before="30" w:after="30"/></w:pPr>
+        <w:r><w:rPr><w:rFonts w:ascii="Arial" w:hAnsi="Arial"/><w:color w:val="2D3748"/><w:sz w:val="18"/></w:rPr><w:t>Ministerio de Desregulación y Transformación del Estado · Instituto Nacional de la Administración Pública (INAP)</w:t></w:r>
+      </w:p>
+    </w:tc>
+  </w:tr>
+  <w:tr>
+    <w:trPr><w:cantSplit/></w:trPr>
+    <w:tc>
+      <w:tcPr><w:tcW w:w="2200" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F7F7"/></w:tcPr>
+      <w:p><w:pPr><w:pStyle w:val="Compact"/><w:jc w:val="left"/><w:spacing w:before="30" w:after="30"/></w:pPr>
+        <w:r><w:rPr><w:rFonts w:ascii="Arial" w:hAnsi="Arial"/><w:b/><w:color w:val="0E6873"/><w:sz w:val="18"/></w:rPr><w:t>Enlace de acceso:</w:t></w:r>
+      </w:p>
+    </w:tc>
+    <w:tc>
+      <w:tcPr><w:tcW w:w="7160" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F7F7"/></w:tcPr>
+      <w:p><w:pPr><w:pStyle w:val="Compact"/><w:jc w:val="left"/><w:spacing w:before="30" w:after="30"/></w:pPr>
+        <w:r><w:rPr><w:rFonts w:ascii="Arial" w:hAnsi="Arial"/><w:u w:val="single"/><w:color w:val="0550AE"/><w:sz w:val="17"/></w:rPr><w:t>https://www.argentina.gob.ar/modernizacion/inap/observatorio/lineas-investigacion/modernizacion-del-estado</w:t></w:r>
+      </w:p>
+    </w:tc>
+  </w:tr>
+</w:tbl>
+```
 
 El portal nacional analizado corresponde a la sección de **Líneas de Investigación en Modernización del Estado** del *Observatorio de la Administración Pública*, organismo dependiente del Instituto Nacional de la Administración Pública (INAP)^[El Instituto Nacional de la Administración Pública (INAP) fue creado por la Ley 20.173 y constituye el órgano rector de capacitación y estudios sobre la Administración Pública Nacional, funcionando bajo la órbita de la Secretaría de Transformación del Estado y Función Pública.], actualmente bajo la órbita de la Secretaría de Transformación del Estado y Función Pública (Ministerio de Desregulación y Transformación del Estado).
 
@@ -412,8 +466,62 @@ Dirigido a la reingeniería interna y la eficiencia procedimental:
 
 ## 2.2. Portal Subnacional: Secretaría de Modernización (Ciudad de Neuquén)
 
-*Fuente Oficial:* Municipalidad de Neuquén Capital · Secretaría de Modernización  
-*Enlace de acceso:* [https://www.neuquencapital.gov.ar/secretaria-de-modernizacion/](https://www.neuquencapital.gov.ar/secretaria-de-modernizacion/)
+```{=openxml}
+<w:tbl xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+  <w:tblPr>
+    <w:tblW w:w="5000" w:type="pct"/>
+    <w:tblLayout w:type="fixed"/>
+    <w:tblBorders>
+      <w:top w:val="single" w:sz="4" w:space="0" w:color="CBD5E1"/>
+      <w:left w:val="single" w:sz="20" w:space="0" w:color="0E6873"/>
+      <w:bottom w:val="single" w:sz="4" w:space="0" w:color="CBD5E1"/>
+      <w:right w:val="single" w:sz="4" w:space="0" w:color="CBD5E1"/>
+      <w:insideH w:val="single" w:sz="4" w:space="0" w:color="E2E8F0"/>
+      <w:insideV w:val="none"/>
+    </w:tblBorders>
+    <w:tblCellMar>
+      <w:top w:w="100" w:type="dxa"/>
+      <w:left w:w="160" w:type="dxa"/>
+      <w:bottom w:w="100" w:type="dxa"/>
+      <w:right w:w="160" w:type="dxa"/>
+    </w:tblCellMar>
+  </w:tblPr>
+  <w:tblGrid>
+    <w:gridCol w:w="2200"/>
+    <w:gridCol w:w="7160"/>
+  </w:tblGrid>
+  <w:tr>
+    <w:trPr><w:cantSplit/></w:trPr>
+    <w:tc>
+      <w:tcPr><w:tcW w:w="2200" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F7F7"/></w:tcPr>
+      <w:p><w:pPr><w:pStyle w:val="Compact"/><w:jc w:val="left"/><w:spacing w:before="30" w:after="30"/></w:pPr>
+        <w:r><w:rPr><w:rFonts w:ascii="Arial" w:hAnsi="Arial"/><w:b/><w:color w:val="0E6873"/><w:sz w:val="18"/></w:rPr><w:t>Fuente Oficial:</w:t></w:r>
+      </w:p>
+    </w:tc>
+    <w:tc>
+      <w:tcPr><w:tcW w:w="7160" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F7F7"/></w:tcPr>
+      <w:p><w:pPr><w:pStyle w:val="Compact"/><w:jc w:val="left"/><w:spacing w:before="30" w:after="30"/></w:pPr>
+        <w:r><w:rPr><w:rFonts w:ascii="Arial" w:hAnsi="Arial"/><w:color w:val="2D3748"/><w:sz w:val="18"/></w:rPr><w:t>Municipalidad de Neuquén Capital · Secretaría de Modernización</w:t></w:r>
+      </w:p>
+    </w:tc>
+  </w:tr>
+  <w:tr>
+    <w:trPr><w:cantSplit/></w:trPr>
+    <w:tc>
+      <w:tcPr><w:tcW w:w="2200" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F7F7"/></w:tcPr>
+      <w:p><w:pPr><w:pStyle w:val="Compact"/><w:jc w:val="left"/><w:spacing w:before="30" w:after="30"/></w:pPr>
+        <w:r><w:rPr><w:rFonts w:ascii="Arial" w:hAnsi="Arial"/><w:b/><w:color w:val="0E6873"/><w:sz w:val="18"/></w:rPr><w:t>Enlace de acceso:</w:t></w:r>
+      </w:p>
+    </w:tc>
+    <w:tc>
+      <w:tcPr><w:tcW w:w="7160" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F7F7"/></w:tcPr>
+      <w:p><w:pPr><w:pStyle w:val="Compact"/><w:jc w:val="left"/><w:spacing w:before="30" w:after="30"/></w:pPr>
+        <w:r><w:rPr><w:rFonts w:ascii="Arial" w:hAnsi="Arial"/><w:u w:val="single"/><w:color w:val="0550AE"/><w:sz w:val="17"/></w:rPr><w:t>https://www.neuquencapital.gov.ar/secretaria-de-modernizacion/</w:t></w:r>
+      </w:p>
+    </w:tc>
+  </w:tr>
+</w:tbl>
+```
 
 El portal analizado corresponde al área ejecutiva de modernización de la Municipalidad de Neuquén Capital, encabezada por el Secretario Lic. Javier Labrín. A diferencia de la página nacional de investigación del INAP, este portal posee una arquitectura orientada a la **acción operativa, la ventanilla digital y la interacción cotidiana con el vecino**.
 

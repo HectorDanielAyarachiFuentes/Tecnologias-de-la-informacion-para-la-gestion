@@ -2,12 +2,12 @@
 // UNIVERSIDAD NACIONAL DEL COMAHUE - CURZAS
 // TECNOLOGÍA DE LA INFORMACIÓN PARA LA GESTIÓN (TIG)
 // ACTIVIDAD 4 - INVESTIGACIÓN: POLÍTICAS DE MODERNIZACIÓN (TEMA 2: NACIÓN - NEUQUÉN)
-// AUTOR: Hector Daniel Ayarachi Fuentes
+// AUTOR: Hector Daniel Ayarachi Fuentes · Andrea Alejandra Díaz
 // ==============================================================================
 
 #set document(
   title: "Actividad 4 - Políticas de Modernización a nivel Nacional y Provincial (Nación - Neuquén)",
-  author: "Hector Daniel Ayarachi Fuentes",
+  author: ("Hector Daniel Ayarachi Fuentes · Andrea Alejandra Díaz", "Andrea Alejandra Díaz"),
 )
 
 // Configuración tipográfica y de párrafos según estándares institucionales
@@ -102,7 +102,7 @@
     [
       #v(8pt)
       // Logotipo oficial de CURZAS en tamaño destacado
-      #image("/Logotipo de curzas/CURZAS.png", width: 135pt)
+      #image("../../../Logotipo de curzas/CURZAS.png", width: 135pt)
       
       #v(14pt)
       // Barra de acento naranja
@@ -165,8 +165,8 @@
             text(size: 8.8pt, weight: "bold", fill: text-muted)[ACTIVIDAD / TEMA:],
             text(size: 9.2pt, fill: text-main)[Actividad Práctica 4 · Tema 2: Nación - Neuquén],
             
-            text(size: 8.8pt, weight: "bold", fill: text-muted)[ESTUDIANTE / AUTOR:],
-            text(size: 9.5pt, weight: "bold", fill: primary)[Hector Daniel Ayarachi Fuentes],
+            text(size: 8.8pt, weight: "bold", fill: text-muted)[ESTUDIANTES / AUTORES:],
+            text(size: 9.5pt, weight: "bold", fill: primary)[Hector Daniel Ayarachi Fuentes · Andrea Alejandra Díaz],
             
             text(size: 8.8pt, weight: "bold", fill: text-muted)[FECHA DE PRESENTACIÓN:],
             text(size: 9.2pt, fill: text-main)[2 de Septiembre de 2026],

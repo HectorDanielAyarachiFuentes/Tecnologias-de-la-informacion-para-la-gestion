@@ -185,13 +185,13 @@ Investigación y Estudio Comparativo: Nivel Nacional (INAP) y Jurisdicción Subn
     <w:tc>
       <w:tcPr><w:tcW w:w="3200" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F7F7"/></w:tcPr>
       <w:p><w:pPr><w:pStyle w:val="Compact"/><w:spacing w:before="40" w:after="40"/></w:pPr>
-        <w:r><w:rPr><w:rFonts w:ascii="Arial" w:hAnsi="Arial"/><w:b/><w:color w:val="0E6873"/><w:sz w:val="18"/></w:rPr><w:t>ESTUDIANTE / AUTOR:</w:t></w:r>
+        <w:r><w:rPr><w:rFonts w:ascii="Arial" w:hAnsi="Arial"/><w:b/><w:color w:val="0E6873"/><w:sz w:val="18"/></w:rPr><w:t>ESTUDIANTES / AUTORES:</w:t></w:r>
       </w:p>
     </w:tc>
     <w:tc>
       <w:tcPr><w:tcW w:w="6160" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F7F7"/></w:tcPr>
       <w:p><w:pPr><w:pStyle w:val="Compact"/><w:spacing w:before="40" w:after="40"/></w:pPr>
-        <w:r><w:rPr><w:rFonts w:ascii="Arial" w:hAnsi="Arial"/><w:b/><w:color w:val="153E5C"/><w:sz w:val="18"/></w:rPr><w:t>Hector Daniel Ayarachi Fuentes</w:t></w:r>
+        <w:r><w:rPr><w:rFonts w:ascii="Arial" w:hAnsi="Arial"/><w:b/><w:color w:val="153E5C"/><w:sz w:val="18"/></w:rPr><w:t>Hector Daniel Ayarachi Fuentes · Andrea Alejandra Díaz</w:t></w:r>
       </w:p>
     </w:tc>
   </w:tr>

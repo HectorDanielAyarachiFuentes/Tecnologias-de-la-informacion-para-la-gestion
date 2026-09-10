@@ -216,12 +216,13 @@
   text(size: 14pt, fill: primary, weight: "bold")[Índice General],
 )
 
-#v(8pt)
+#v(10pt)
 #outline(
   title: none,
   indent: 1.5em,
 )
-#v(16pt)
+
+#pagebreak()
 
 // ==============================================================================
 // 1. INTRODUCCIÓN Y CONTEXTUALIZACIÓN ACADÉMICA

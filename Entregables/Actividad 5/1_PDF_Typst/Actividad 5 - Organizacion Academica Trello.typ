@@ -136,7 +136,7 @@
           #text(weight: "bold", fill: primary, size: 8.8pt, tracking: 0.08em)[PROPÓSITO Y SÍNTESIS DE LA ACTIVIDAD]\
           #v(4pt)
           #text(size: 9.1pt, fill: text-main)[
-            Diseñar e implementar un sistema de gestión visual y colaborativa en Trello adaptado a la vida universitaria y, de manera específica, al ciclo de vida integral de las actividades prácticas de la materia *Tecnología de la Información para la Gestión (TIG)* en CURZAS - UNCo. Se modela el flujo de trabajo completo desde la recepción de consignas en soporte digital hasta la redacción automatizada bajo el paradigma *Docs-as-Code*, la compilación a PDF, la publicación en foros institucionales y la retroalimentación docente.
+            Diseñar e implementar un sistema de gestión visual y colaborativa en Trello adaptado a la vida universitaria y, de manera específica, al ciclo de vida integral de todas las actividades prácticas de la materia *Tecnología de la Información para la Gestión (TIG)* en CURZAS - UNCo. Se modela el flujo de trabajo completo desde la recepción e inventariado de consignas oficiales (Actividades 1 a 5) hasta la redacción automatizada bajo el paradigma *Docs-as-Code*, el stack tecnológico (Typst, Quarto, Python), la estructura de carpetas institucional, la compilación a PDF, el control de calidad (QA), la publicación en foros con debate colaborativo y la evaluación docente final.
           ]
         ],
       )
@@ -234,11 +234,11 @@ La gestión del tiempo y la organización de tareas en el ámbito universitario 
   #text(weight: "bold", fill: primary)[Principios de la Metodología Kanban Aplicada a la Universidad:]
   - *Visibilidad Total:* Representación gráfica e inmediata del estado de todas las actividades académicas.
   - *Limitación del Trabajo en Proceso (WIP):* Reducción de la multitarea ineficiente focalizando el esfuerzo en tareas prioritarias.
-  - *Gestión del Flujo (Flow Management):* Seguimiento continuo desde la recepción del requerimiento hasta la entrega evaluada.
-  - *Colaboración Transparente:* Asignación clara de responsabilidades en trabajos grupales y comunicación centralizada.
+  - *Gestión del Flujo (Flow Management):* Seguimiento continuo desde la recepción del requerimiento hasta la evaluación final.
+  - *Colaboración Transparente y Debate:* Asignación clara de responsabilidades y participación activa en los foros de debate con compañeros.
 ])
 
-En este marco, la herramienta **Trello** (basada en tarjetas y tableros visuales Kanban) se integra con el flujo metodológico de la cátedra *Tecnología de la Información para la Gestión (TIG)* del **CURZAS - Universidad Nacional del Comahue**. En esta materia, la producción documental sigue estándares profesionales de *Docs-as-Code* (documentación como código utilizando Typst, control de versiones y compilación automática desatendida). Por ello, el tablero Trello diseñado no se limita a un simple recordatorio de tareas, sino que constituye el **centro de comando y trazabilidad** de todas las actividades prácticas del cuatrimestre.
+En este marco, la herramienta **Trello** (basada en tarjetas y tableros visuales Kanban) se integra con el flujo metodológico de la cátedra *Tecnología de la Información para la Gestión (TIG)* del **CURZAS - Universidad Nacional del Comahue**. En esta materia, la producción documental sigue estándares profesionales de *Docs-as-Code* (documentación como código utilizando Typst, control de versiones y compilación automática desatendida). Por ello, el tablero Trello diseñado no se limita a un simple recordatorio de tareas, sino que constituye el **centro de comando y trazabilidad** de todas las actividades prácticas del cuatrimestre (Actividades 1 a 5).
 
 // ==============================================================================
 // 2. ARQUITECTURA Y DISEÑO DEL TABLERO DE TRELLO
@@ -251,15 +251,15 @@ El tablero principal ha sido denominado **"TIG - Gestión Académica & Ciclo de 
 
 #figure(
   image("imagenes/trello_real_board.png", width: 100%),
-  caption: [Captura real del Tablero Kanban "TIG - Gestión Académica & Ciclo de Consignas (CURZAS)" confeccionado en Trello en vivo.],
+  caption: [Captura en vivo del Tablero Kanban "TIG - Gestión Académica & Ciclo de Consignas (CURZAS)" en Trello con sus 7 listas operativas y las consignas de las Actividades 1 a 5 visiblemente integradas.],
 )
 
 #v(10pt)
 
-== 2.1. Estructura de Listas del Flujo de Trabajo
+== 2.1. Estructura de Listas del Flujo de Trabajo (Ciclo Real CURZAS)
 
 #table(
-  columns: (1.2fr, 1.8fr, 3fr),
+  columns: (1.3fr, 1.7fr, 3fr),
   fill: (x, y) => if y == 0 { primary } else if calc.even(y) { bg-card } else { white },
   align: (col, row) => if row == 0 { center + horizon } else { left + horizon },
   stroke: 0.4pt + border-subtle,
@@ -268,32 +268,76 @@ El tablero principal ha sido denominado **"TIG - Gestión Académica & Ciclo de 
   text(weight: "bold", fill: white)[Fase del Ciclo],
   text(weight: "bold", fill: white)[Descripción y Propósito Operativo],
 
-  [00. 📚 Recursos e Ideas], [Base de Conocimiento], [Repositorio central de enlaces a entornos virtuales, modelos `.typ`, manual de estilo `AGENTS.md` y accesos a asistentes de IA.],
-  [01. 📥 Consignas Recibidas], [Ingreso / Requerimiento], [Almacenamiento e inspección de trabajos prácticos asignados por los profesores en formato `.docx` o `.pdf` (ej: `Actividad 5.docx`).],
-  [02. 📋 Por Realizar (Backlog)], [Planificación / Prioridad], [Desglose de tareas aceptadas con fechas límite asignadas, división entre integrantes de grupo y checklist inicial.],
-  [03. ⚙️ En Proceso (Typst)], [Desarrollo Activo], [Fase de investigación, procesamiento de datos y redacción bajo el estándar *Docs-as-Code* con auto-compilación a PDF.],
-  [04. 🔍 En Revisión & QA], [Control de Calidad], [Verificación cruzada de consignas, formato institucional (logo CURZAS, paginación `Página X de Y`), ortografía y biblio.],
-  [05. 🚀 Entregado en Foro], [Publicación / Entrega], [Subida de archivos PDF/Word, generación de enlace público de Trello y video explicativo grabado para el foro virtual.],
-  [06. ✅ Evaluado & Concluido], [Cierre / Feedback], [Archivo definitivo tras la corrección del docente, registro de notas obtenidas y comentarios de retroalimentación.],
+  [00. 📚 Recursos, Plantillas & IA], [Base de Conocimiento], [Repositorio central de enlaces a entornos virtuales, modelos `.typ`, manual de estilo `AGENTS.md`, logo CURZAS y motor `auto_compilar_typst.py`.],
+  [01. 📥 Consignas Recibidas], [Ingreso / Requerimiento], [Almacenamiento e inventariado de consignas asignadas por los profesores en soporte digital (`Actividades 1, 2, Asincrónica 3, 4 y 5`).],
+  [02. 📋 Planificación & Análisis], [Backlog / Prioridad], [Desglose de tareas aceptadas con fechas límite asignadas, división entre integrantes de grupo y checklist inicial.],
+  [03. ⚙️ En Desarrollo (Typst)], [Desarrollo Activo], [Fase de investigación, procesamiento de datos y redacción bajo el estándar *Docs-as-Code* con auto-compilación a PDF.],
+  [04. 🔍 Revisión Exhaustiva & QA], [Control de Calidad], [Etapa intermedia obligatoria: revisión de consignas, formato institucional (logo CURZAS, paginación `Página X de Y`), ortografía y biblio.],
+  [05. 🚀 Entregado en Foro & Debate], [Publicación / Interacción], [Subida de informe PDF, link de Trello y video explicativo al foro de CURZAS, con participación activa y debate entre compañeros.],
+  [06. ✅ Evaluado & Concluido], [Cierre / Feedback], [Archivo definitivo tras la corrección del docente, registro de notas obtenidas (Actividades 1 a 4 con 10/10) y comentarios de retroalimentación.],
 )
 
-== 2.2. Sistema de Etiquetas Cromáticas (Priorización y Clasificación)
+== 2.2. Detalle de Consignas Recibidas e Inventariadas (Lista 01)
+
+En la lista **`01. 📥 Consignas Recibidas (CURZAS)`** se registran y sintetizan las actividades prácticas correspondientes al programa de la materia:
+
+#table(
+  columns: (1.5fr, 4.5fr),
+  fill: (x, y) => if y == 0 { teal-accent } else if calc.even(y) { bg-card } else { white },
+  align: (col, row) => if row == 0 { center + horizon } else { left + horizon },
+  stroke: 0.4pt + border-subtle,
+  
+  text(weight: "bold", fill: white)[Tarjeta de Consigna],
+  text(weight: "bold", fill: white)[Resumen del Propósito y Alcance Temático],
+
+  [Consigna Actividad 1], [Diseño y evaluación de prompts estructurados aplicados a la ingeniería de contexto e Inteligencia Artificial Generativa para la gestión universitaria.],
+  [Consigna Actividad 2], [Procesamiento automatizado de postulaciones, currículums vitae, cartas de intención y actas de inscripción en concursos de selección de personal.],
+  [Consigna Actividad Asincrónica 3], [Construcción de un asistente virtual inteligente basado en reglamentos institucionales, resolución de consultas y automatización de actas de comité.],
+  [Consigna Actividad 4], [Investigación y estudio comparativo entre el Observatorio de la Administración Pública del INAP (Nación) y la Secretaría de Modernización de la Ciudad de Neuquén.],
+  [Consigna Actividad 5], [Diseño e implementación de un tablero Kanban visual con 7 fases operativas en Trello para organizar la vida universitaria y el ciclo de trabajos prácticos.],
+)
+
+== 2.3. Stack Tecnológico y Flujo Interno de Carpetas (Docs-as-Code)
+
+Para la ejecución técnica de las actividades prácticas de TIG se utiliza un conjunto integrado de tecnologías modernas y una arquitectura de directorios estandarizada:
+
+#table(
+  columns: (1.5fr, 4.5fr),
+  fill: (x, y) => if y == 0 { primary } else if calc.even(y) { bg-card } else { white },
+  align: (col, row) => if row == 0 { center + horizon } else { left + horizon },
+  stroke: 0.4pt + border-subtle,
+  
+  text(weight: "bold", fill: white)[Tecnología / Herramienta],
+  text(weight: "bold", fill: white)[Función y Aplicación en el Trabajo Práctico],
+
+  [Typst (`.typ`)], [Sistema de maquetación tipográfica nativo para la generación directa e instantánea de informes académicos en PDF de alta calidad.],
+  [Quarto (`.qmd`)], [Plataforma de publicación científica utilizada en actividades con entregas requeridas en Microsoft Word (`.docx`).],
+  [Python & Auto-Compilador], [Motor de observación en segundo plano (`auto_compilar_typst.py`) que compila automáticamente al guardar (<kbd>Ctrl</kbd> + <kbd>S</kbd>) y resuelve bloqueos en Adobe/Word.],
+  [Antigravity IDE & Agente IA], [Entorno de desarrollo asistido por IA configurado bajo las reglas institucionales `AGENTS.md` para maquetación e investigación.],
+  [Trello & Git / GitHub], [Gestión de proyectos visuales con Kanban, control de versiones y trazabilidad completa del ciclo de vida académico.],
+)
+
+#v(6pt)
+
+```text
+Tecnologias de la informacion para la gestion/
+├── Actividad - Propuesta/   # Insumos y consignas oficiales (Actividades 1 a 5)
+├── Entregables/             # ÚNICA FUENTE DE LA VERDAD para versiones finales (.typ y .pdf)
+├── Material/                # Documentación de lectura y referencia (solo lectura)
+├── plantillas_pdf/          # Motores Typst y auto-compilador (auto_compilar_typst.py)
+└── .agents/rules/AGENTS.md  # Reglas de maquetación y pautas institucionales CURZAS
+```
+
+== 2.4. Sistema de Etiquetas Cromáticas (Priorización y Clasificación)
 
 Para gestionar la urgencia y el tipo de contenido de un solo vistazo, se configuró una taxonomía cromática estandarizada:
 
 - 🔴 **Rojo (Prioridad Crítica / Urgente):** Vencimiento en menos de 48 horas o entregas parciales obligatorias.
 - 🟡 **Amarillo (Prioridad Media):** Trabajos prácticos en fase regular de desarrollo.
-- 🟢 **Verde (Finalizado / Aprobado):** Tareas completadas satisfactoriamente y respaldadas.
+- 🟢 **Verde (Entregado / Concluido):** Tareas subidas al foro o aprobadas.
 - 🔵 **Azul (Docs-as-Code / Typst):** Tareas que involucran maquetación técnica o desarrollo de scripts en Python.
-- 🟣 **Violeta (Trabajo Grupal / Colaborativo):** Actividades que requieren coordinación de 3-4 integrantes.
+- 🟣 **Violeta (Trabajo Grupal / Colaborativo):** Actividades que requieren coordinación de integrantes.
 - 🟠 **Naranja (Foro / Video Explicativo):** Tareas asociadas a la producción multimedia o participación activa en plataforma.
-
-== 2.3. Gestión de Miembros, Colaboración y Notificaciones
-
-Con el fin de fomentar la colaboración efectiva entre los participantes del grupo de trabajo:
-1. **Asignación de Miembros:** Cada tarjeta posee responsables asignados explícitamente (`@hectordanielayarachifuentes`), garantizando el compromiso sobre entregables específicos.
-2. **Comentarios y Menciones:** Utilización de comentarios en tarjetas para debates técnicos, links a borradores y menciones directas para resolver bloqueos de redacción.
-3. **Fechas de Vencimiento y Alertas:** Configuración de fechas límites (Due Dates) sincronizadas con recordatorios automáticos de Trello enviando notificaciones push 24 horas antes del cierre de entregas.
 
 // ==============================================================================
 // 3. SIMULACIÓN PRÁCTICA: CICLO DE VIDA DE LA ACTIVIDAD 5
@@ -305,8 +349,8 @@ A modo de demostración directa de la operatividad del tablero, se presenta el s
 == 3.1. Detalle de la Tarjeta y Checklist Interactivas
 
 #figure(
-  image("imagenes/trello_card_actividad5.jpg", width: 85%),
-  caption: [Detalle de la tarjeta "Actividad 5: Organización Académica con Trello" desplegada en la lista 05. Entregado en Foro, con la checklist completada al 100%, miembros asignados y adjuntos vinculados.],
+  image("imagenes/trello_card_actividad5.png", width: 85%),
+  caption: [Detalle de la tarjeta "Actividad 5: Organización Académica con Trello (Hector Daniel Ayarachi Fuentes)" desplegada en la lista 05. Entregado en Foro & Debate Colaborativo, con la checklist completada al 100%, miembros asignados y adjuntos vinculados.],
 )
 
 #v(8pt)
@@ -323,10 +367,10 @@ A modo de demostración directa de la operatividad del tablero, se presenta el s
       gutter: 10pt,
       [
         #text(weight: "bold", size: 10.5pt, fill: primary)[TARJETA: Actividad 5 - Trello]\
-        #text(size: 8.8pt, fill: text-muted)[Ubicación actual: 05. 🚀 Entregado en Foro]\
+        #text(size: 8.8pt, fill: text-muted)[Ubicación actual: 05. 🚀 Entregado en Foro & Debate]\
         #v(4pt)
-        *Etiquetas:* #text(fill: rgb("#b91c1c"))[■ Urgente] · #text(fill: rgb("#0284c7"))[■ Typst] · #text(fill: rgb("#7c3aed"))[■ Grupal]\
-        *Asignados:* Hector Daniel Ayarachi Fuentes y Grupo\
+        *Etiquetas:* #text(fill: rgb("#0284c7"))[■ Docs-as-Code & Typst] · #text(fill: rgb("#16a34a"))[■ Entregado en Foro]\
+        *Asignados:* Hector Daniel Ayarachi Fuentes\
         *Fecha Límite:* 10 de Septiembre de 2026, 23:59hs
       ],
       [
@@ -334,6 +378,8 @@ A modo de demostración directa de la operatividad del tablero, se presenta el s
         - `Actividad 5.docx` (Consigna oficial)
         - `Actividad 5 - Organizacion Academica Trello.typ`
         - `Actividad 5 - Organizacion Academica Trello.pdf`
+        - `Actividad 5 - Video Explicativo Trello.mp4`
+        - `voz_en_off_trello.mp3`
         - Link público al tablero Trello
       ]
     )
@@ -344,34 +390,33 @@ A modo de demostración directa de la operatividad del tablero, se presenta el s
 
 #callout([
   #text(weight: "bold", fill: primary)[Checklist Integrada de Avance ("Desarrollo Actividad 5"):]
-  - [x] **Subtarea 1:** Descargar y examinar la consigna oficial `Actividad 5.docx`.
-  - [x] **Subtarea 2:** Diseñar el flujo Kanban de 7 listas en el tablero de Trello.
-  - [x] **Subtarea 3:** Configurar etiquetas cromáticas, miembros y fechas de vencimiento.
-  - [x] **Subtarea 4:** Redactar el informe académico oficial en formato Typst (`.typ`).
-  - [x] **Subtarea 5:** Compilar automáticamente el documento a PDF bajo pautas de `AGENTS.md`.
-  - [x] **Subtarea 6:** Elaborar el guion detallado para la presentación en video del grupo.
-  - [x] **Subtarea 7:** Publicar el hilo oficial en el foro de CURZAS con informe, link y video.
+  - [x] **Subtarea 1:** Consigna analizada y desglose de requerimientos realizado (`Actividad 5.docx`).
+  - [x] **Subtarea 2:** Estructura del tablero Trello configurada (7 fases del ciclo académico e inventario de Actividades 1 a 5).
+  - [x] **Subtarea 3:** Documento Typst maquetado y compilado a PDF bajo pautas institucionales.
+  - [x] **Subtarea 4:** Guion técnico y locución de voz en off (IA) generados.
+  - [x] **Subtarea 5:** Video explicativo Timelapse (720p) producido en formato MP4.
+  - [x] **Subtarea 6:** Entrega en foro institucional CURZAS e interacción colaborativa con compañeros preparada.
 ], bg: "f4f9f9", border-color: "0e6873")
 
 == 3.2. Representación Esquemática del Flujo Recibida $->$ Evaluada
 
 ```text
-[ 01. Consignas Recibidas ] ──► Lectura de Actividad 5.docx
+[ 01. Consignas Recibidas ]        ──► Lectura y descarga de Actividades 1 a 5
            │
            ▼
-[ 02. Por Realizar ]        ──► Creación de tarjeta, etiquetas y checklist
+[ 02. Planificación & Análisis ]   ──► Asignación de tareas, etiquetas y checklist
            │
            ▼
-[ 03. En Proceso (Typst) ]  ──► Edición Docs-as-Code & auto-compilación PDF
+[ 03. En Desarrollo (Typst) ]      ──► Redacción Docs-as-Code & auto-compilación PDF
            │
            ▼
-[ 04. En Revisión & QA ]    ──► Control de logo CURZAS, pautas y ortografía
+[ 04. Revisión Exhaustiva & QA ]   ──► Control riguroso de logo CURZAS, pautas y ortografía
            │
            ▼
-[ 05. Entregado en Foro ]   ──► Publicación de PDF, Enlace Trello y Video
+[ 05. Entregado en Foro & Debate ] ──► Publicación de PDF, video, voz en off y debate con compañeros
            │
            ▼
-[ 06. Evaluado & Concluido] ──► Devolución docente y registro de nota
+[ 06. Evaluado & Concluido ]       ──► Corrección docente, registro de nota (10/10) y archivado
 ```
 
 // ==============================================================================
@@ -415,9 +460,9 @@ Para cumplir con la modalidad opcional/recomendada del foro, se diseñó la sigu
   text(weight: "bold", fill: white)[Contenido Narrativo y Pantalla Mostrada],
 
   [0:00 - 0:30], [1. Integrantes e Intro], [Presentación de los miembros del grupo, carrera (*Tecnología de la Información para la Gestión - CURZAS*) y objetivo de la presentación.],
-  [0:30 - 1:15], [2. El Problema Afrontado], [Explicación de la dispersión de tareas universitarias y la necesidad de gestionar el ciclo de vida de los trabajos prácticos de manera ordenada.],
-  [1:15 - 2:30], [3. Demostración Trello], [Recorrido en vivo por las 7 listas del tablero, mostrando la tarjeta de la *Actividad 5*, uso de etiquetas, subtareas y adjuntos.],
-  [2:30 - 3:00], [4. Conclusión y Valor], [Reflexión sobre el impacto de Kanban en la vida universitaria y profesional. Agradecimiento y cierre.],
+  [0:30 - 1:15], [2. El Problema Afrontado], [Explicación de la dispersión de tareas universitarias y la necesidad de gestionar el ciclo de vida de las consignas 1 a 5 de manera ordenada.],
+  [1:15 - 2:30], [3. Demostración Trello], [Recorrido en vivo por las 7 listas del tablero, mostrando el inventario de consignas, el stack tecnológico (Typst, Quarto, Python), la etapa de Revisión Exhaustiva (QA), publicación en foro y debate colaborativo.],
+  [2:30 - 3:00], [4. Conclusión y Valor], [Reflexión sobre el impacto de Kanban en la vida universitaria y profesional. Registro de calificaciones y cierre.],
 )
 
 // ==============================================================================

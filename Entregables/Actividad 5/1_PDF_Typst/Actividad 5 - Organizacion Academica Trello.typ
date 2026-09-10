@@ -47,6 +47,7 @@
 
 #let callout(body, bg: "f2f7f7", border-color: "b7c9d6", left-color: "0e6873") = block(
   width: 100%,
+  breakable: false,
   fill: rgb(bg),
   stroke: (
     top: 0.6pt + rgb(border-color),
@@ -63,6 +64,7 @@
 
 #let nota(body) = block(
   width: 100%,
+  breakable: false,
   fill: rgb("fdf6ee"),
   stroke: (left: 4pt + orange-accent, rest: 0.6pt + border-subtle),
   inset: (x: 11pt, y: 8pt),
@@ -278,6 +280,15 @@ El tablero principal ha sido denominado **"TIG - Gestión Académica & Ciclo de 
   [06. ✅ Evaluado & Concluido], [Cierre / Feedback], [Archivo definitivo tras la corrección del docente, registro de notas obtenidas (Actividades 1 a 4 con 10/10) y comentarios de retroalimentación.],
 )
 
+#v(6pt)
+
+#figure(
+  image("imagenes/trello_listas_02_03_04_flujo_qa.png", width: 98%),
+  caption: [Detalle operativo de las fases intermedias en Trello: listas 02 (Planificación & Análisis), 03 (En Desarrollo Docs-as-Code con Typst) y 04 (Revisión Exhaustiva & QA con verificación humana de 10 minutos).],
+)
+
+#pagebreak()
+
 == 2.2. Detalle de Consignas Recibidas e Inventariadas (Lista 01)
 
 En la lista **`01. 📥 Consignas Recibidas (CURZAS)`** se registran y sintetizan las actividades prácticas correspondientes al programa de la materia:
@@ -297,6 +308,15 @@ En la lista **`01. 📥 Consignas Recibidas (CURZAS)`** se registran y sintetiza
   [Consigna Actividad 4], [Investigación y estudio comparativo entre el Observatorio de la Administración Pública del INAP (Nación) y la Secretaría de Modernización de la Ciudad de Neuquén.],
   [Consigna Actividad 5], [Diseño e implementación de un tablero Kanban visual con 7 fases operativas en Trello para organizar la vida universitaria y el ciclo de trabajos prácticos.],
 )
+
+#v(6pt)
+
+#figure(
+  image("imagenes/trello_listas_00_01_consignas.png", width: 98%),
+  caption: [Visualización en primer plano de las listas 00 (Recursos, Plantillas & IA) y 01 (Consignas Recibidas), mostrando el inventariado digital de las Actividades 1 a 5 con sus etiquetas institucionales y archivos adjuntos.],
+)
+
+#v(8pt)
 
 == 2.3. Stack Tecnológico y Flujo Interno de Carpetas (Docs-as-Code)
 
@@ -320,6 +340,7 @@ Para la ejecución técnica de las actividades prácticas de TIG se utiliza un c
 
 #v(6pt)
 
+#block(breakable: false)[
 ```text
 Tecnologias de la informacion para la gestion/
 ├── Actividad - Propuesta/   # Insumos y consignas oficiales (Actividades 1 a 5)
@@ -328,6 +349,7 @@ Tecnologias de la informacion para la gestion/
 ├── plantillas_pdf/          # Motores Typst y auto-compilador (auto_compilar_typst.py)
 └── .agents/rules/AGENTS.md  # Reglas de maquetación y pautas institucionales CURZAS
 ```
+]
 
 == 2.4. Sistema de Etiquetas Cromáticas (Priorización y Clasificación)
 
@@ -339,6 +361,8 @@ Para gestionar la urgencia y el tipo de contenido de un solo vistazo, se configu
 - 🔵 **Azul (Docs-as-Code / Typst):** Tareas que involucran maquetación técnica o desarrollo de scripts en Python.
 - 🟣 **Violeta (Trabajo Grupal / Colaborativo):** Actividades que requieren coordinación de integrantes.
 - 🟠 **Naranja (Foro / Video Explicativo):** Tareas asociadas a la producción multimedia o participación activa en plataforma.
+
+#pagebreak()
 
 // ==============================================================================
 // 3. SIMULACIÓN PRÁCTICA: CICLO DE VIDA DE LA ACTIVIDAD 5
@@ -399,6 +423,15 @@ A modo de demostración directa de la operatividad del tablero, se presenta el s
   - [x] **Subtarea 6:** Entrega en foro institucional CURZAS e interacción colaborativa con compañeros preparada.
 ], bg: "f4f9f9", border-color: "0e6873")
 
+#pagebreak()
+
+#figure(
+  image("imagenes/trello_card_modal_checklist.png", width: 95%),
+  caption: [Modal interactivo de la tarjeta de la Actividad 5 en Trello, evidenciando el progreso de la checklist al 100% (6 de 6 tareas completadas) y los insumos vinculados para la entrega.],
+)
+
+#v(8pt)
+
 == 3.2. Representación Esquemática del Flujo Recibida $->$ Evaluada
 
 ```text
@@ -421,6 +454,15 @@ A modo de demostración directa de la operatividad del tablero, se presenta el s
            ▼
 [ 06. Evaluado & Concluido ]       ──► Corrección docente, registro de nota (10/10) y archivado
 ```
+
+#v(6pt)
+
+#figure(
+  image("imagenes/trello_lista_06_evaluadas.png", width: 98%),
+  caption: [Vista de la lista 06 (Evaluado & Concluido) en Trello con el histórico de consignas aprobadas y el registro de calificaciones de 10/10 obtenidas a lo largo de la cursada.],
+)
+
+#pagebreak()
 
 // ==============================================================================
 // 4. RESPUESTAS A LAS PREGUNTAS DE REFLEXIÓN DEL FORO
@@ -474,12 +516,14 @@ Para cumplir con la modalidad opcional/recomendada del foro, se diseñó la sigu
 = 6. Enlace de Acceso Público y Verificación
 
 #nota([
-  *Acceso al Tablero Trello en Vivo:*
-  El tablero correspondiente a esta entrega ha sido configurado con permisos de visualización pública en el siguiente enlace:
-  #v(3pt)
-  #text(weight: "bold", fill: teal-accent)[🔗 https://trello.com/b/wFIZ6b5N/tig-gestion-academica-ciclo-de-consignas-curzas]
-  #v(3pt)
-  *(Nota: El enlace permite el acceso directo sin restricciones de inicio de sesión para el equipo docente).*
+  *Acceso al Tablero Trello en Vivo e Invitación:*
+  El tablero correspondiente a esta entrega ha sido configurado para acceso directo y colaboración mediante el siguiente enlace oficial de invitación:
+  #v(4pt)
+  #link("https://trello.com/invite/b/6aa0709e40308d5a7c1377f6/ATTI3c945e76e1dab1d55c9310833b261dd0F7810381/tig-gestion-academica-ciclo-de-consignas-curzas")[
+    #text(weight: "bold", fill: teal-accent)[🔗 https://trello.com/invite/b/6aa0709e40308d5a7c1377f6/ATTI3c945e76e1dab1d55c9310833b261dd0F7810381/tig-gestion-academica-ciclo-de-consignas-curzas]
+  ]
+  #v(4pt)
+  *(Nota: El enlace de invitación permite el acceso inmediato y completo para el equipo docente).*
 ])
 
 #v(20pt)

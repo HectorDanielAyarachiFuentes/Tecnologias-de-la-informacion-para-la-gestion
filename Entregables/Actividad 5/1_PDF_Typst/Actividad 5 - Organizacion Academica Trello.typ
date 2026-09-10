@@ -272,7 +272,7 @@ El tablero principal ha sido denominado **"TIG - Gestión Académica & Ciclo de 
   [01. 📥 Consignas Recibidas], [Ingreso / Requerimiento], [Almacenamiento e inventariado de consignas asignadas por los profesores en soporte digital (`Actividades 1, 2, Asincrónica 3, 4 y 5`).],
   [02. 📋 Planificación & Análisis], [Backlog / Prioridad], [Desglose de tareas aceptadas con fechas límite asignadas, división entre integrantes de grupo y checklist inicial.],
   [03. ⚙️ En Desarrollo (Typst)], [Desarrollo Activo], [Fase de investigación, procesamiento de datos y redacción bajo el estándar *Docs-as-Code* con auto-compilación a PDF.],
-  [04. 🔍 Revisión Exhaustiva & QA], [Control de Calidad], [Etapa intermedia obligatoria: revisión de consignas, formato institucional (logo CURZAS, paginación `Página X de Y`), ortografía y biblio.],
+  [04. 🔍 Revisión Exhaustiva & QA], [Control de Calidad — Revisión Humana], [Etapa 100% humana y manual: el responsable del trabajo revisa de forma íntegra y minuciosa el documento antes de cualquier entrega. Se analiza el cumplimiento de la consigna, la coherencia del contenido, el formato institucional (logo CURZAS, paginación `Página X de Y`, tipografía Arial/Segoe), la ortografía y las referencias bibliográficas. Si bien implica una lectura activa y meticulosa de todo el material, el proceso es ágil: la validación completa de un trabajo práctico toma aproximadamente *10 minutos*. En caso de detectarse observaciones, la tarjeta regresa a «03. En Desarrollo» para corrección antes de avanzar.],
   [05. 🚀 Entregado en Foro & Debate], [Publicación / Interacción], [Subida de informe PDF, link de Trello y video explicativo al foro de CURZAS, con participación activa y debate entre compañeros.],
   [06. ✅ Evaluado & Concluido], [Cierre / Feedback], [Archivo definitivo tras la corrección del docente, registro de notas obtenidas (Actividades 1 a 4 con 10/10) y comentarios de retroalimentación.],
 )
@@ -410,7 +410,9 @@ A modo de demostración directa de la operatividad del tablero, se presenta el s
 [ 03. En Desarrollo (Typst) ]      ──► Redacción Docs-as-Code & auto-compilación PDF
            │
            ▼
-[ 04. Revisión Exhaustiva & QA ]   ──► Control riguroso de logo CURZAS, pautas y ortografía
+[ 04. Revisión Exhaustiva & QA ]   ──► Revisión 100 % humana y manual (~10 min por TP)
+           │                              Verifica consigna, formato, ortografía y biblio.
+           │                              Si hay observaciones → regresa a 03. En Desarrollo
            │
            ▼
 [ 05. Entregado en Foro & Debate ] ──► Publicación de PDF, video, voz en off y debate con compañeros

@@ -7,7 +7,7 @@ echo  INICIANDO COMPILADOR EN TIEMPO REAL (Typst + Quarto)
 echo  Materia: Tecnologia de la Informacion para la Gestion (CURZAS)
 echo ==============================================================================
 echo.
-python -u "%~dp0plantillas_pdf\1_typst\auto_compilar_typst.py"
+python -u "%~dp0auto_compilar_typst.py"
 echo.
 echo ==============================================================================
 echo  El compilador automatico se ha detenido.

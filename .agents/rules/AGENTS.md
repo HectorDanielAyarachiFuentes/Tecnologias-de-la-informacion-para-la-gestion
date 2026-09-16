@@ -22,8 +22,10 @@ Tecnologias de la informacion para la gestion/
 │   ├── Actividad 1/
 │   └── Actividad 2/
 ├── Material/                # Documentación de lectura y referencia (solo lectura)
-├── plantillas_pdf/          # Motores de exportación y plantillas reutilizables
-│   └── 1_typst/             # Sistema Typst y auto-compilador (auto_compilar_typst.py)
+├── recursos/                # Insumos auxiliares, plantillas y herramientas
+│   ├── Herramientas/        # Soporte técnico e integraciones
+│   ├── Logotipo de curzas/  # Isotipos oficiales
+│   └── plantillas_pdf/      # Motores de exportación y auto-compilador (auto_compilar_typst.py)
 └── pruebas/                 # Zona de aislamiento para pruebas y scripts temporales
 ```
 
@@ -49,7 +51,7 @@ Tecnologias de la informacion para la gestion/
    * **Carátula / Portada:** Todo documento debe incluir una portada inicial con el título de la actividad/consigna, materia (TIG - CURZAS), nombre del autor (**Hector Daniel Ayarachi Fuentes**) y fecha de entrega.
    * **Sin Numeración en Portada:** La carátula no debe mostrar encabezado ni número de página (`header: none, footer: none`).
    * **Numeración desde la 2ª Página:** La numeración de páginas debe figurar visible a partir de la segunda página (cuerpo del documento) con el formato `Página X de Y`.
-6. **Integración Obligatoria del Logotipo de CURZAS (`Logotipo de curzas/CURZAS.png`):**
+6. **Integración Obligatoria del Logotipo de CURZAS (`recursos/Logotipo de curzas/CURZAS.png`):**
    * **En la Carátula:** Debe figurar el logotipo oficial en tamaño grande y destacado en la portada (`width: 110pt` a `140pt`).
    * **En el Pie de Página:** Debe incluirse en el centro del pie de página, entre el texto informativo de la izquierda y la numeración de la derecha, en tamaño reducido pero nítido y visible (`height: 12pt` a `15pt`).
 
@@ -58,7 +60,7 @@ Tecnologias de la informacion para la gestion/
 ## ⚡ 3.1. Auto-Compilación Dual en Segundo Plano (Regla de CERO COMANDOS)
 
 * **REGLA ESTRICTA PARA EL AGENTE:** **Bajo ninguna circunstancia se debe exigir o pedir al usuario que escriba comandos manuales en la terminal para compilar.** El flujo debe ser 100% automático, transparente y desatendido.
-* **Mecanismo de Observación (`auto_compilar_typst.py`):** El motor [plantillas_pdf/1_typst/auto_compilar_typst.py](file:///c:/Users/Ramoncito/.antigravity-ide/Tecnologias%20de%20la%20informacion%20para%20la%20gestion/plantillas_pdf/1_typst/auto_compilar_typst.py) vigila continuamente tanto archivos `.typ` como `.qmd`.
+* **Mecanismo de Observación (`auto_compilar_typst.py`):** El motor [recursos/plantillas_pdf/1_typst/auto_compilar_typst.py](file:///c:/Users/Ramoncito/.antigravity-ide/Tecnologias%20de%20la%20informacion%20para%20la%20gestion/recursos/plantillas_pdf/1_typst/auto_compilar_typst.py) vigila continuamente tanto archivos `.typ` como `.qmd`.
 * **Disparo Automático:** Cada vez que se guarda un cambio (<kbd>Ctrl</kbd> + <kbd>S</kbd>):
   * Los archivos `.typ` se compilan inmediatamente a `.pdf` (vía `typst.compile`, ~0.15s).
   * Los archivos `.qmd` se compilan a `.docx` (vía Quarto CLI, ~2.5s).

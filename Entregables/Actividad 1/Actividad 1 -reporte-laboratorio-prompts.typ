@@ -115,7 +115,7 @@
     [
       #v(10pt)
       // Logotipo institucional destacado en carátula
-      #image("/Logotipo de curzas/CURZAS.png", width: 130pt)
+      #image("/recursos/Logotipo de curzas/CURZAS.png", width: 130pt)
       
       #v(15pt)
       // Barra superior naranja
@@ -209,7 +209,7 @@
       columns: (1fr, auto, 1fr),
       align: (left + horizon, center + horizon, right + horizon),
       text(size: 8pt, fill: rgb("7d919f"))[Reporte de Experimentación e Intervención],
-      image("/Logotipo de curzas/CURZAS.png", height: 13pt),
+      image("/recursos/Logotipo de curzas/CURZAS.png", height: 13pt),
       text(size: 8pt, fill: rgb("7d919f"))[
         #context [Página #counter(page).display("1") de #counter(page).final().at(0)]
       ],

@@ -7,7 +7,7 @@
   footer: grid(
     columns: (1fr, auto, 1fr),
     align(left)[Tecnologías de la Información para la Gestión],
-    align(center)[#image("../../Logotipo de curzas/CURZAS.png", height: 12pt)],
+    align(center)[#image("../../recursos/Logotipo de curzas/CURZAS.png", height: 12pt)],
     align(right)[Página #context counter(page).display()]
   )
 )
@@ -22,7 +22,7 @@
 // ---------------------------------------------------------
 #align(center)[
   #v(25%)
-  #image("../../Logotipo de curzas/CURZAS.png", width: 120pt)
+  #image("../../recursos/Logotipo de curzas/CURZAS.png", width: 120pt)
   #v(1cm)
   #text(size: 24pt, weight: "bold", fill: teal)[Informe final-TIC2024]
   #v(0.5cm)

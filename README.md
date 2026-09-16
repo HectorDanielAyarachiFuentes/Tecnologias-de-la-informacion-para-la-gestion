@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="Logotipo de curzas/CURZAS.png" alt="Logotipo Oficial CURZAS - Universidad Nacional del Comahue" width="230"/>
+<img src="recursos/Logotipo de curzas/CURZAS.png" alt="Logotipo Oficial CURZAS - Universidad Nacional del Comahue" width="230"/>
 
 # Tecnologías de la Información para la Gestión (TIG)
 ### Centro Universitario Regional Zona Atlántica y Sur (CURZAS) · Universidad Nacional del Comahue
@@ -61,12 +61,12 @@ Tecnologias-de-la-informacion-para-la-gestion/
 │   │   └── 2_Word_Quarto/   # Código fuente Quarto (.qmd) y render Word (.docx)
 │   ├── Actividad asincronica 2/
 │   └── Final 2024/
-├── Herramientas/            # Entornos de soporte e integración tecnológica
-│   └── NotebookLM/          # Configuración MCP y guías de interacción asistida por IA
-├── Logotipo de curzas/      # Recursos gráficos e isotipos institucionales vectoriales/raster
 ├── Material/                # Documentación de lectura, referencias bibliográficas y scripts
 ├── plantillas_pdf/          # Ecosistema Docs-as-Code: plantillas, temas y auto-compilador Typst
 │   └── 1_typst/             # Script auto_compilar_typst.py y plantillas ejecutivas
+├── recursos/                # Recursos auxiliares, herramientas e isotipos institucionales
+│   ├── Herramientas/        # Entornos de soporte e integración tecnológica
+│   └── Logotipo de curzas/  # Isotipos oficiales del CURZAS
 ├── pruebas/                 # Zona de aislamiento (sandbox) para scripts y prototipos descartables
 ├── .agents/                 # Estándares operativos y reglas de comportamiento de asistentes IA
 └── .gitignore               # Filtros de exclusión para datos pesados (>100MB) y temporales

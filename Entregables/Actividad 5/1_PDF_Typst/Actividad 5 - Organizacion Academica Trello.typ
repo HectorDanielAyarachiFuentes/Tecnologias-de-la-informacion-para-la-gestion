@@ -100,7 +100,7 @@
     [
       #v(8pt)
       // Logotipo oficial de CURZAS en tamaño destacado
-      #image("../../../Logotipo de curzas/CURZAS.png", width: 135pt)
+      #image("../../../recursos/Logotipo de curzas/CURZAS.png", width: 135pt)
       
       #v(14pt)
       // Barra de acento naranja
@@ -200,7 +200,7 @@
       columns: (1fr, auto, 1fr),
       align: (left + horizon, center + horizon, right + horizon),
       text(size: 8pt, fill: rgb("#627d91"))[Organización Académica con Trello],
-      image("../../../Logotipo de curzas/CURZAS.png", height: 12pt),
+      image("../../../recursos/Logotipo de curzas/CURZAS.png", height: 12pt),
       text(size: 8pt, fill: rgb("#627d91"))[
         #context [Página #counter(page).display("1") de #counter(page).final().at(0)]
       ],

@@ -171,8 +171,8 @@
             
             text(size: 8.8pt, weight: "bold", fill: text-muted)[EQUIPO DE ESTUDIANTES:],
             [
-              #text(size: 9.1pt, weight: "bold", fill: primary)[Hector Daniel Ayarachi Fuentes] #text(size: 8.5pt, fill: text-muted)[(DNI 35.492.138 · Legajo 8252)]\
-              #text(size: 9.1pt, weight: "bold", fill: primary)[Andrea Alejandra Díaz] #text(size: 8.5pt, fill: text-muted)[(DNI 27.786.409 · Legajo 7229-curza)]\
+              #text(size: 9.1pt, weight: "bold", fill: primary)[Hector Daniel Ayarachi Fuentes]\
+              #text(size: 9.1pt, weight: "bold", fill: primary)[Andrea Alejandra Díaz]\
               #text(size: 9.1pt, weight: "bold", fill: primary)[Ileana Avendaño]\
               #text(size: 9.1pt, weight: "bold", fill: primary)[Lucas Curaqueo]
             ],
@@ -255,20 +255,19 @@
 = 1. Datos del Equipo y Organización Seleccionada
 
 #table(
-  columns: (3fr, 2fr),
+  columns: (1fr),
   fill: (col, row) => if row == 0 { bg-table-header } else if calc.odd(row) { bg-card } else { white },
   stroke: 0.5pt + border-subtle,
-  align: (left + horizon, left + horizon),
+  align: left + horizon,
   table.header(
     text(weight: "bold", fill: white)[Nombre y Apellido del Estudiante],
-    text(weight: "bold", fill: white)[DNI / Legajo],
   ),
-  [Estudiante 1: *Hector Daniel Ayarachi Fuentes*], [DNI: 35.492.138 · Legajo: 8252],
-  [Estudiante 2: *Andrea Alejandra Díaz*], [DNI: 27.786.409 · Legajo: 7229-curza],
-  [Estudiante 3: *Ileana Avendaño*], [---],
-  [Estudiante 4: *Lucas Curaqueo*], [---],
-  [Estudiante 5: #text(fill: text-muted)[(Cupo no utilizado / Equipo de 4 integrantes)]], [#text(fill: text-muted)[---]],
-  [Estudiante 6: #text(fill: text-muted)[(Cupo no utilizado / Equipo de 4 integrantes)]], [#text(fill: text-muted)[---]],
+  [Estudiante 1: *Hector Daniel Ayarachi Fuentes*],
+  [Estudiante 2: *Andrea Alejandra Díaz*],
+  [Estudiante 3: *Ileana Avendaño*],
+  [Estudiante 4: *Lucas Curaqueo*],
+  [Estudiante 5: #text(fill: text-muted)[(Cupo no utilizado / Equipo de 4 integrantes)]],
+  [Estudiante 6: #text(fill: text-muted)[(Cupo no utilizado / Equipo de 4 integrantes)]],
 )
 
 #v(8pt)

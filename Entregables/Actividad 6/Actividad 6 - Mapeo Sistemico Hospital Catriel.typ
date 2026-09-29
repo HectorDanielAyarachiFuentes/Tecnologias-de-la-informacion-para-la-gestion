@@ -238,16 +238,32 @@
 #line(length: 100%, stroke: 0.8pt + teal-accent)
 #v(6pt)
 
-#grid(
-  columns: (1.2fr, 1fr),
-  row-gutter: 6pt,
-  [#text(weight: "bold", fill: primary)[Materia:] Tecnologías de la Información para la Gestión],
-  [#text(weight: "bold", fill: primary)[Tema:] Sistemas de Información y Mapeo Sistémico],
-  [#text(weight: "bold", fill: primary)[Carrera:] Lic. en Recursos Humanos / Tec. y Lic. en Adm. Pública],
-  [#text(weight: "bold", fill: primary)[Organización:] Hospital Área Catriel "Dra. Cecilia Grierson"],
-)
+#block(
+  width: 100%,
+  stroke: 0.6pt + border-subtle,
+  fill: bg-card,
+  inset: (x: 14pt, y: 10pt),
+  radius: 4pt,
+)[
+  #grid(
+    columns: (auto, 1fr),
+    column-gutter: 14pt,
+    row-gutter: 6pt,
+    text(weight: "bold", fill: primary)[Materia:],
+    text(fill: text-main)[Tecnologías de la Información para la Gestión],
+    
+    text(weight: "bold", fill: primary)[Tema:],
+    text(fill: text-main)[Sistemas de Información y Mapeo Sistémico],
+    
+    text(weight: "bold", fill: primary)[Carrera:],
+    text(fill: text-main)[Lic. en Recursos Humanos / Tec. y Lic. en Adm. Pública],
+    
+    text(weight: "bold", fill: primary)[Organización:],
+    text(fill: text-main)[Hospital Área Programa Catriel "Dra. Cecilia Grierson"],
+  )
+]
 
-#v(10pt)
+#v(8pt)
 
 // ==============================================================================
 // 1. DATOS DEL EQUIPO Y ORGANIZACIÓN SELECCIONADA

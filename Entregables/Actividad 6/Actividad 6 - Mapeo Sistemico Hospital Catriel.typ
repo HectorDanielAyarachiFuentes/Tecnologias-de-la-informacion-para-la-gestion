@@ -280,11 +280,10 @@
   inset: 10pt,
   radius: 3pt,
 )[
-  #text(weight: "bold", fill: primary)[Organización y Proceso Seleccionado:]\
-  #v(3pt)
-  #text(weight: "bold", fill: orange-accent)[👉 Respuesta Oficial:]\
-  *Organización:* Hospital Área Programa (H.A.P.) "Dra. Cecilia Grierson" de la localidad de Catriel, Provincia de Río Negro (Establecimiento asistencial público de Complejidad Sanitaria Nivel IV, dependiente del Ministerio de Salud de Río Negro).\
-  *Proceso Seleccionado (Enfoque Licenciatura en Recursos Humanos):* *Proceso Integral de Reclutamiento, Selección e Incorporación de Personal de Salud (Médicos, Enfermeros y Personal Técnico)*, contemplando el régimen estatutario provincial (Leyes Provinciales N° 1904 de Carrera Profesional Hospitalaria y N° 1844 de Empleo Público), con especial foco en la captación de talentos y radicación comunitaria en un entorno geográfico petrolero.
+  #text(weight: "bold", fill: primary, size: 9.5pt)[Organización / Proceso Seleccionado:]\
+  #text(style: "italic", size: 8.5pt, fill: text-muted)[(Ej. Lic. Adm. Pública: Oficina Municipal de Licencias de Conducir / Ej. Lic. RRHH: Proceso de Reclutamiento y Selección)]\
+  #v(4pt)
+  #text(weight: "bold")[👉 Respuesta:] *Hospital Área Programa "Dra. Cecilia Grierson" de Catriel, Río Negro* / *Proceso Integral de Reclutamiento, Selección e Incorporación de Personal de Salud (Médicos, Enfermeros y Personal Técnico)* bajo el régimen estatutario de las Leyes Provinciales N° 1904 y N° 1844.
 ]
 
 #pagebreak()
@@ -461,49 +460,78 @@ En el marco de la Teoría General de Sistemas, la institución moviliza cuatro t
 // ==============================================================================
 = 4. Matriz de Componentes Sistémicos
 
-A continuación, se completa la matriz oficial requerida por la cátedra para el caso específico del *Proceso de Reclutamiento, Selección e Incorporación de Personal de Salud* en el Hospital de Catriel:
+#block(
+  width: 100%,
+  fill: rgb("#f1f5f9"),
+  stroke: (left: 3pt + primary),
+  inset: (x: 10pt, y: 7pt),
+  radius: (right: 3pt),
+)[
+  #text(weight: "bold", fill: primary, size: 10.5pt)[2. MATRIZ DE COMPONENTES SISTÉMICOS]\
+  #text(size: 8.5pt, fill: text-muted)[Estructura idéntica a la plantilla oficial de trabajo práctico de la cátedra para el caso del *Hospital Área Programa "Dra. Cecilia Grierson"* de Catriel.]
+]
+
+#v(6pt)
 
 #table(
   columns: (1.5fr, 3.5fr),
-  fill: (col, row) => if row == 0 { bg-table-header } else if calc.odd(row) { bg-card } else { white },
-  stroke: 0.5pt + border-subtle,
+  fill: (col, row) => if row == 0 { bg-table-header } else if col == 0 { rgb("#f8fafc") } else { white },
+  stroke: 0.5pt + rgb("#cbd5e1"),
   align: (left + top, left + top),
   table.header(
     text(weight: "bold", fill: white)[Componente Sistémico],
-    text(weight: "bold", fill: white)[Descripción y Elementos Concretos del Caso (H.A.P. Catriel)],
+    text(weight: "bold", fill: white)[Descripción y Elementos Concretos del Caso],
   ),
   
-  [*FRONTERA / LÍMITE DEL SISTEMA*],
+  [#text(weight: "bold", fill: primary)[FRONTERA / LÍMITE DEL SISTEMA]],
   [
-    *Definición del límite de control directo:*
-    - *Dentro del control directo del Hospital / Oficina de RRHH:* Detección interna de vacantes por servicio asistencial; confección del perfil de competencias requerido; recepción local de CVs; realización de entrevistas laborales; aplicación de pruebas técnicas y valoraciones psicotécnicas; diseño del plan de inducción hospitalaria; asignación de turnos, guardias y viviendas oficiales; evaluación del desempeño durante el período de prueba.
-    - *Fuera del control (Entorno externo):* Disponibilidad de médicos en el mercado laboral nacional; presupuesto asignado por el Ministerio de Economía de Río Negro; escala salarial fijada por paritarias provinciales; costo de los alquileres en Catriel; dictado del Decreto/Resolución formal de designación por el Poder Ejecutivo Provincial; otorgamiento de la matrícula por el Consejo Provincial de Salud Pública.
+    #text(style: "italic", fill: rgb("#334155"))[Definan con precisión qué actividades y recursos están DENTRO del control directo de la oficina/área y cuáles pertenecen al entorno externo.]\
+    #v(4pt)
+    #text(weight: "bold")[👉 Respuesta:]\
+    - *Dentro del control directo del Hospital / Oficina de RRHH:* Detección interna de vacantes asistenciales por servicio; confección del perfil de competencias médicas y técnicas requerido; recepción local de CVs; realización de entrevistas laborales; aplicación de pruebas técnicas y valoraciones psicotécnicas; diseño del plan de inducción hospitalaria; asignación de turnos, guardias y cupos en módulos habitacionales institucionales; evaluación del desempeño durante el período de prueba.
+    - *Fuera del control (Entorno externo):* Disponibilidad de médicos especialistas en el mercado laboral nacional; presupuesto asignado por el Ministerio de Economía de Río Negro; escala salarial fijada por paritarias provinciales; costo de los alquileres en Catriel; dictado del Decreto/Resolución formal de designación por el Poder Ejecutivo Provincial; otorgamiento de matrícula por el Consejo Provincial de Salud Pública.
   ],
   
-  [*ENTRADAS\ (Inputs)*],
   [
-    *Recursos e información que ingresan al proceso:*
+    #text(weight: "bold", fill: primary)[ENTRADAS]\
+    #text(weight: "bold", fill: primary)[(Inputs)]
+  ],
+  [
+    #text(style: "italic", fill: rgb("#334155"))[Listan los recursos humanos, materiales, financieros, normativos o solicitudes de datos que ingresan al proceso.]\
+    #v(4pt)
+    #text(weight: "bold")[👉 Respuesta:]\
     - *Solicitudes y postulaciones:* Currículum Vitae presentados espontáneamente o en respuesta a convocatorias provinciales (`convocatoriamedicarn@salud.rionegro.gov.ar`).
     - *Perfiles de puesto formales:* Descripciones de competencias médicas, técnicas y de enfermería solicitadas por las Jefaturas de Servicio (ej. Cirujano de guardia, Médico Pediatra).
     - *Documentación acreditante:* Título universitario legalizado, certificado de especialista, certificado de antecedentes penales, certificado de ética profesional del colegio médico de origen.
-    - *Normativa y cupos autorizados:* Autorización formal de vacante presupuestaria por parte del Ministerio de Salud rionegrino bajo Ley 1904 o Ley 1844.
-    - *Insumos materiales:* Protocolos de evaluación psicológica, formularios de legajo personal, recursos tecnológicos de evaluación remota (videoconferencia para candidatos foráneos).
+    - *Normativa y cupos autorizados:* Autorización formal de vacante presupuestaria por parte del Ministerio de Salud rionegrino bajo Ley Provincial N° 1904 o N° 1844.
+    - *Insumos materiales y técnicos:* Protocolos de evaluación psicológica, formularios de legajo personal, recursos tecnológicos de evaluación remota (videoconferencia para candidatos de otras provincias).
   ],
   
-  [*PROCESO DE TRANSFORMACIÓN*],
+  [#text(weight: "bold", fill: primary)[PROCESO DE TRANSFORMACIÓN]],
   [
-    *Secuencia lógica de fases y pasos evaluativos:*
-    - *Paso 1: Detección y Formalización de la Vacante:* La Jefatura del servicio asistencial (ej. Pediatría o Guardia) detecta la necesidad operativa y el Área de Personal eleva la requisitoria de cargo vacante a Dirección y al Ministerio.
-    - *Paso 2: Convocatoria Pública y Recepción:* Publicación en el portal oficial de salud de Río Negro y recepción centralizada y local de currículums y antecedentes.
-    - *Paso 3: Preselección Curricular y Verificación Matricular:* El Departamento de RRHH filtra los CVs cotejando requisitos excluyentes (título habilitante, matrícula habilitante o trámite de convalidación en Río Negro, residencia médica completa).
-    - *Paso 4: Entrevistas por Competencias y Evaluación Psicotécnica:* Entrevista técnica y de idoneidad con la Dirección Médica y Jefe de Servicio; aplicación de batería de tests psicológicos para evaluar tolerancia a la frustración, trabajo bajo presión y vocación de arraigo comunitario en Catriel.
-    - *Paso 5: Examen Preocupacional y Dictamen de Aptitud:* Junta Médica evalúa el estado psicofísico del postulante y emite el Certificado de Aptitud Laboral; se inicia el circuito del expediente digital para la emisión de la Resolución de Designación.
-    - *Paso 6: Inducción Institucional y Toma de Posesión:* Firma de acta de alta laboral, asignación de legajo en el sistema de liquidación de haberes, entrega de llave de vivienda oficial (si corresponde), entrega del reglamento interno y presentación formal en el servicio.
+    #text(style: "italic", fill: rgb("#334155"))[Describan la secuencia lógica de pasos, controles o evaluaciones que convierten las entradas en resultados:\
+    • Paso 1:\
+    • Paso 2:\
+    • Paso 3:\
+    • Paso 4:]\
+    #v(4pt)
+    #text(weight: "bold")[👉 Respuesta:]\
+    - *Paso 1 (Detección y Formalización de la Vacante):* La Jefatura del servicio asistencial (ej. Pediatría o Guardia) detecta la necesidad operativa y el Área de Personal eleva la requisitoria de cargo vacante a Dirección y al Ministerio de Salud de Río Negro.
+    - *Paso 2 (Convocatoria Pública y Recepción):* Publicación en el portal oficial de salud de Río Negro y recepción centralizada y local de currículums y antecedentes.
+    - *Paso 3 (Preselección Curricular y Verificación Matricular):* El Departamento de RRHH filtra los CVs cotejando requisitos excluyentes (título habilitante, matrícula habilitante o trámite de convalidación en Río Negro, residencia médica completa).
+    - *Paso 4 (Entrevistas por Competencias y Evaluación Psicotécnica):* Entrevista técnica y de idoneidad con la Dirección Médica y Jefe de Servicio; aplicación de batería de tests psicológicos para evaluar tolerancia a la frustración, trabajo bajo presión y vocación de arraigo comunitario en Catriel.
+    - *Paso 5 (Examen Preocupacional y Dictamen de Aptitud):* Junta Médica evalúa el estado psicofísico del postulante y emite el Certificado de Aptitud Laboral; se inicia el circuito del expediente digital para la emisión de la Resolución de Designación.
+    - *Paso 6 (Inducción Institucional y Toma de Posesión):* Firma de acta de alta laboral, asignación de legajo en el sistema de liquidación de haberes, entrega de llave de vivienda oficial (si corresponde), entrega del reglamento interno y presentación formal en el servicio.
   ],
   
-  [*SALIDAS\ (Outputs)*],
   [
-    *Resultados y registros tangibles generados:*
+    #text(weight: "bold", fill: primary)[SALIDAS]\
+    #text(weight: "bold", fill: primary)[(Outputs)]
+  ],
+  [
+    #text(style: "italic", fill: rgb("#334155"))[Indiquen los productos físicos/digitales, servicios prestados o registros actualizados que genera el sistema.]\
+    #v(4pt)
+    #text(weight: "bold")[👉 Respuesta:]\
     - *Profesional incorporado y operativo:* Médico, enfermero o técnico prestando servicio efectivo en el hospital cubriendo guardias y consultorios.
     - *Instrumento legal formal:* Resolución ministerial o Disposición de designación bajo el marco estatutario (Ley 1904 o 1844).
     - *Legajo de personal digitalizado:* Expediente único con documentación legal, declaraciones juradas de incompatibilidad y alta en el seguro de ART Horizonte.
@@ -511,21 +539,31 @@ A continuación, se completa la matriz oficial requerida por la cátedra para el
     - *Mejora prestacional:* Incremento en la cantidad de turnos disponibles y cirugías programadas para los habitantes de Catriel, reduciendo traslados sanitarios.
   ],
   
-  [*RETROALIMENTACIÓN\ (Feedback)*],
   [
-    *Mecanismos de medición, control y ajuste dinámico:*
-    - *Evaluación de Desempeño a los 3 y 6 meses:* Informe formal de la Jefatura de Servicio sobre la idoneidad técnica, puntualidad, trato con pacientes y adaptación institucional del ingresante durante el período de prueba.
+    #text(weight: "bold", fill: primary)[RETROALIMENTACIÓN]\
+    #text(weight: "bold", fill: primary)[(Feedback)]
+  ],
+  [
+    #text(style: "italic", fill: rgb("#334155"))[Expliquen qué indicadores, encuestas, controles o auditorías miden el desempeño del sistema para corregir errores o desviaciones.]\
+    #v(4pt)
+    #text(weight: "bold")[👉 Respuesta:]\
+    - *Evaluación de Desempeño a los 3 y 6 meses:* Informe formal de la Jefatura de Servicio sobre la idoneidad técnica, puntualidad, trato con pacientes y adaptación institucional del ingresante durante el *período de prueba estatutario*.
     - *Auditorías de calidad y encuestas de usuarios:* Medición de la satisfacción del paciente en el sistema SAMI y registro de quejas o felicitaciones en libro de guardia.
     - *Indicadores de RRHH (KPIs):* Monitoreo de la tasa de retención de profesionales (permanencia mayor a 12 meses), índice de ausentismo y rotación temprana.
     - *Ajuste del perfil de búsqueda:* Si un profesional renuncia precozmente por no adaptarse a la vida en Catriel o presenta falencias en trabajo de guardia, RRHH reajusta los criterios del Paso 1 y Paso 4 (ponderando con mayor puntaje la experiencia en zonas desfavorables o médicos con arraigo regional patagónico).
   ],
   
-  [*AMBIENTE EXTERNO\ (Entorno)*],
   [
-    *Variables y presiones del entorno fuera de control:*
+    #text(weight: "bold", fill: primary)[AMBIENTE EXTERNO]\
+    #text(weight: "bold", fill: primary)[(Entorno)]
+  ],
+  [
+    #text(style: "italic", fill: rgb("#334155"))[Mencionen qué leyes, regulaciones, demandas sociales o factores del mercado presionan/condicionan al sistema desde afuera.]\
+    #v(4pt)
+    #text(weight: "bold")[👉 Respuesta:]\
     - *Industria petrolera local:* La actividad de hidrocarburos en Catriel eleva notablemente el costo de vida y alquileres, ofreciendo salarios privados con los que el presupuesto público no puede competir directamente.
     - *Crisis de especialistas médicos a nivel país:* Escasez generalizada de pediatras, médicos generalistas y neonatólogos en toda la República Argentina.
-    - *Marco regulatorio rígido:* Régimen salarial y escalafonario fijado por el Poder Ejecutivo Provincial y acuerdos paritarios gremiales (ASPUR / ATE / UPCN).
+    - *Marco regulatorio rígido:* Régimen salarial y escalafonario fijado por el Poder Ejecutivo Provincial y acuerdos paritarios gremiales (ASSPUR / ATE / UPCN).
     - *Demanda social y comunitaria:* Crecimiento demográfico de Catriel y exigencia vecinal de atención pediátrica permanente y guardias activas.
   ],
 )

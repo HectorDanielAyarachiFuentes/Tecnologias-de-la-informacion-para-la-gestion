@@ -102,8 +102,13 @@
     ],
     [
       #v(6pt)
-      // Logotipo oficial de CURZAS en tamaño destacado
-      #image("../../recursos/Logotipo de curzas/CURZAS.png", width: 135pt)
+      // Logotipo institucional de CURZAS y Logotipo corporativo de Ecomoda S.A.
+      #grid(
+        columns: (1fr, auto),
+        align: (left + horizon, right + horizon),
+        image("../../recursos/Logotipo de curzas/CURZAS.png", width: 130pt),
+        image("Assets/logoecomoda.svg", width: 105pt),
+      )
       
       #v(12pt)
       // Barra de acento naranja
@@ -172,8 +177,8 @@
             
             text(size: 8.8pt, weight: "bold", fill: text-muted)[EQUIPO DE ESTUDIANTES:],
             [
-              #text(size: 9.1pt, weight: "bold", fill: primary)[Hector Daniel Ayarachi Fuentes]\
-              #text(size: 9.1pt, weight: "bold", fill: primary)[Andrea Alejandra Díaz]
+              #text(size: 9.1pt, weight: "bold", fill: primary)[Hector Daniel Ayarachi Fuentes] #text(size: 8.1pt, fill: text-muted)[(DNI 35.492.138 · Leg. CURZA-8284)]\
+              #text(size: 9.1pt, weight: "bold", fill: primary)[Andrea Alejandra Díaz] #text(size: 8.1pt, fill: text-muted)[(DNI 27.786.409 · Leg. CURZA-7229)]
             ],
             
             text(size: 8.8pt, weight: "bold", fill: text-muted)[FECHA DE PRESENTACIÓN:],
@@ -253,33 +258,49 @@
   width: 100%,
   stroke: 0.6pt + border-subtle,
   fill: bg-card,
-  inset: (x: 12pt, y: 10pt),
+  inset: (x: 12pt, y: 8pt),
   radius: 4pt,
 )[
   #grid(
     columns: (auto, 1fr),
-    column-gutter: 14pt,
-    row-gutter: 7pt,
+    column-gutter: 12pt,
+    row-gutter: 6pt,
     
     text(weight: "bold", fill: primary)[Carrera:],
     [
-      [ #text(weight: "bold", fill: teal-accent)[ ] ] Tec./Lic. en Administración Pública #h(20pt)
+      [ #text(weight: "bold", fill: teal-accent)[ ] ] Tec./Lic. en Administración Pública #h(18pt)
       [ #text(weight: "bold", fill: teal-accent)[X] ] *Lic. en Recursos Humanos*
     ],
     
-    text(weight: "bold", fill: primary)[Nombre de la Firma / Grupo N°:],
+    text(weight: "bold", fill: primary)[Firma / Grupo N°:],
     text(fill: text-main)[*Equipo de Consultoría TIG · Caso Ecomoda S.A.*],
     
-    text(weight: "bold", fill: primary)[Integrantes (Nombre, Apellido y Legajo):],
+    text(weight: "bold", fill: primary)[Integrantes (Nombre, Apellido, DNI y Legajo):],
     [
-      1. *Hector Daniel Ayarachi Fuentes* (Legajo Estudiantil)\
-      2. *Andrea Alejandra Díaz* (Legajo Estudiantil)
+      1. *Hector Daniel Ayarachi Fuentes* #text(fill: text-muted)[— DNI: 35.492.138 · Leg. CURZA-8284]\
+      2. *Andrea Alejandra Díaz* #text(fill: text-muted)[— DNI: 27.786.409 · Leg. CURZA-7229]
     ],
     
-    text(weight: "bold", fill: primary)[Organización o Área Analizada (Módulo 1):],
+    text(weight: "bold", fill: primary)[Organización Analizada:],
     [
-      *Ecomoda S.A.* (Empresa manufacturera de confección, alta costura y comercialización textil, radicada en Bogotá, Colombia).\
-      _Áreas foco de análisis:_ Presidencia Ejecutiva (Armando Mendoza), Asistencia de Presidencia y Subgerencia Financiera (Beatriz Pinzón Solano), Gerencia de Recursos Humanos y Personal (Dr. Saúl Gutiérrez), Taller de Diseño y Confección (Hugo Lombardi e Inesita), Recepción / Comunicaciones (Aura María Fuentes y Patricia Fernández).
+      #grid(
+        columns: (1fr, auto),
+        gutter: 10pt,
+        align: horizon,
+        [
+          *Ecomoda S.A.* (Empresa manufacturera y casa de modas textil, Bogotá, Colombia).\
+          _Foco de análisis:_ Presidencia Ejecutiva (Armando Mendoza), Asistencia Financiera (Beatriz Pinzón Solano), RRHH (Dr. Saúl Gutiérrez), Taller (Hugo Lombardi e Inesita) y Recepción (Aura María Fuentes y Patricia Fernández).
+        ],
+        [
+          #block(
+            fill: white,
+            stroke: 0.4pt + border-subtle,
+            inset: (x: 6pt, y: 4pt),
+            radius: 3pt,
+            image("Assets/logoecomoda.svg", width: 62pt)
+          )
+        ]
+      )
     ],
   )
 ]
@@ -294,7 +315,7 @@
   + *Desalineación en la gestión de personas:* Prácticas de contratación sesgadas por cánones estéticos en desmedro de competencias objetivas (contratación de Patricia Fernández por influencias vs. aislamiento de Betty en "la cueva") y un manejo discrecional de legajos por parte de Saúl Gutiérrez.
 ]
 
-#v(10pt)
+#pagebreak()
 
 // ==============================================================================
 // 2. DIAGNÓSTICO DE HERRAMIENTAS Y CANALES (ESTADO ACTUAL VS. MEJORA)
@@ -340,6 +361,7 @@ A continuación, se completa la matriz diagnóstica respondiendo rigurosamente a
   [
     - *Hardware heterogéneo y obsoleto:* Terminales de escritorio individuales con tecnología antigua (monitores CRT, Windows 98/2000, escasa memoria RAM), sin servidores dedicados ni red LAN estructurada.
     - *Uso fragmentado de ofimática básica:* Planillas de Microsoft Excel aisladas sin validación de fórmulas; procesador de texto Word para memos. No existe software especializado de gestión textil (PLM / MRP).
+    - *Herramientas gráficas improvisadas para reportes contables:* Uso insólito de programas de dibujo básico (*MS Paint*) por parte de Beatriz Pinzón para retocar y armar diagramas del balance general ante la ausencia de un software contable formal.
     - *Brecha de competencias operativas:* La secretaria de presidencia (Patricia Fernández, quien "hizo seis semestres de finanzas en la San Marino") carece de competencias ofimáticas básicas, borra archivos o depende de Betty para elaborar reportes elementales.
     - *Medios de almacenamiento frágiles:* Dependencia de disquetes magnéticos para transferir información confidencial entre presidencia y asesoría externa, con alto riesgo de corrupción de datos y filtración a competidores o socios fiscalizadores (Daniel Valencia).
   ],
@@ -414,88 +436,140 @@ A continuación, se completa la matriz diagnóstica respondiendo rigurosamente a
   *Falla Sistémica Fundamental en Ecomoda:* La falta de un sistema de información formalizado, auditable y descentralizado fue el caldo de cultivo que permitió la manipulación de balances, el secretismo de Terramoda y la fijación de metas comerciales inalcanzables. Cuando los datos están secuestrados en hojas de cálculo individuales o en la memoria de un solo colaborador, la organización pierde su gobernanza institucional y queda al borde de la quiebra.
 ]
 
-#v(10pt)
+#v(8pt)
+
+// ==============================================================================
+// EVIDENCIA VISUAL DE AUDITORÍA: BETTY USANDO PAINT PARA EL BALANCE GENERAL
+// ==============================================================================
+#block(
+  width: 100%,
+  breakable: false,
+  stroke: 0.8pt + orange-accent,
+  fill: rgb("#fffcf8"),
+  radius: 4pt,
+  inset: (x: 11pt, y: 9pt),
+)[
+  #grid(
+    columns: (130pt, 1fr),
+    gutter: 12pt,
+    align: (center + horizon, left + top),
+    [
+      #block(radius: 3pt, clip: true)[
+        #image("Assets/betyusandopaintenbalancegeneral.jpg", width: 100%)
+      ]
+      #v(3pt)
+      #text(size: 7.2pt, fill: text-muted, style: "italic")[
+        Evidencia diagnóstica: Beatriz Pinzón en "la cueva" retocando el Balance General en MS Paint.
+      ]
+    ],
+    [
+      #text(weight: "bold", size: 9pt, fill: orange-accent)[
+        🔍 EVIDENCIA DIAGNÓSTICA DE CAMPO · HERRAMIENTAS Y VULNERABILIDAD
+      ]\
+      #v(3pt)
+      #text(size: 8.4pt, fill: text-main)[
+        *Hallazgo de Auditoría Informática:* La Asistente de Presidencia (Beatriz Pinzón Solano), carente de un sistema ERP y forzada a cuadrar estados contables confidenciales sin soporte técnico institucional, edita y diseña el *Balance General* corporativo directamente en *Microsoft Paint* sobre una estación con Windows 98. La falta de software contable integrado y de validaciones computarizadas obliga a manipular celdas, gráficos y cifras a mano alzada.
+      ]\
+      #v(4pt)
+      #block(
+        width: 100%,
+        fill: rgb("#fef3e2"),
+        stroke: (left: 3.5pt + orange-accent),
+        inset: (x: 8pt, y: 5pt),
+        radius: (right: 3pt),
+        [
+          #text(size: 8.2pt, fill: rgb("#9c4206"), weight: "semibold")[
+            📌 *Nota de la Consultoría (Diagnóstico TIG / Capacitación en RRHH):*\
+            _«Diagnóstico urgente de capacitación: Se dictamina que Betty requerirá con suma urgencia un curso intensivo y avanzado de Microsoft Excel, modelado de hojas de cálculo financieras y la inmediata migración hacia un sistema ERP corporativo integrado. De lo contrario, los balances de Ecomoda y la estabilidad patrimonial de la empresa seguirán dependiendo del pulso del mouse, disquetes prestados de 3½" y la creatividad artística de la economista en Paint»._
+          ]
+        ]
+      )
+    ]
+  )
+]
+
+#pagebreak()
 
 // ==============================================================================
 // DE DATOS SUELTOS A INFORMACIÓN ÚTIL PARA DECIDIR
 // ==============================================================================
 == De Datos Sueltos a Información Útil para Decidir: (Casos Concretos en Ecomoda)
 
-A continuación, se presentan dos ejemplos detallados que demuestran cómo la recolección de *datos crudos de entrada* se transforma, a través del procesamiento del sistema, en *información estratégica de alto valor* para la toma de decisiones directivas y de recursos humanos:
+A continuación, se demuestra cómo la recolección de *datos crudos de entrada* se transforma, a través del procesamiento del sistema, en *información estratégica de alto valor* para la toma de decisiones:
 
-#v(4pt)
+#v(2pt)
 
 #block(
   width: 100%,
   stroke: (left: 4.5pt + primary, rest: 0.6pt + border-subtle),
   fill: bg-card,
-  inset: (x: 12pt, y: 10pt),
+  inset: (x: 10pt, y: 5pt),
   radius: (right: 4pt),
 )[
-  #text(weight: "bold", fill: primary, size: 10pt)[• Ejemplo 1: Área de Producción Textil, Costos Industriales y Finanzas]\
-  #text(style: "italic", size: 8.5pt, fill: text-muted)[(Caso: Costeo de la Nueva Colección de Hugo Lombardi y Control de Mermas de Taller)]
+  #text(weight: "bold", fill: primary, size: 9.5pt)[• Ejemplo 1: Producción Textil y Finanzas] #h(6pt)
+  #text(style: "italic", size: 8.2pt, fill: text-muted)[(Costeo Colección Hugo Lombardi y Mermas de Taller)]
   
-  #v(4pt)
+  #v(1pt)
   - *Dato Crudo de Entrada:*\
     #text(fill: text-main)[
-      El registro de consumo físico cargado en la terminal del taller de confección: _"Orden de Producción N° 408 - Modelo: Vestido de Gala Seda Salvaje (Línea Hugo Lombardi) - Metros de tela importada utilizados: 7,5 metros - Horas hombre insumidas de taller (Doña Inesita y costureras): 9,2 horas - Merma de tela no reutilizable: 2,1 metros - Factura proveedor textil: \$95.000 COP por metro"._
+      Consumo físico en terminal de taller: _"OP N° 408 - Vestido de Gala Seda Salvaje - Metros utilizados: 7,5 m - Horas insumidas de costura: 9,2 hs - Merma de tela no reutilizable: 2,1 m - Factura proveedor: \$95.000 COP/m"._
     ]
   
-  #v(3pt)
+  #v(1pt)
   - *¿Qué hace el sistema? (Clasifica / Calcula / Suma / Ordena):*\
     #text(fill: text-main)[
-      *Calcula, Suma y Compara:* El sistema multiplica los metros de tela consumidos por su costo unitario (\$712.500 COP), suma el costo de mano de obra directa (\$165.600 COP) y le adiciona la tasa asignada de costos indirectos de fabricación. Compara el costo unitario de producción resultante (\$980.000 COP) contra el precio de venta mayorista proyectado por Armando Mendoza (\$1.050.000 COP). Calcula el margen real de rentabilidad bruta (6,6%) y lo compara con el umbral mínimo del 35% exigido por la Junta Directiva. Clasifica el producto como _"Prenda Crítica / Fuera de Estándar Rentable"_ debido a que el desperdicio de tela en corte (2,1 m) supera en un 180% la tolerancia técnica.
+      *Calcula, Suma y Compara:* Multiplica metros por costo unitario (\$712.500 COP), suma mano de obra (\$165.600 COP) y costos indirectos. Compara costo unitario (\$980.000 COP) contra precio mayorista (\$1.050.000 COP). Calcula margen real (6,6%) vs. umbral del 35% de la Junta. Clasifica como _"Prenda Crítica / Fuera de Estándar"_ por merma excesiva (+180%).
     ]
   
-  #v(3pt)
+  #v(1pt)
   - *Información Resultante para la Gestión:*\
     #text(fill: text-main)[
-      *Reporte Ejecutivo de Rentabilidad por Colección:* _"El 42% de los vestidos diseñados por Hugo Lombardi para la temporada actual presenta márgenes de ganancia inferiores al 10% producto del desperdicio de tela en el taller de corte. Se alerta a Presidencia y Finanzas que, de no corregirse los moldes o ajustarse los precios de catálogo, la colección generará un déficit operativo neto de \$320 millones de pesos colombianos antes del desfile de lanzamiento"._ Con esta información, la Presidencia puede ordenar un rediseño de patronaje a Hugo Lombardi antes de comprometer la compra masiva de telas.
+      *Reporte Ejecutivo de Rentabilidad:* _"El 42% de los vestidos de Hugo Lombardi presenta márgenes menores al 10% por mermas en corte. Se alerta un déficit neto de \$320 millones de COP antes del desfile si no se rediseñan moldes o ajustan precios"._
     ]
 ]
 
-#pagebreak()
+#v(3pt)
 
 #block(
   width: 100%,
   stroke: (left: 4.5pt + orange-accent, rest: 0.6pt + border-subtle),
   fill: bg-alert,
-  inset: (x: 12pt, y: 10pt),
+  inset: (x: 10pt, y: 5pt),
   radius: (right: 4pt),
 )[
-  #text(weight: "bold", fill: orange-accent, size: 10pt)[• Ejemplo 2: Área de Recursos Humanos y Control de Productividad Laboral]\
-  #text(style: "italic", size: 8.5pt, fill: text-muted)[(Caso: Control de Asistencia, Puntualidad y Sobrecarga Laboral en Administración y Recepción)]
+  #text(weight: "bold", fill: orange-accent, size: 9.5pt)[• Ejemplo 2: Recursos Humanos y Productividad] #h(6pt)
+  #text(style: "italic", size: 8.2pt, fill: text-muted)[(Control Horario: Patricia Fernández vs. Beatriz Pinzón)]
   
-  #v(4pt)
+  #v(1pt)
   - *Dato Crudo de Entrada:*\
     #text(fill: text-main)[
-      Las marcaciones horarias registradas en el reloj biométrico de acceso de Ecomoda: _"ID 012 - Patricia Fernández - Fecha: 14/10/2026 - Entrada mañana: 09:18 hs (Horario laboral oficial: 08:00 hs) - Salida a refrigerio: 10:40 hs / Regreso: 12:15 hs - Salida final: 16:30 hs (Horario de salida: 17:30 hs)"_ y simultáneamente: _"ID 001 - Beatriz Pinzón - Entrada: 07:10 hs - Salida final: 22:15 hs"._
+      Marcaciones en reloj biométrico: _"ID 012 - Patricia Fernández - Entrada: 09:18 hs (Oficial: 08:00 hs) - Salida: 16:30 hs (Oficial: 17:30 hs)"_ y simultáneamente: _"ID 001 - Beatriz Pinzón - Entrada: 07:10 hs - Salida final: 22:15 hs"._
     ]
   
-  #v(3pt)
+  #v(1pt)
   - *¿Qué hace el sistema? (Clasifica / Calcula / Suma / Ordena):*\
     #text(fill: text-main)[
-      *Clasifica, Resta y Suma:* El sistema compara los horarios de marcación contra el turno pactado en el contrato de trabajo. Clasifica la marcación de Patricia como _"Llegada Tardía Severa (>60 min)"_ y calcula 185 minutos de jornada incumplida en un solo día. Paralelamente, computa las 15 horas y 5 minutos trabajadas por Betty, calculando 6 horas extras no autorizadas formalmente. Suma los minutos acumulados de tardanzas y ausentismo por sector a lo largo del mes y ordena los departamentos según su índice de puntualidad.
+      *Clasifica, Resta y Suma:* Compara fichadas contra turno contractual. Clasifica a Patricia con _"Llegada Tardía Severa (>60 min)"_ y 185 min incumplidos. Computa 15h 5min de Betty (+6 hs extras no autorizadas). Suma tardanzas mensuales por sector y ordena por puntualidad.
     ]
   
-  #v(3pt)
+  #v(1pt)
   - *Información Resultante para la Gestión:*\
     #text(fill: text-main)[
-      *Indicador Gerencial de Cumplimiento Horario y Riesgo Psicosocial:* _"El sector de Secretaría de Presidencia y Recepción acumula 42 horas mensuales de jornada no trabajada por colaborador, generando un sobrecosto improductivo de \$2.100.000 COP sin justificación médica ni compensación horaria. Por el contrario, la Asistencia Financiera registra una sobrecarga de 68 horas extraordinarias mensuales sin compensar, señalando un riesgo crítico de burnout"._ Con este reporte, la Gerencia de RRHH aplica las deducciones salariales y apercibimientos correspondientes de forma objetiva (sin depender del criterio del Dr. Gutiérrez) y redistribuye cargas de trabajo para proteger la salud de Betty.
+      *Indicador de Cumplimiento y Riesgo Psicosocial:* _"Recepción acumula 42 hs mensuales no trabajadas por colaborador (\$2.100.000 COP improductivos). Betty registra 68 hs extras mensuales sin compensar (riesgo crítico de burnout)"._ RRHH aplica descuentos objetivos y redistribuye tareas.
     ]
 ]
 
-#v(10pt)
+#v(3pt)
 
 #block(
   width: 100%,
   stroke: 0.6pt + border-subtle,
   fill: white,
-  inset: (x: 10pt, y: 8pt),
+  inset: (x: 8pt, y: 5pt),
   radius: 4pt,
 )[
-  #text(weight: "bold", fill: primary, size: 9pt)[Síntesis del Valor Transformador del Sistema en Ecomoda S.A.:]\
-  #v(4pt)
+  #text(weight: "bold", fill: primary, size: 8.6pt)[Síntesis del Valor Transformador del Sistema en Ecomoda S.A.:]\
+  #v(1pt)
   #table(
     columns: (1.1fr, 1.4fr, 1.4fr, 1.3fr),
     fill: (col, row) => if row == 0 { primary } else if calc.odd(row) { bg-card } else { white },
@@ -721,8 +795,8 @@ La transformación de Ecomoda hacia un modelo sostenible y transparente no depen
 #line(length: 100%, stroke: 0.5pt + border-subtle)
 #v(3pt)
 #align(center)[
-  #text(size: 8.5pt, fill: text-muted)[
-    Trabajo Práctico desarrollado por *Hector Daniel Ayarachi Fuentes* y *Andrea Alejandra Díaz* para la cátedra de *Tecnología de la Información para la Gestión (TIG)*.\
+  #text(size: 8.4pt, fill: text-muted)[
+    Trabajo Práctico desarrollado por *Hector Daniel Ayarachi Fuentes* (DNI 35.492.138 · Leg. CURZA-8284) y *Andrea Alejandra Díaz* (DNI 27.786.409 · Leg. CURZA-7229) para la cátedra de *Tecnología de la Información para la Gestión (TIG)*.\
     Centro Universitario Regional Zona Atlántica y Sur (CURZAS) · Universidad Nacional del Comahue · 2026.
   ]
 ]

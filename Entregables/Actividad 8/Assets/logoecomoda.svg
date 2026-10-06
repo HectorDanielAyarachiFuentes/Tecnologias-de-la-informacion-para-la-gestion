@@ -1,0 +1,181 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" width="100%" height="100%">
+  <defs>
+    <!-- Degradados y texturas de vitral / acuarela -->
+    <linearGradient id="triGreen" x1="0%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#02755E" />
+      <stop offset="35%" stop-color="#019E7A" />
+      <stop offset="100%" stop-color="#00634B" />
+    </linearGradient>
+    <radialGradient id="greenDrop" cx="40%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#23D9A5" />
+      <stop offset="60%" stop-color="#05A67F" />
+      <stop offset="100%" stop-color="#004A37" />
+    </radialGradient>
+
+    <linearGradient id="triBlueTop" x1="0%" y1="0%" x2="100%" y2="80%">
+      <stop offset="0%" stop-color="#044D8C" />
+      <stop offset="60%" stop-color="#006BB5" />
+      <stop offset="100%" stop-color="#013663" />
+    </linearGradient>
+    <linearGradient id="triBlueBot" x1="0%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#5599D4" />
+      <stop offset="50%" stop-color="#73B0E6" />
+      <stop offset="100%" stop-color="#3A7FB8" />
+    </linearGradient>
+
+    <linearGradient id="triOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ED741D" />
+      <stop offset="60%" stop-color="#F29329" />
+      <stop offset="100%" stop-color="#D65809" />
+    </linearGradient>
+    <radialGradient id="yellowOval" cx="50%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#FFDD50" />
+      <stop offset="60%" stop-color="#F7B228" />
+      <stop offset="100%" stop-color="#C26005" />
+    </radialGradient>
+    <linearGradient id="triYellowBot" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EDB33B" />
+      <stop offset="50%" stop-color="#F8D36D" />
+      <stop offset="100%" stop-color="#D9971E" />
+    </linearGradient>
+
+    <style>
+      .ink {
+        stroke: #161211;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .eco-cursive {
+        fill: #FFFFFF;
+        stroke: #151110;
+        stroke-width: 4;
+        stroke-linejoin: round;
+        stroke-linecap: round;
+      }
+      .serif-letter {
+        font-family: "Didot", "Bodoni MT", "Cinzel", "Playfair Display", "Times New Roman", serif;
+        font-weight: 700;
+        font-size: 154px;
+        fill: #110E0E;
+      }
+    </style>
+  </defs>
+
+  <!-- Fondo Blanco -->
+  <rect width="100%" height="100%" fill="#FFFFFF" />
+
+  <!-- ==================== LÍNEA DE BASE HORIZONTAL ==================== -->
+  <g id="horizontal-line">
+    <path d="M 112,416 L 870,416" stroke="#120E0D" stroke-width="4.5" stroke-linecap="round" />
+    <path d="M 120,422 L 175,422" stroke="#120E0D" stroke-width="2.5" stroke-linecap="round" />
+  </g>
+
+  <!-- ==================== ILUSTRACIÓN SUPERIOR (LOS 3 CONOS) ==================== -->
+  <!-- 1. CONO VERDE (Izquierda) -->
+  <g id="triangulo-verde">
+    <!-- Polígono base verde -->
+    <polygon points="195,97 408,97 301,452" fill="url(#triGreen)" />
+    
+    <!-- Mancha gota turquesa/verde esmeralda interior -->
+    <path d="M 238,230 C 220,310 270,270 299,410 C 290,305 352,245 360,175 C 335,215 260,165 238,230 Z" 
+          fill="url(#greenDrop)" />
+
+    <!-- Trazo exterior negro de tinta -->
+    <polygon points="195,97 408,97 301,452" fill="none" class="ink" stroke-width="4.8" />
+  </g>
+
+  <!-- 2. CONO AZUL (Centro) -->
+  <g id="triangulo-azul">
+    <!-- Triángulo superior oscuro -->
+    <path d="M 414,97 L 624,97 C 595,170 535,250 472,253 C 440,245 442,170 414,97 Z" 
+          fill="url(#triBlueTop)" />
+
+    <!-- Punta inferior celeste/azul claro -->
+    <path d="M 472,253 C 542,250 588,210 585,252 C 565,315 520,453 516,453 C 504,400 472,300 472,253 Z" 
+          fill="url(#triBlueBot)" />
+
+    <!-- Trazo del contorno y separación interna -->
+    <path d="M 414,97 L 624,97 C 610,180 575,255 516,453 L 472,253 C 445,210 425,150 414,97 Z" 
+          fill="none" class="ink" stroke-width="4.8" />
+    <path d="M 472,253 C 510,255 555,235 590,218" fill="none" stroke="#0F2B48" stroke-width="3" />
+  </g>
+
+  <!-- 3. CONO NARANJA / AMARILLO (Derecha) -->
+  <g id="triangulo-naranja">
+    <!-- Parte superior naranja fuerte -->
+    <path d="M 632,97 L 788,97 C 740,170 690,265 667,453 C 665,395 655,240 632,97 Z" 
+          fill="url(#triOrange)" />
+
+    <!-- Aleta inferior amarilla -->
+    <path d="M 670,320 L 812,190 C 780,295 735,420 730,453 C 718,454 685,385 670,320 Z" 
+          fill="url(#triYellowBot)" />
+
+    <!-- Gota / huevo amarillo brillante inclinado -->
+    <ellipse cx="754" cy="180" rx="46" ry="78" transform="rotate(-18 754 180)" fill="url(#yellowOval)" />
+    
+    <!-- Contorno de la gota de tinta -->
+    <path d="M 735,112 C 770,102 805,135 802,185 C 798,230 745,255 730,230 C 715,198 715,128 735,112 Z" 
+          fill="none" class="ink" stroke-width="4" />
+
+    <!-- Contorno exterior del conjunto naranja -->
+    <path d="M 632,97 L 788,97 C 755,145 700,310 730,453 L 667,453 L 632,97 Z" 
+          fill="none" class="ink" stroke-width="4.8" />
+
+    <!-- Pequeño triángulo accesorio a la derecha arriba -->
+    <polygon points="824,96 845,96 835,152" fill="#EE761E" stroke="#161211" stroke-width="3.5" stroke-linejoin="round" />
+  </g>
+
+  <!-- ==================== CALIGRAFÍA «Eco» (BLANCO CON BORDE NEGRO) ==================== -->
+  <!-- Letra 'E' -->
+  <g id="eco-letter-E">
+    <!-- Bucle superior de la 'E' -->
+    <path d="M 330,108 C 290,102 315,178 385,162 C 355,174 308,168 304,142 C 300,122 332,118 365,116 C 378,114 345,108 330,108 Z" 
+          class="eco-cursive" />
+
+    <!-- Cuerpo inferior de la 'E' y espiral que cruza hacia abajo -->
+    <path d="M 304,142 C 270,185 240,305 248,375 C 255,395 278,390 285,365 C 302,305 358,180 388,148 C 362,180 305,295 275,360 C 265,375 255,350 270,270 C 280,210 322,130 304,142 Z" 
+          class="eco-cursive" />
+
+    <!-- Trazo central que cruza la 'E' hacia la 'c' -->
+    <path d="M 270,270 C 295,235 348,165 378,150 C 402,140 388,182 362,235 C 335,285 305,365 301,452 C 303,452 332,340 365,248 C 388,190 415,155 390,152 C 368,150 318,220 270,270 Z" 
+          class="eco-cursive" />
+  </g>
+
+  <!-- Letra 'c' (sobre el triángulo azul) -->
+  <g id="eco-letter-c">
+    <!-- Curva principal de la 'c' -->
+    <path d="M 525,108 C 475,112 435,150 418,220 C 402,290 425,372 485,398 C 515,412 540,380 545,330 C 530,360 500,375 475,355 C 440,325 435,250 455,185 C 470,135 510,115 542,115 C 565,115 580,135 568,155 C 555,170 535,155 530,135 C 528,125 538,110 525,108 Z" 
+          class="eco-cursive" />
+    
+    <!-- Enlace que sube de la 'c' hacia la 'o' -->
+    <path d="M 475,355 C 515,340 548,290 568,210 C 578,170 588,130 618,118 C 598,135 582,200 562,270 C 548,325 515,365 475,355 Z" 
+          class="eco-cursive" />
+  </g>
+
+  <!-- Letra 'o' (sobre el triángulo naranja) -->
+  <g id="eco-letter-o">
+    <!-- El lazo circular/ovalado de la 'o' -->
+    <path d="M 750,105 C 715,110 678,150 652,230 C 625,310 620,380 668,390 C 700,395 738,360 755,315 C 778,260 788,160 750,105 Z M 718,155 C 735,185 725,250 710,310 C 696,350 678,365 668,345 C 652,315 662,240 680,185 C 694,145 708,135 718,155 Z" 
+          class="eco-cursive" />
+    <!-- Colita superior derecha de la 'o' -->
+    <path d="M 732,130 C 755,98 782,98 775,125 C 768,145 745,150 732,130 Z" 
+          class="eco-cursive" />
+  </g>
+
+  <!-- ==================== TIPOGRAFÍA «M O D A» ==================== -->
+  <!-- Colocadas individualmente con posiciones X fijas exactas a la imagen -->
+  <g id="texto-MODA">
+    <!-- M: A la izquierda de la punta verde -->
+    <text x="145" y="390" class="serif-letter">M</text>
+
+    <!-- O: Justo entre la punta verde y la punta azul -->
+    <text x="355" y="390" class="serif-letter">O</text>
+
+    <!-- D: Justo entre la punta azul y la punta naranja -->
+    <text x="575" y="390" class="serif-letter">D</text>
+
+    <!-- A: A la derecha de la punta naranja -->
+    <text x="755" y="390" class="serif-letter">A</text>
+  </g>
+
+</svg>

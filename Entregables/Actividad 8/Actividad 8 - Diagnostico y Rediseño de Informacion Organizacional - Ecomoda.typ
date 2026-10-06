@@ -101,16 +101,16 @@
       )
     ],
     [
-      #v(6pt)
+      #v(4pt)
       // Logotipo institucional de CURZAS y Logotipo corporativo de Ecomoda S.A.
       #grid(
         columns: (1fr, auto),
         align: (left + horizon, right + horizon),
-        image("../../recursos/Logotipo de curzas/CURZAS.png", width: 130pt),
-        image("Assets/logoecomoda.svg", width: 105pt),
+        image("../../recursos/Logotipo de curzas/CURZAS.png", width: 120pt),
+        image("Assets/logoecomoda.svg", width: 185pt),
       )
       
-      #v(12pt)
+      #v(10pt)
       // Barra de acento naranja
       #rect(
         width: 100%,
@@ -297,7 +297,7 @@
             stroke: 0.4pt + border-subtle,
             inset: (x: 6pt, y: 4pt),
             radius: 3pt,
-            image("Assets/logoecomoda.svg", width: 62pt)
+            image("Assets/logoecomoda.svg", width: 72pt)
           )
         ]
       )

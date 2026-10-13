@@ -14,4 +14,6 @@ Cada entrega contiene su archivo fuente en **Typst (`.typ`)** y su compilación 
 | [`Actividad 2/`](./Actividad%202) | De los Documentos al Orden de Mérito | `.pdf` · `.typ` |
 | [`Actividad asincronica 2/`](./Actividad%20asincronica%202) | Cuaderno de Fuentes con Inteligencia Artificial | `.pdf` · `.typ` |
 | [`Actividad 4/`](./Actividad%204) | Políticas de Modernización del Estado: Nación vs. Neuquén | `.pdf` · `.typ` · `.qmd` · `.docx` |
+| [`Actividad 8/`](./Actividad%208) | Diagnóstico y Rediseño de Información Organizacional · Ecomoda S.A. | `.pdf` · `.typ` |
+| [`Actividad 9/`](./Actividad%209) | Pirámide Organizacional y Tipos de SI · Ecomoda S.A. | `.pdf` · `.typ` |
 | [`Final 2024/`](./Final%202024) | Informe Final: Análisis Estadístico de Indicadores TIC | `.pdf` · `.typ` · `.xlsx` · `.csv` |
